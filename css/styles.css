@@ -139,9 +139,8 @@ span {
 .prettyColumn {
   background-color: #fafafa;
   border: 2px solid rgb(180 180 180);
-      border-radius: 10px;
+  border-radius: 10px;
   padding: 10px;
-  min-height: 244px;
 }
 
 .prettyColumn label {
@@ -442,7 +441,7 @@ input[type="radio"] {
   top: 21%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Pixeled';
+  font-family: '8-bit pusab';
   color: #36465d;
 
 }
@@ -519,9 +518,6 @@ img {
 
 }
 
-#gameMainScreen .prettyColumn {
-  margin-bottom: 2rem;
-}
 
 #gameMainScreen h1 {
   margin-bottom: 0px;
@@ -1035,7 +1031,7 @@ p.ongoing-events {
 }
 
 #status-panel li {
-  margin-bottom: 3px;
+  margin-bottom: 24px;
 }
 
 #map {
