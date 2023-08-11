@@ -241,14 +241,14 @@ function negativeEvent() {
 
 
 function buildModal(value) {
-  $('.modal-child').html('<img src="/img/' + value + '.jpg" alt="an image">' +
+  $('.modal-child').html('<img src="../img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="ongoing-events">' +
     '</div>'
   )
 }
 
 function buildEndModal(value, btnID1, btn1Name) {
-  $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
+  $('.modal-child').html('<img src="../img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
     '<span id="' + btnID1 + 'Button" class="btn btn-success">' + btn1Name + '</span>' +
@@ -258,7 +258,7 @@ function buildEndModal(value, btnID1, btn1Name) {
 }
 
 function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
-  $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
+  $('.modal-child').html('<img src="../img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
     '<span id="' + btnID1 + 'Button" class="btn btn-success">' + btn1Name + '</span> <span id="' + btnID2 + 'Button" class="btn btn-success">' + btn2Name + '</span>' +
@@ -818,22 +818,22 @@ $(document).ready(function () {
   $(document).ready(function() {
     $('#nameDropdown1').change(function() {
       var selectedValue = $(this).val();
-      var imageSrc = "/img/" + selectedValue + ".png"; // Assuming your image filenames are like "Joe.png", "Teresa.png", etc.
+      var imageSrc = "../img/" + selectedValue + ".png"; // Assuming your image filenames are like "Joe.png", "Teresa.png", etc.
       $('#image1').attr('src', imageSrc);
     });
     $('#nameDropdown2').change(function() {
       var selectedValue = $(this).val();
-      var imageSrc = "/img/" + selectedValue + ".png"; 
+      var imageSrc = "../img/" + selectedValue + ".png"; 
       $('#image2').attr('src', imageSrc);
     });
     $('#nameDropdown3').change(function() {
       var selectedValue = $(this).val();
-      var imageSrc = "/img/" + selectedValue + ".png"; 
+      var imageSrc = "../img/" + selectedValue + ".png"; 
       $('#image3').attr('src', imageSrc);
     });
     $('#nameDropdown4').change(function() {
       var selectedValue = $(this).val();
-      var imageSrc = "/img/" + selectedValue + ".png"; 
+      var imageSrc = "../img/" + selectedValue + ".png"; 
       $('#image4').attr('src', imageSrc);
     });
   });
