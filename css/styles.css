@@ -367,13 +367,14 @@ input[type="radio"] {
 
 #startBTN {
   width: 130px;
-  display: block;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
-
-
+    display: block;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 320px;
 }
 
 #startBTN:hover {
