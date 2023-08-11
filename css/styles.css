@@ -376,11 +376,12 @@ input[type="radio"] {
   left: 0;
   right: 0;
   top: 320px;
+  transition: all 1s ease;
+
 }
 
 #startBTN:hover {
   transform: scale(1.1);
-  transition: ease-in-out 2s;
 }
 
 /* #startBTN {
