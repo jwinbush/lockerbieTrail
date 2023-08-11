@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Oregon Trail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Londrina+Solid:300,400,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+  <audio id="jesusSnatch" src="sounds/jesusWheel.mp3" preload="auto"></audio>
+  <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
+  <audio id="taco-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
+  <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
+  <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <!-- Character setup screen -->
+    <div id="characterSetup">
+      <div id="start">
+        <!-- <div class="main-title">
+          <h1>Lockerbie Trail</h1>
+        </div> -->
+        <div class="icon-animate">
+          <img src="img/cardboard-box.png" alt="">
+        </div>
+        <div class="icon-wagon">
+        </div>
+        <img class="" src="img/animated-background.gif" alt="valley">
+      </div>
+      <img id="startBTN" src="/img/PlayButton.png" />
+      <div id="characterInput">
+        <h1>Lockerbie Trail</h1>
+
+        <div class="row">
+          <div id="team" class="col-md-3">
+            <!-- Squad selection section -->
+            <p>Select your squad</p>
+            <div class="prettyColumn">
+              <!-- Radio option for Client Services -->
+              <div id="radio1">
+                <label><input type="radio" name="team" value="client" id="client"> Client Services</label>
+                <span class="tooltiptext">The Client Services team starts with $1000 and no initial food.</span>
+              </div>
+              <!-- Radio option for Creative -->
+              <div id="radio2">
+                <label><input type="radio" name="team" value="creative" id="creative"> Creative</label>
+                <span class="tooltiptext">The Creative team starts with $800 and no initial food.</span>
+              </div>
+              <!-- Radio option for Operations -->
+              <div id="radio3">
+                <label><input type="radio" name="team" value="operations" id="operations"> Operations</label>
+                <span class="tooltiptext">The Operations team starts with $500 and 500lbs of initial food.</span>
+              </div>
+              <!-- Radio option for Strategy -->
+              <div id="radio4">
+                <label><input type="radio" name="team" value="strategy" id="strategy"> Strategy</label>
+                <span class="tooltiptext">The Strategy team starts with $750 and 250lbs of initial food.</span>
+              </div>
+              <!-- Radio option for Web -->
+              <div id="radio5">
+                <label><input type="radio" name="team" value="web" id="web"> Web</label>
+                <span class="tooltiptext">The Web team starts with $900 and 100lbs of initial food.</span>
+              </div>
+              <!-- Radio option for Interns -->
+              <div id="radio6">
+                <label><input type="radio" name="team" value="interns" id="interns"> Intern</label>
+                <span class="tooltiptext">The Intern team starts with $300 and 500lbs of initial food.</span>
+              </div>
+            </div>
+            <!-- Begin button -->
+            <img id="characterBTN" src="img/StartButton.png"/>
+          </div>
+
+
+          <!-- Character Name Input Section -->
+          <div id="charNameInput" class="col-md-3">
+            <!-- Instructions for the user -->
+            <p>Type in the names of your party:</p>
+
+            <!-- Container for character selection dropdowns -->
+            <div class="prettyColumn">
+              <!-- Dropdown for Character 1 -->
+              <div class="filters-mobile">
+                <select id="char1">
+                </select>
+              </div>
+
+              <!-- Dropdown for Character 2 -->
+              <div class="filters-mobile">
+                <select id="char2">
+                </select>
+              </div>
+
+              <!-- Dropdown for Character 3 -->
+              <div class="filters-mobile">
+                <select id="char3">
+                </select>
+              </div>
+
+              <!-- Dropdown for Character 4 -->
+              <div class="filters-mobile">
+                <select id="char4">
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Player Images Section -->
+          <div class="grid-container col-md-6 wagon-select-screen">
+            <!-- Container for player images -->
+            <div id="client-images">
+              <!-- Player 1 -->
+              <div class="grid-item">
+                <h3>Player 1</h3>
+                <img id="image1"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Alex-350x450.jpg"
+                  alt="">
+              </div>
+
+              <!-- Player 2 -->
+              <div class="grid-item">
+                <h3>Player 2</h3>
+                <img id="image2"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jen-350x450.jpg"
+                  alt="">
+              </div>
+
+              <!-- Player 3 -->
+              <div class="grid-item">
+                <h3>Player 3</h3>
+                <img id="image3"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-JoeJudd-350x450.jpg"
+                  alt="">
+              </div>
+
+              <!-- Player 4 -->
+              <div class="grid-item">
+                <h3>Player 4</h3>
+                <img id="image4"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Kelly-350x450.jpg"
+                  alt="">
+              </div>
+            </div>
+
+
+
+            <!-- #####################
+            Trying to make images change for other departments 
+            when a different name is selected from #charNameInput.
+            It only works for the client department.
+                 #####################-->
+
+            <!-- Creative Images Section -->
+            <div id="creative-images">
+              <!-- Player 1 -->
+              <div class="grid-item">
+                <h3>Player 1</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Anne-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 2 -->
+              <div class="grid-item">
+                <h3>Player 2</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Carlee-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 3 -->
+              <div class="grid-item">
+                <h3>Player 3</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Von-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 4 -->
+              <div class="grid-item">
+                <h3>Player 4</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Chad-350x450.jpg"
+                  alt="">
+              </div>
+            </div>
+
+            <!-- Operations Images Section -->
+            <div id="operations-images">
+              <!-- Player 1 -->
+              <div class="grid-item">
+                <h3>Player 1</h3>
+                <img class="image" src="https://placehold.co/350x450" alt="">
+              </div>
+              <!-- Player 2 -->
+              <div class="grid-item">
+                <h3>Player 2</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jody-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 3 -->
+              <div class="grid-item">
+                <h3>Player 3</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Lisa-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 4 -->
+              <div class="grid-item">
+                <h3>Player 4</h3>
+                <img class="image" src="https://placehold.co/350x450" alt="">
+              </div>
+            </div>
+
+            <!-- Strategy Images Section -->
+            <div id="strategy-images">
+              <!-- Player 1 -->
+              <div class="grid-item">
+                <h3>Player 1</h3>
+                <img src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Joel-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 2 -->
+              <div class="grid-item">
+                <h3>Player 2</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Mandy-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 3 -->
+              <div class="grid-item">
+                <h3>Player 3</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Marissa-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 4 -->
+              <div class="grid-item">
+                <h3>Player 4</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rachel-350x450.jpg"
+                  alt="">
+              </div>
+            </div>
+
+            <!-- Web Images Section -->
+            <div id="web-images">
+              <!-- Player 1 -->
+              <div class="grid-item">
+                <h3>Player 1</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Brian-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 2 -->
+              <div class="grid-item">
+                <h3>Player 2</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Eric-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 3 -->
+              <div class="grid-item">
+                <h3>Player 3</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Josh-350x450.jpg"
+                  alt="">
+              </div>
+              <!-- Player 4 -->
+              <div class="grid-item">
+                <h3>Player 4</h3>
+                <img class="image"
+                  src="https://www.welldonemarketing.com/wp-content/uploads/2023/02/WDM_Personality-KimColes-350x450.jpg"
+                  alt="">
+              </div>
+            </div>
+
+            <!-- Intern Images Section -->
+            <div id="intern-images">
+              <!-- Player 1 -->
+              <div class="grid-item">
+                <h3>Player 1</h3>
+                <img class="image" src="https://placehold.co/350x450" alt="">
+              </div>
+              <!-- Player 2 -->
+              <div class="grid-item">
+                <h3>Player 2</h3>
+                <img class="image" src="https://placehold.co/350x450" alt="">
+              </div>
+              <!-- Player 3 -->
+              <div class="grid-item">
+                <h3>Player 3</h3>
+                <img class="image" src="https://placehold.co/350x450" alt="">
+              </div>
+              <!-- Player 4 -->
+              <div class="grid-item">
+                <h3>Player 4</h3>
+                <img class="image" src="https://placehold.co/350x450" alt="">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Landmark-stop modals for Idle Park and the Sun King restaurant -->
+    <div id="landmarkStop1">
+      <img id="stopBTN1" src="/img/ContinueButton.png" />
+    </div>
+
+    <div id="landmarkStop2">
+      <img id="stopBTN2" src="/img/ContinueButton.png"/>
+
+    </div>
+
+    <!-- ####################
+      Main Gameplay Screen
+    ######################
+   -->
+    <div id="gameMainScreen">
+      <div class="row" id="wagon-images">
+        <div class="col-md-2">
+          <img src="img/moving-car.gif" id="wagon-6" alt="wagon">
+
+          <img src="img/jesus.svg" id="jesus" alt="jesus">
+          <img src="img/shining.svg" id="star" alt="star">
+        </div>
+        <div class="col-md-2">
+          <img src="img/moving-car.gif" id="wagon-5" alt="wagon">
+
+        </div>
+        <div class="col-md-2">
+          <img src="img/moving-car.gif" id="wagon-4" alt="wagon">
+
+        </div>
+        <div class="col-md-2">
+          <img src="img/moving-car.gif" id="wagon-3" alt="wagon">
+
+        </div>
+        <div class="col-md-2">
+          <img src="img/moving-car.gif" id="wagon-2" alt="wagon">
+
+        </div>
+        <div class="col-md-2">
+          <img src="img/moving-car.gif" id="wagon-1" alt="wagon">
+
+        </div>
+      </div>
+      <div id="map">
+        <img src="https://cdn-icons-png.flaticon.com/512/827/827184.png" alt="Map">
+        <p class="tooltiptext">You must travel 1.7 miles to reach the goal.<br>Click 'continue' to travel 0.1 miles per
+          day.<br>Click 'rest' to heal your team members.<br>Click 'gather' to gather more La Croix.<br>All actions
+          spend
+          one
+          day, and each team member consumes 5 La Croix per day.</p>
+      </div>
+      <!-- <h1>Lockerbie Trail</h1> -->
+      <p id="progress-title">Journey progress:</p>
+      <div id="progressbar" class="mb-4"></div>
+      <div class="row">
+        <div class="col-md-4">
+          <div id="sacrifice-button">
+            <img id="sacrifice" src="img/skull-icon.png" alt="Sacrifice Team">
+            <p class="tooltiptext">Clicking on this button will sacrifice your entire team. You will be reincarnated
+              back at the start of the trail.</p>
+          </div>
+
+          <div class="prettyColumn" id="status-panel">
+            <p class="bold">Blocks passed: <span class="current-date">0</span></p>
+            <p class="bold">Distance traveled: <span class="distance-traveled">0</span></p>
+            <ul>
+              <li><span id="player-one-name"></span>: <span id="player-one-status"></span>
+                <div id="char1-health-bar" class="health-bar"></div><span>Illnesses: <span
+                    id="player-one-illness"></span></span>
+              </li>
+              <li><span id="player-two-name"></span>: <span id="player-two-status"></span>
+                <div id="char2-health-bar" class="health-bar"></div><span>Illnesses: <span
+                    id="player-two-illness"></span></span>
+              </li>
+              <li><span id="player-three-name"></span>: <span id="player-three-status"></span>
+                <div id="char3-health-bar" class="health-bar"></div><span>Illnesses: <span
+                    id="player-three-illness"></span></span>
+              </li>
+              <li><span id="player-four-name"></span>: <span id="player-four-status"></span>
+                <div id="char4-health-bar" class="health-bar"></div><span>Illnesses: <span
+                    id="player-four-illness"></span></span>
+              </li>
+            </ul>
+            <div class="row" id="supplies">
+              <div class="col-md-4">
+                <img src="img/lacroix-icon.png" alt="food">
+                <p class="bold"> La Croix left <br><span id="wagon-food-remaining"></span></p>
+              </div>
+              <div class="col-md-4">
+                <img src="img/Taco_Icon.png" alt="tacos">
+                <p class="bold"> Tacos left <br><span id="wagon-tacos-remaining"></span></p>
+              </div>
+              <div class="col-md-4">
+                <img src="img/gas-icon.png" alt="gas">
+                <p class="bold"> Gas left <br><span class="wagon-gas-remaining"></span></p>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+
+        <div class="col-md-8">
+
+
+          <div id="ongoing-text-box">
+            <p class="ongoing-events">You must travel 1.7 miles to reach the goal.<br>Click 'continue' to travel 0.1
+              miles
+              per day.<br>Click 'rest' to heal your team members.<br>Click 'hunt' to gather more food.<br>All actions
+              spend one day, and each team member eats 5 food per day.</p>
+          </div>
+          <div class="text-center">
+            <img id="continue-button" src="/img/ContinueButton.png" class="col-md-3 img-equal-size" />
+            <img id="hunt-button" src="/img/BarterButton.png" class="col-md-3 m-4 img-equal-size" />
+            <img id="rest-button" src="/img/RestButton.png" class="col-md-3 img-equal-size" />
+          </div>
+          
+
+
+        </div>
+
+      </div>
+    </div>
+    <!-- <div id="map">
+
+  </div>
+  <div id="map-background">
+
+  </div> -->
+  </div>
+  <div id="mapModal" class="map-modal align-content-center">
+    <img src="https://i.pinimg.com/originals/37/f6/34/37f63434299b0dc23afe3d486877f646.png" alt="">
+    <div class="text-center">
+      <button id="closeMap" class="btn btn-light mt-5">Close Map</button>
+    </div>
+  </div>
+
+  <div class="letters align-content-center">
+    <div class="mainStickyNote">
+      <img src="img/MainStickyNote.png" alt="">
+      <div class="letter-button">
+        <img src="img/New-Piskel.png" alt="">
+        <img class="letter-button-text" src="img/text.png" alt="">
+        <img class="letter-button-arrow" src="img/Arrow.gif" alt="">
+      </div>
+    </div>
+    <div class="letter-modal-1">
+      <button class="skipButtonOne btn btn-dark">Next</button>
+      <img src="img/StickyNote_1.png" alt="">
+    </div>
+    <div class="letter-modal-2"> <button class="skipButtonTwo btn btn-dark">Next</button>
+      <img src="img/StickyNote_2.png" alt="">
+    </div>
+    <div class="letter-modal-3"> <button class="skipButtonThree btn btn-dark">Close</button>
+      <img src="img/StickyNote_3.png" alt="">
+    </div>
+
+  </div>
+
+
+  <div class="letters align-content-center">
+    <div class="endingStickyNote">
+      <div class="ending-modal"> <button class="ending-button btn btn-dark">Close</button>
+        <img src="img/StickyNote_3.png" alt="">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-child">
+
+    </div>
+  </div>
+  <div id="buttonModal" class="modal2">
+    <div class="modal-child">
+      <div class="button-content">
+
+      </div>
+      <div class="buttons">
+        <span id="option1-button" class="btn btn-success">Option 1</span> <span id="option2-button"
+          class="btn btn-success">Option 2</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
