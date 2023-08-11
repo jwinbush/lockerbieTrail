@@ -1,6 +1,6 @@
 body {
   height: 100%;
-  background-image: url(..../img/topography.png);
+  background-image: url(../img/topography.png);
   font-family: 'Londrina Solid', cursive;
 }
 
@@ -167,7 +167,7 @@ input[type="radio"] {
 }
 
 #wagon-images {
-  background-image: url(..../img/longBackground.png);
+  background-image: url(../img/longBackground.png);
   background-size: cover;
   background-position: bottom;
   padding: 10px;
@@ -337,7 +337,7 @@ input[type="radio"] {
   bottom: 24%;
   right: 5%;
   /* Change from left: 5% to right: 5% */
-  background-image: url(..../img/pixelTruck2.png);
+  background-image: url(../img/pixelTruck2.png);
   background-size: cover;
   animation: wagonwheel 40s linear 0s infinite reverse;
   -moz-animation: 40s linear 0s reverse none infinite wagonwheel;
@@ -1077,7 +1077,7 @@ p.ongoing-events {
 /*confetti*/
 
 .confetti {
-  background-image: url('..../img/fireworks.gif');
+  background-image: url('../img/fireworks.gif');
   background-size: cover;
 }
 
