@@ -47,9 +47,13 @@ body {
 .img-equal-size {
   width: 200px;
   height: 50px;
-  /* You can adjust the width and height values as needed */
+  transition: all 1s ease;
+
 }
 
+.img-equal-size:hover {
+  transform: scale(1.1);
+}
 
 span {
   font-weight: 300;
@@ -81,14 +85,14 @@ span {
 #wagon-3,
 #wagon-2 {
   display: none;
-  margin-top: 90px;
+  margin-top: 135px;
   position: absolute;
   z-index: 1;
 }
 
 #wagon-1 {
   position: absolute;
-  margin-top: 90px;
+  margin-top: 135px;
   z-index: 1;
 }
 
@@ -188,6 +192,7 @@ input[type="radio"] {
   position: absolute;
   bottom: 50%;
   left: 5%;
+  z-index: 10;
   background-size: cover;
   animation: example 40s linear 0s infinite reverse;
   -moz-animation: 40s linear 0s reverse none infinite example;
@@ -336,13 +341,13 @@ input[type="radio"] {
 }
 
 .icon-wagon {
-  width: 210px;
-  height: 103px;
+  width: 300px;
+  height: 200px;
   position: absolute;
-  bottom: 13%;
+  bottom: 5%;
   right: 5%;
-  /* Change from left: 5% to right: 5% */
-  background-image: url(../img/pixelTruck2.png);
+  z-index: 15;
+  background-image: url(../img/NewTruck.gif);
   background-size: cover;
   animation: wagonwheel 40s linear 0s infinite reverse;
   -moz-animation: 40s linear 0s reverse none infinite wagonwheel;
@@ -518,7 +523,12 @@ img {
   margin-top: 23px;
   width: 108px;
   cursor: pointer;
+  transition: all 1s ease;
 
+}
+
+#characterBTN:hover {
+  transform: scale(1.1);
 }
 
 
@@ -664,7 +674,12 @@ p.ongoing-events {
   top: 50%;
   right: 470px;
   cursor: pointer;
+  transition: all 1s ease;
 
+}
+
+#stopBTN1:hover, #stopBTN2:hover {
+  transform: scale(1.1);
 }
 
 #store .row {
