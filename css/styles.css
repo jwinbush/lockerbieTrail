@@ -357,6 +357,10 @@ input[type="radio"] {
   text-align: center;
 }
 
+#start .animatedBackground img {
+  border-radius: 10px;
+}
+
 #startBTN {
   width: 130px;
   display: block;
@@ -592,6 +596,7 @@ p.ongoing-events {
   height: 597px;
   position: relative;
   display: none;
+  border-radius: 10px;
 }
 
 #landmarkStop2 {
@@ -601,6 +606,7 @@ p.ongoing-events {
   height: 597px;
   position: relative;
   display: none;
+  border-radius: 10px;
 
 }
 
