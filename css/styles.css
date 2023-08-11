@@ -4,6 +4,11 @@ body {
   font-family: 'Londrina Solid', cursive;
 }
 
+html {
+  zoom: 0.9; /* Old IE only */
+  
+}
+
 .container {
   position: absolute;
   top: 50%;
@@ -400,6 +405,7 @@ input[type="radio"] {
   background-color: hsl(4, 74%, 54%);
   color: white;
 } */
+
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes wagonwheel {
