@@ -125,6 +125,7 @@ Wagon.prototype.turn = function () {
   }
   this.days += 1
   this.distance += 1
+  this.gas -= 1
   landmarkEvent();
   this.completed = (this.completed + 2);
   journey(this.completed);
@@ -173,9 +174,9 @@ function positiveEvent() {
   var num = Math.floor(Math.random() * Math.floor(5));
   var ranSupplyIncrease = Math.floor(Math.random() * (200 - 100) + 100);
 
-  if (num === 1) {
+  if (num === 1 && wagon.gas >= 10) {
     $('.ongoing-events').prepend('Lisa ran out of diet coke on the way to the new office! You must make a pit stop to pick up another case. <br><br><br>');
-    this.gas -= 10
+    wagon.gas -= 10
     // Modify wagon attributes
   } else if (num === 2) {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
@@ -183,7 +184,7 @@ function positiveEvent() {
   } else if (num === 3) {
     $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. Tacos increased by ' + 4 + '. <br><br><br>');
     // Modify wagon attributes
-    this.tacos += 4
+    wagon.tacos += 4
   } else if (num === 4) {
     $('.ongoing-events').prepend('As you travel along, Nicholas remembers that he left Sofie at the office. Arrival is delayed. Gas decreased by ' + 10 + '. <br><br><br>');
     // Modify wagon attributes
@@ -191,7 +192,7 @@ function positiveEvent() {
   } else if (num === 5) {
     $('.ongoing-events').prepend('You are stuck in traffic and someone starts a discussion on the latest SCOTUS decision. Arrival is delayed by 5 blocks. <br><br><br>');
     // Modify wagon attributes
-    this.days += 5
+    wagon.days += 5
   }
 }
 
@@ -602,7 +603,7 @@ $(document).ready(function () {
 
       } else if ($(this).attr('id') === 'operations') {
         // When radio button with id is selected, change player names
-        const playerNames = ["Alex", "Jody", "Lisa", "Mary"];
+        const playerNames = ["Alex", "Jody", "Mary", "Lisa"];
         updatePlayerNames(playerNames);
         $("#client-images").css("display", "none");
         $("#creative-images").css("display", "none");
@@ -851,8 +852,8 @@ $(document).ready(function () {
     { team: "client", name: "Michaela" },
     { team: "client", name: "Natalie" },
     { team: "operations", name: "Alex" },
-    { team: "operations", name: "Becky" },
     { team: "operations", name: "Jody" },
+    { team: "operations", name: "Mary" },
     { team: "operations", name: "Lisa" },
     { team: 'strategy', name: 'Joel' },
     { team: 'strategy', name: 'Mandy' },
@@ -960,7 +961,9 @@ $(document).ready(function () {
     { name: 'nick', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nick-350x450.jpg' },
     { name: 'rob', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rob-350x450.jpg' },
     { name: 'shelby', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Shelby-350x450.jpg' },
+    { name: 'alex w', src: 'https://placehold.co/350x450' },
     { name: 'jody', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jody-350x450.jpg' },
+    { name: 'mary', src: 'https://placehold.co/350x450' },
     { name: 'lisa', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Lisa-350x450.jpg' },
     { name: 'joel', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Joel-350x450.jpg' },
     { name: 'mandy', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Mandy-350x450.jpg' },
