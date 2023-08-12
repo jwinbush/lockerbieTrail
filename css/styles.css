@@ -25,7 +25,6 @@ body {
   background: rgb(214 211 211);
   /* background: white; */
   border: 2px solid rgb(180 180 180);
-  border-radius: 10px;
   padding: 30px;
 }
 
@@ -659,7 +658,7 @@ p.ongoing-events {
 }
 
 #food-fields .col-md-3,
-#taco-fields .col-md-3 {
+#addie-fields .col-md-3 {
   border: 1px solid black;
   text-align: right;
   line-height: 41px;
@@ -668,7 +667,7 @@ p.ongoing-events {
 }
 
 #food-fields .col-md-3:first-of-type,
-#taco-fields .col-md-3:first-of-type {
+#addie-fields .col-md-3:first-of-type {
   padding: 0px;
 }
 
@@ -1020,12 +1019,14 @@ p.ongoing-events {
 #sacrifice-button .tooltiptext {
   visibility: hidden;
   width: 331px;
-  background-color: black;
-  color: #fff;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #9c9c9c;
+  color: #000;
   text-align: left;
-  border-radius: 0px 17px 17px 17px;
+  border-radius: 10px 10px 10px 10px;
   padding: 16px;
-  margin-left: 35px;
+  right: inherit;
+  /* margin-right: 0px; */
   margin-top: 2px;
   position: absolute;
   z-index: 10;
@@ -1064,10 +1065,6 @@ p.ongoing-events {
 
 #sacrifice-button:hover .tooltiptext {
   visibility: visible;
-}
-
-#sacrifice-button:hover {
-  transform: scale(1.2);
 }
 
 #supplies {

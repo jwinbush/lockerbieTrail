@@ -38,8 +38,6 @@ class Character {
     } else if (num === 4 && this.illness.includes("Lost") == false) {
       this.illness.push("Lost");
       $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
-      this.characters[index].health = 0;
-      this.characters[index].status = "Unresponsive";
     } else if (num === 5 && this.illness.includes("Mauled") == false) {
       this.illness.push("Mauled");
       $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
@@ -55,7 +53,7 @@ class Wagon {
     this.gas = 40;
     this.days = 0;
     this.characters = [];
-    this.tacos = 10;
+    this.addies = 10;
     this.distance = 0;
     this.hunted = 0;
     this.completed = 0.01;
@@ -70,8 +68,8 @@ class Wagon {
         char.health -= 10;
       });
     }
-    if (this.taco <= 0) {
-      this.taco = 0;
+    if (this.addie <= 0) {
+      this.addie = 0;
     }
   }
   //Checks for illness, status changes, and character death
@@ -103,9 +101,13 @@ class Wagon {
       }
     });
 
-    if (wagon.characters.length === 0) {
-      buildEndModal("dead", "death", "Try Again");
-      $(".button-content").prepend("Game Over! You killed everyone. Great job...");
+    if (wagon.characters.length <= 0 ) {
+      buildEndModal("unresponsive", "death", "Play Again");
+      $(".button-content").prepend("You killed everyone. Great job...");
+      $("#myModal").toggle();
+    } else if (wagon.gas.length <= 0) {
+      buildEndModal("unresponsive", "death", "Play Again");
+      $(".button-content").prepend("You ran out of gas before you could make it to the your destination! Game Over! ");
       $("#myModal").toggle();
     }
   }
@@ -160,7 +162,7 @@ class Wagon {
   }
   buildScore() {
     var finalScore = 10000;
-    finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.tacos * .1);
+    finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.addies * .1);
     return finalScore.toFixed();
 
   }
@@ -169,16 +171,16 @@ class Wagon {
     var hunt = Math.floor(Math.random() * Math.floor(150));
     if (this.hunted == 1) {
       var num = 1;
-      document.getElementById('taco-fire').play();
+      document.getElementById('addie-fire').play();
       buildModal(num);
       $(".ongoing-events").prepend("You have already hunted. You must continue to a new area to hunt further.<br><br><br>");
-    } else if (this.hunted == 0 && wagon.tacos > 0) {
+    } else if (this.hunted == 0 && wagon.addies > 0) {
       this.food += hunt;
-      this.tacos -= 1;
+      this.addies -= 1;
       wagon.statusAdjuster();
       this.hunted += 1;
-      $(".ongoing-events").prepend("You got " + hunt + " cans of La Croix.<br><br><br>");
-      document.getElementById('taco-fire').play();
+      $(".ongoing-events").prepend("You got " + hunt + " Tacos.<br><br><br>");
+      document.getElementById('addie-fire').play();
     }
 
     if (hunt === 0) {
@@ -187,10 +189,10 @@ class Wagon {
       $("#myModal").toggle();
     }
 
-    if (wagon.tacos <= 0) {
-      wagon.tacos = 0;
+    if (wagon.addies <= 0) {
+      wagon.addies = 0;
     }
-    $('#wagon-tacos-remaining').text(wagon.tacos);
+    $('#wagon-addies-remaining').text(wagon.addies);
   }
   //team checker
   team(input) {
@@ -239,13 +241,13 @@ function positiveEvent() {
   } else if (num === 2) {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
     // Modify wagon attributes
-    wagon.tacos += 5
+    wagon.addies += 5
     wagon.food += 100
     wagon.gas += 10
   } else if (num === 3) {
-    $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. Tacos increased by ' + 4 + '. <br><br><br>');
+    $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. addies increased by ' + 4 + '. <br><br><br>');
     // Modify wagon attributes
-    wagon.tacos += 4
+    wagon.addies += 4
   } else if (num === 4) {
     $('.ongoing-events').prepend('As you travel along, Nicholas remembers that he left Sofie at the office. Arrival is delayed. Gas decreased by ' + 10 + '. <br><br><br>');
     // Modify wagon attributes
@@ -263,16 +265,16 @@ function negativeEvent() {
   var ranSupplyDecrease = Math.floor(Math.random() * (200 - 100) + 100)
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num === 1) {
-    $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your La Croix. " + wagon.characters[index].name + " got hurt! <br><br><br>")
-    wagon.food -= ranSupplyDecrease
+    $(".ongoing-events").prepend("Your party takes a chance on Joe's ominous food bowl. Unfortunately you got food poisoning. <br><br><br>")
     wagon.characters.health -= 10
   } else if (num === 2) {
     $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
     wagon.days += 2
     document.getElementById('DunDunDun').play();
   } else if (num === 3) {
-    $(".ongoing-events").prepend("Your party takes a chance on Joe's ominous food bowl. Unfortunately you got food poisoning. <br><br><br>")
-    wagon.characters.health -= 10
+    $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
+    wagon.food -= ranSupplyDecrease
+    wagon.characters.health -= 15
   } else if (num === 4) {
     $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
     wagon.days += 5
@@ -292,7 +294,7 @@ function negativeEvent() {
     $("#jesus").slideUp(5000).fadeOut(500);
     $("#star").delay(5250).fadeIn("puff").fadeOut();
   } else if (num === 5) {
-    $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your La Croix are emptied because " + wagon.characters[index].name + " was shotgunning the La Croix last night. <br><br><br>")
+    $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your Tacos are emptied because " + wagon.characters[index].name + " got hungry. <br><br><br>")
     wagon.food -= ranSupplyDecrease
     $('.wagon-food-remaining').text(wagon.food.toFixed(2));
   }
@@ -350,7 +352,7 @@ function landmarkEvent() {
     $("#buttonModal").toggle();
   } else if (num === 14) {
     buildModal("sunKing");
-    $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
+    $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last addie! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
     $("#myModal").toggle();
     $("#gameMainScreen").fadeOut(500);
     $("#landmarkStop2").fadeIn(500);
@@ -454,30 +456,30 @@ function friend() {
 function deathEvent() {
   var num = Math.floor(Math.random() * Math.floor(5))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  if (num === 1 && wagon.characters[index].health < 65) {
+  if (num === 1 && wagon.characters[index].health < 75) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server. They went back to the old office with a guilty conscience. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 2 && wagon.characters[index].health < 65) {
+  } else if (num === 2 && wagon.characters[index].health < 75) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey.")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 3 && wagon.characters[index].health < 65) {
+  } else if (num === 3 && wagon.characters[index].health < 75) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + "left the door open and fell out with all of our supplies. They die. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 4 && wagon.characters[index].health < 65) {
+  } else if (num === 4 && wagon.characters[index].health < 75) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " told the movers the wrong address. Everyone gangs up on them and they're forced back to the old office. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 5 && wagon.characters[index].health < 65) {
+  } else if (num === 5 && wagon.characters[index].health < 75) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " dropped a monitor on their own foot. They head to the hospital instead of to the new office. <br><br><br>")
     $("#myModal").toggle();
@@ -502,7 +504,7 @@ function textUpdateUI() {
   $('#player-four-illness').text(char4.illness.length);
   $('#wagon-food-remaining').text(wagon.food.toFixed(0));
   $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
-  $('#wagon-tacos-remaining').text(wagon.tacos.toFixed(0));
+  $('#wagon-addies-remaining').text(wagon.addies.toFixed(0));
   $('.current-date').text(wagon.days);
   $('.distance-traveled').text(wagon.distance);
 }
@@ -558,14 +560,14 @@ $(document).ready(function () {
 
     $('#wagon-food-remaining').text(wagon.food);
     $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
-    $('#wagon-tacos-remaining').text(wagon.tacos);
+    $('#wagon-addies-remaining').text(wagon.addies);
   });
 
 
   $("#stopBTN1, #stopBTN2").click(function () {
     $('#wagon-food-remaining').text(wagon.food);
     $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
-    $('#wagon-tacos-remaining').text(wagon.tacos);
+    $('#wagon-addies-remaining').text(wagon.addies);
     $("#landmarkStop1").fadeOut(500);
     $("#landmarkStop2").fadeOut(500);
     $("#gameMainScreen").fadeIn(500);
