@@ -101,7 +101,7 @@ class Wagon {
       }
     });
 
-    if (wagon.characters.length <= 0 ) {
+    if (wagon.characters.length <= 0) {
       buildEndModal("unresponsive", "death", "Play Again");
       $(".button-content").prepend("You killed everyone. Great job...");
       $("#myModal").toggle();
@@ -128,7 +128,7 @@ class Wagon {
     this.distance += 1;
     this.gas -= 1;
     landmarkEvent();
-    this.completed = (this.completed + 2);
+    this.completed = (this.completed + 5.88235294118);
     journey(this.completed);
     wagon.resourceChecker();
   }
@@ -268,32 +268,17 @@ function negativeEvent() {
     $(".ongoing-events").prepend("Your party takes a chance on Joe's ominous food bowl. Unfortunately you got food poisoning. <br><br><br>")
     wagon.characters.health -= 10
   } else if (num === 2) {
-    $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
-    wagon.days += 2
-    document.getElementById('DunDunDun').play();
-  } else if (num === 3) {
     $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
     wagon.food -= ranSupplyDecrease
     wagon.characters.health -= 15
+  } else if (num === 3) {
+    $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
+    wagon.days += 2
+    document.getElementById('DunDunDun').play();
   } else if (num === 4) {
     $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
     wagon.days += 5
-    $("#wheel-1").fadeIn(500);
-    $("#wheel-2").delay(300).fadeIn(500);
-    $("#wheel-1").fadeOut(500);
-    $("#wheel-3").delay(400).fadeIn(500);
-    $("#wheel-2").fadeOut(500);
-    $("#wheel-4").delay(500).fadeIn(500);
-    $("#wheel-3").fadeOut(500);
-    $("#wheel-5").delay(600).fadeIn(500);
-    $("#wheel-4").fadeOut(500);
-    $("#wheel-6").delay(700).fadeIn(500);
-    $("#wheel-5").fadeOut(500);
-    $("#jesus").delay(1100).fadeIn(100);
-    $("#wheel-6").slideUp(5000).fadeOut(500);
-    $("#jesus").slideUp(5000).fadeOut(500);
-    $("#star").delay(5250).fadeIn("puff").fadeOut();
-  } else if (num === 5) {
+  } else if (num === 5 && wagon.food > 20) {
     $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your Tacos are emptied because " + wagon.characters[index].name + " got hungry. <br><br><br>")
     wagon.food -= ranSupplyDecrease
     $('.wagon-food-remaining').text(wagon.food.toFixed(2));
@@ -341,7 +326,7 @@ function landmarkEvent() {
     $("#buttonModal").toggle();
   } else if (num === 8) {
     buildModal("Idle");
-    $(".ongoing-events").prepend("Your party has reached your first stop! You venture on a mysterious path through the woods, ignoring the “danger” warning signs on each side. Eventually, you reach a clearing and find a shady spot to sit down. You’ve reached the famous roadside attraction, Idle Park! Located where I-65 meets I-70, this is your new favorite place to watch the traffic go by. <br><br><br>")
+    $(".ongoing-events").prepend("Your party has reached the famous roadside attraction, Idle Park! Located where I-65 meets I-70, this is your new favorite place to watch the traffic go by. <br><br><br>")
     $("#myModal").toggle();
     $("#gameMainScreen").fadeOut(500);
     $("#landmarkStop1").fadeIn(500);
@@ -352,8 +337,9 @@ function landmarkEvent() {
     $("#buttonModal").toggle();
   } else if (num === 14) {
     buildModal("sunKing");
-    $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last addie! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
+    $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
     $("#myModal").toggle();
+    wagon.food += 100;
     $("#gameMainScreen").fadeOut(500);
     $("#landmarkStop2").fadeIn(500);
     $("#back-button").hide();
@@ -386,11 +372,11 @@ function fixRamen() {
   var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
-    wagon.characters[index].health = 0
-    wagon.characters[index].status = "Unresponsive"
     buildModal("ramenFail");
     $(".ongoing-events").prepend(" Uh oh, the ramen was left in the wrong order. Joe is now coming for you. " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
     $("#myModal").toggle();
+    wagon.characters[index].health = 0
+    wagon.characters[index].status = "Unresponsive"
     for (i = 0; i < 4; i++) {
       wagon.statusAdjuster()
       wagon.days += 1
@@ -440,7 +426,7 @@ function crossRiver() {
 function fight() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   wagon.characters[index].health = 0
-  $(".ongoing-events").prepend("The little boy was stronger than you thought. " + wagon.characters[index].name + " choked on a peanut and left ran away. <br><br><br>")
+  $(".ongoing-events").prepend("The little boy was stronger than you thought. " + wagon.characters[index].name + " choked on a peanut and ran away. <br><br><br>")
   wagon.statusAdjuster()
 }
 function friend() {
@@ -456,30 +442,30 @@ function friend() {
 function deathEvent() {
   var num = Math.floor(Math.random() * Math.floor(5))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  if (num === 1 && wagon.characters[index].health < 75) {
+  if (num === 1 && wagon.characters[index].health < 60) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server. They went back to the old office with a guilty conscience. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 2 && wagon.characters[index].health < 75) {
+  } else if (num === 2 && wagon.characters[index].health < 50) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey.")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 3 && wagon.characters[index].health < 75) {
+  } else if (num === 3 && wagon.characters[index].health < 80) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + "left the door open and fell out with all of our supplies. They die. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 4 && wagon.characters[index].health < 75) {
+  } else if (num === 4 && wagon.characters[index].health < 90) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " told the movers the wrong address. Everyone gangs up on them and they're forced back to the old office. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 5 && wagon.characters[index].health < 75) {
+  } else if (num === 5 && wagon.characters[index].health < 70) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " dropped a monitor on their own foot. They head to the hospital instead of to the new office. <br><br><br>")
     $("#myModal").toggle();
