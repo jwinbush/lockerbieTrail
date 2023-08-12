@@ -38,8 +38,8 @@ class Character {
     } else if (num === 4 && this.illness.includes("Lost") == false) {
       this.illness.push("Lost");
       $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
-      wagon.characters[index].health = 0
-      wagon.characters[index].status = "Dead"
+      this.characters[index].health = 0
+      this.characters[index].status = "Unresponsive"
     } else if (num === 5 && this.illness.includes("Mauled") == false) {
       this.illness.push("Mauled");
       $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
@@ -92,14 +92,14 @@ class Wagon {
       } else if (char.health < 20 && char.health > 0) {
         char.status = "Poor";
       } else {
-        char.status = "Dead";
+        char.status = "Unresponsive";
       }
       char.healthBar();
 
       if (char.health <= 0) {
         var index = wagon.characters.indexOf(char);
         wagon.characters.splice(index, 1);
-        char.status = "Dead";
+        char.status = "Unresponsive";
       }
     });
 
@@ -385,7 +385,7 @@ function fixRamen() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
     buildModal("ramenFail");
     $(".ongoing-events").prepend(" Uh oh, the ramen was left in the wrong order. Joe is now coming for you. " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
     $("#myModal").toggle();
@@ -414,7 +414,7 @@ function crossRiver() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
     buildModal("bridgeFail");
     $(".ongoing-events").prepend("The moving van got stuck under the bridge! While getting out to investigate what happened,  " + wagon.characters[index].name + " fell into a pothole. Their journey has ended. <br><br><br>")
     $("#myModal").toggle();
@@ -438,7 +438,7 @@ function crossRiver() {
 function fight() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   wagon.characters[index].health = 0
-  $(".ongoing-events").prepend("The little boy was stronger than you thought. " + wagon.characters[index].name + " choked on a peanut and died. <br><br><br>")
+  $(".ongoing-events").prepend("The little boy was stronger than you thought. " + wagon.characters[index].name + " choked on a peanut and left ran away. <br><br><br>")
   wagon.statusAdjuster()
 }
 function friend() {
@@ -459,30 +459,30 @@ function deathEvent() {
     $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server. They went back to the old office with a guilty conscience. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
   } else if (num === 2 && wagon.characters[index].health < 65) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey.")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
   } else if (num === 3 && wagon.characters[index].health < 65) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + "left the door open and fell out with all of our supplies. They die. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
   } else if (num === 4 && wagon.characters[index].health < 65) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " told the movers the wrong address. Everyone gangs up on them and they're forced back to the old office. <br><br><br>")
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
   } else if (num === 5 && wagon.characters[index].health < 65) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " dropped a monitor on their own foot. They head to the hospital instead of to the new office. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
-    wagon.characters[index].status = "Dead"
+    wagon.characters[index].status = "Unresponsive"
   }
 }
 
