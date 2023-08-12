@@ -586,7 +586,7 @@ img {
   font-weight: 300;
   letter-spacing: 1px;
   font-size: 18px;
-  font-family: '8-bit pusab';
+  font-family: 8BitPusab;
   text-transform: uppercase;
   box-shadow: inset 0 0 10px #9c9c9c;
 }
@@ -595,8 +595,6 @@ img {
   content: "\2605";
   color: rgb(255, 0, 0);
   padding-right: 20px;
-
-
 }
 
 #ongoing-text-box br {
@@ -606,6 +604,7 @@ img {
 p.ongoing-events {
   font-size: 25px;
   line-height: 55px;
+  font-family: 8BitPusab;
 }
 
 #player-one-name,
