@@ -35,9 +35,11 @@ class Character {
     } else if (num === 3 && this.illness.includes("Bloating") == false) {
       this.illness.push("Bloating");
       $(".ongoing-events").prepend(this.name + " has to wait in line for the restroom. <br><br><br>");
-    } else if (num === 4 && this.illness.includes("Sprained Ankle") == false) {
-      this.illness.push("Sprained Ankle");
+    } else if (num === 4 && this.illness.includes("Lost") == false) {
+      this.illness.push("Lost");
       $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
+      wagon.characters[index].health = 0
+      wagon.characters[index].status = "Dead"
     } else if (num === 5 && this.illness.includes("Mauled") == false) {
       this.illness.push("Mauled");
       $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
@@ -237,6 +239,9 @@ function positiveEvent() {
   } else if (num === 2) {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
     // Modify wagon attributes
+    wagon.tacos += 5
+    wagon.food += 100
+    wagon.gas += 10
   } else if (num === 3) {
     $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. Tacos increased by ' + 4 + '. <br><br><br>');
     // Modify wagon attributes
@@ -244,7 +249,7 @@ function positiveEvent() {
   } else if (num === 4) {
     $('.ongoing-events').prepend('As you travel along, Nicholas remembers that he left Sofie at the office. Arrival is delayed. Gas decreased by ' + 10 + '. <br><br><br>');
     // Modify wagon attributes
-    this.gas -= 10
+    wagon.gas -= 10
   } else if (num === 5) {
     $('.ongoing-events').prepend('You are stuck in traffic and someone starts a discussion on the latest SCOTUS decision. Arrival is delayed by 5 blocks. <br><br><br>');
     // Modify wagon attributes
@@ -271,7 +276,6 @@ function negativeEvent() {
   } else if (num === 4) {
     $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
     wagon.days += 5
-    wagon.food -= ((wagon.characters.length * 5) * 5)
     $("#wheel-1").fadeIn(500);
     $("#wheel-2").delay(300).fadeIn(500);
     $("#wheel-1").fadeOut(500);
@@ -358,7 +362,9 @@ function landmarkEvent() {
   } else if (num === 17) {
     buildEndModal(num, "win", "Play Again!")
     var endScore = wagon.buildScore()
-    $(".endingStickyNote").delay(500).fadeIn(500);
+    $(".endingStickyNote").fadeIn(500);
+    $(".ending-modal").fadeIn(600);
+    $(".ending-button").fadeIn(600);
     $(".button-content").prepend("<h4>WINNER!</h4>Your score is: " + endScore);
 
   }
