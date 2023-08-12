@@ -359,8 +359,12 @@ input[type="radio"] {
   display: none;
   position: absolute;
   top: 750px;
-  right: 50%;
+  right: 0;
+  left: 0;
   cursor: pointer;
+  width: 130px;
+  height: 40px;
+  margin: auto;
 
 }
 
