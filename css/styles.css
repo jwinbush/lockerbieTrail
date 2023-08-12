@@ -368,6 +368,10 @@ input[type="radio"] {
 
 }
 
+div#status-panel {
+  box-shadow: inset 0 0 10px #9c9c9c;
+}
+
 #start {
   text-align: center;
 }
@@ -769,8 +773,8 @@ p.ongoing-events {
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
-  padding-top: 300px;
-  /* Location of the box */
+  padding-top: 320px;
+    /* Location of the box */
   left: 0;
   top: 0;
   width: 100%;
@@ -787,9 +791,9 @@ p.ongoing-events {
 
 .map-modal img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   max-width: 808px;
+  border-radius: 10px;
 }
 
 

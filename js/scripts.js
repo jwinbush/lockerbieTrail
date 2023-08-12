@@ -1,136 +1,220 @@
 // Character constructor
-function Character(name) {
-  // Properties for the character
-  this.name = name;
-  this.health = 100;
-  this.status = "Good";
-  this.illness = [];
+class Character {
+  constructor(name) {
+    // Properties for the character
+    this.name = name;
+    this.health = 100;
+    this.status = "Good";
+    this.illness = [];
+  }
+  // Prototype method for displaying character health bars
+  healthBar() {
+    var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Dead: "black" };
+
+    // Display health bars and set their styles
+    $("#char1-health-bar").progressbar({ value: char1.health });
+    $("#char1-health-bar .ui-widget-header").css("background", pairs[char1.status]).css("border-color", pairs[char1.status]);
+    $("#char2-health-bar").progressbar({ value: char2.health });
+    $("#char2-health-bar .ui-widget-header").css("background", pairs[char2.status]).css("border-color", pairs[char2.status]);
+    $("#char3-health-bar").progressbar({ value: char3.health });
+    $("#char3-health-bar .ui-widget-header").css("background", pairs[char3.status]).css("border-color", pairs[char3.status]);
+    $("#char4-health-bar").progressbar({ value: char4.health });
+    $("#char4-health-bar .ui-widget-header").css("background", pairs[char4.status]).css("border-color", pairs[char4.status]);
+  }
+  // Prototype method for generating character illnesses
+  illnessGenerator() {
+    var num = Math.floor(Math.random() * Math.floor(80));
+
+    // Generate and display various illnesses
+    if (num === 1 && this.illness.includes("Dysentery") == false) {
+      this.illness.push("Dysentery");
+      $(".ongoing-events").prepend(this.name + " got Dysentery. <br><br><br>");
+    } else if (num === 2 && this.illness.includes("Alcohol Poisoning") == false) {
+      this.illness.push("Alcohol Poisoning");
+      $(".ongoing-events").prepend(this.name + " tried a mystery shot from the creatives' bar cart. <br><br><br>");
+    } else if (num === 3 && this.illness.includes("Bloating") == false) {
+      this.illness.push("Bloating");
+      $(".ongoing-events").prepend(this.name + " has to wait in line for the restroom. <br><br><br>");
+    } else if (num === 4 && this.illness.includes("Sprained Ankle") == false) {
+      this.illness.push("Sprained Ankle");
+      $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
+    } else if (num === 5 && this.illness.includes("Mauled") == false) {
+      this.illness.push("Mauled");
+      $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
+    }
+  }
 }
 
 // Wagon/inventory constructor
-function Wagon() {
-  // Properties for the wagon and inventory
-  this.food = 300;
-  this.gas = 40;
-  this.days = 0;
-  this.characters = [];
-  this.tacos = 10;
-  this.distance = 0;
-  this.hunted = 0;
-  this.completed = 0.01;
-}
-
-// Prototype method for displaying character health bars
-Character.prototype.healthBar = function () {
-  var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Dead: "black" };
-
-  // Display health bars and set their styles
-  $("#char1-health-bar").progressbar({ value: char1.health });
-  $("#char1-health-bar .ui-widget-header").css("background", pairs[char1.status]).css("border-color", pairs[char1.status]);
-  $("#char2-health-bar").progressbar({ value: char2.health });
-  $("#char2-health-bar .ui-widget-header").css("background", pairs[char2.status]).css("border-color", pairs[char2.status]);
-  $("#char3-health-bar").progressbar({ value: char3.health });
-  $("#char3-health-bar .ui-widget-header").css("background", pairs[char3.status]).css("border-color", pairs[char3.status]);
-  $("#char4-health-bar").progressbar({ value: char4.health });
-  $("#char4-health-bar .ui-widget-header").css("background", pairs[char4.status]).css("border-color", pairs[char4.status]);
-}
-
-// Prototype method for generating character illnesses
-Character.prototype.illnessGenerator = function () {
-  var num = Math.floor(Math.random() * Math.floor(80))
-
-  // Generate and display various illnesses
-  if (num === 1 && this.illness.includes("Dysentery") == false) {
-    this.illness.push("Dysentery");
-    $(".ongoing-events").prepend(this.name + " got Dysentery. <br><br><br>");
-  } else if (num === 2 && this.illness.includes("Alcohol Poisoning") == false) {
-    this.illness.push("Alcohol Poisoning");
-    $(".ongoing-events").prepend(this.name + " tried a mystery shot from the creatives' bar cart. <br><br><br>");
-  } else if (num === 3 && this.illness.includes("Bloating") == false) {
-    this.illness.push("Bloating");
-    $(".ongoing-events").prepend(this.name + " has to wait in line for the restroom. <br><br><br>");
-  } else if (num === 4 && this.illness.includes("Sprained Ankle") == false) {
-    this.illness.push("Sprained Ankle");
-    $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
-  } else if (num === 5 && this.illness.includes("Mauled") == false) {
-    this.illness.push("Mauled");
-    $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
+class Wagon {
+  constructor() {
+    // Properties for the wagon and inventory
+    this.food = 300;
+    this.gas = 40;
+    this.days = 0;
+    this.characters = [];
+    this.tacos = 10;
+    this.distance = 0;
+    this.hunted = 0;
+    this.completed = 0.01;
   }
-}
+  // Prototype method for checking resources in the wagon
+  resourceChecker() {
+    if (this.food <= 0) {
+      this.food = 0;
 
-// Prototype method for checking resources in the wagon
-Wagon.prototype.resourceChecker = function () {
-  if (this.food <= 0) {
-    this.food = 0;
-
-    // Reduce health of characters if food runs out
+      // Reduce health of characters if food runs out
+      wagon.characters.forEach(function (char) {
+        char.health -= 10;
+      });
+    }
+    if (this.taco <= 0) {
+      this.taco = 0;
+    }
+  }
+  //Checks for illness, status changes, and character death
+  statusAdjuster() {
     wagon.characters.forEach(function (char) {
-      char.health -= 10;
+      if (char.illness.length === 1) {
+        char.health -= 2;
+      } else if (char.illness.length === 2) {
+        char.health -= 4;
+      } else if (char.illness.length >= 3) {
+        char.health -= 6;
+      }
+
+      if (char.health >= 80) {
+        char.status = "Good";
+      } else if (char.health < 80 && char.health >= 20) {
+        char.status = "Fair";
+      } else if (char.health < 20 && char.health > 0) {
+        char.status = "Poor";
+      } else {
+        char.status = "Dead";
+      }
+      char.healthBar();
+
+      if (char.health <= 0) {
+        var index = wagon.characters.indexOf(char);
+        wagon.characters.splice(index, 1);
+        char.status = "Dead";
+      }
     });
+
+    if (wagon.characters.length === 0) {
+      buildEndModal("dead", "death", "Try Again");
+      $(".button-content").prepend("Game Over! You killed everyone. Great job...");
+      $("#myModal").toggle();
+    }
   }
-  if (this.taco <= 0) {
-    this.taco = 0;
+  //calculates potential illnesses
+  turn() {
+    this.hunted = 0;
+    wagon.eventGrabber();
+    wagon.characters.forEach(function (char) {
+      char.illnessGenerator();
+    });
+    wagon.statusAdjuster();
+    if (wagon.food > 0) {
+      wagon.food -= (wagon.characters.length * 5);
+    } else if (wagon.food <= 0) {
+      wagon.food = 0;
+    }
+    this.days += 1;
+    this.distance += 1;
+    this.gas -= 1;
+    landmarkEvent();
+    this.completed = (this.completed + 2);
+    journey(this.completed);
+    wagon.resourceChecker();
+  }
+  // function for resting -- cure illness, gain some health
+  rest() {
+    wagon.characters.forEach(function (char) {
+      char.illness.splice(0, 1);
+      if (char.health < 99) {
+        char.health += 2;
+      }
+    });
+    wagon.statusAdjuster();
+    wagon.food -= (wagon.characters.length * 5);
+    this.days += 1;
+    wagon.resourceChecker();
+  }
+  // Event grabber for the Wagon prototype
+  eventGrabber() {
+    var num = Math.floor(Math.random() * Math.floor(100));
+
+    // Check if specific distances trigger events
+    if (this.distance === 4 || this.distance === 8 || this.distance === 12 || this.distance === 15 || this.distance === 17) {
+      // Handle special events at certain distances
+    } else if (num >= 80) {
+      positiveEvent(); // Call positive event
+    } else if (num < 80 && num >= 40) {
+      negativeEvent(); // Call negative event
+    } else if (num < 40 && num >= 35) {
+      deathEvent(); // Call death event
+    }
+  }
+  buildScore() {
+    var finalScore = 10000;
+    finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.tacos * .1);
+    return finalScore.toFixed();
+
+  }
+  // //Hunting
+  huntingTime() {
+    var hunt = Math.floor(Math.random() * Math.floor(150));
+    if (this.hunted == 1) {
+      var num = 1;
+      document.getElementById('taco-fire').play();
+      buildModal(num);
+      $(".ongoing-events").prepend("You have already hunted. You must continue to a new area to hunt further.<br><br><br>");
+    } else if (this.hunted == 0 && wagon.tacos > 0) {
+      this.food += hunt;
+      this.tacos -= 1;
+      wagon.statusAdjuster();
+      this.hunted += 1;
+      $(".ongoing-events").prepend("You got " + hunt + " cans of La Croix.<br><br><br>");
+      document.getElementById('taco-fire').play();
+    }
+
+    if (hunt === 0) {
+      buildModal("huntFail");
+      $(".ongoing-events").prepend("You came back empty handed. Your team resents you.<br><br><br>");
+      $("#myModal").toggle();
+    }
+
+    if (wagon.tacos <= 0) {
+      wagon.tacos = 0;
+    }
+    $('#wagon-tacos-remaining').text(wagon.tacos);
+  }
+  //team checker
+  team(input) {
+    if (input == 1) {
+      this.gas += 500;
+    } else if (input == 2) {
+      this.gas += 300;
+    } else if (input == 3) {
+      this.food += 500;
+    } else if (input == 4) {
+      this.food += 250;
+      this.gas += 250;
+    } else if (input == 5) {
+      this.gas += 400;
+      this.food += 100;
+    } else if (input == 6) {
+      this.gas += 50;
+    }
   }
 }
 
 
-//Checks for illness, status changes, and character death
-Wagon.prototype.statusAdjuster = function () {
-  wagon.characters.forEach(function (char) {
-    if (char.illness.length === 1) {
-      char.health -= 2
-    } else if (char.illness.length === 2) {
-      char.health -= 4
-    } else if (char.illness.length >= 3) {
-      char.health -= 6
-    }
 
-    if (char.health >= 80) {
-      char.status = "Good"
-    } else if (char.health < 80 && char.health >= 20) {
-      char.status = "Fair"
-    } else if (char.health < 20 && char.health > 0) {
-      char.status = "Poor"
-    } else {
-      char.status = "Dead"
-    }
-    char.healthBar();
 
-    if (char.health <= 0) {
-      var index = wagon.characters.indexOf(char)
-      wagon.characters.splice(index, 1)
-      char.status = "Dead"
-    }
-  })
 
-  if (wagon.characters.length === 0) {
-    buildEndModal("dead", "death", "Try Again")
-    $(".button-content").prepend("Game Over! You killed everyone. Great job...")
-    $("#myModal").toggle();
-  }
-}
 
-//calculates potential illnesses
-Wagon.prototype.turn = function () {
-  this.hunted = 0;
-  wagon.eventGrabber();
-  wagon.characters.forEach(function (char) {
-    char.illnessGenerator()
-  });
-  wagon.statusAdjuster()
-  if (wagon.food > 0) {
-    wagon.food -= (wagon.characters.length * 5)
-  } else if (wagon.food <= 0) {
-    wagon.food = 0
-  }
-  this.days += 1
-  this.distance += 1
-  this.gas -= 1
-  landmarkEvent();
-  this.completed = (this.completed + 2);
-  journey(this.completed);
-  wagon.resourceChecker()
-}
 
 function journey(dist) {
   $("#progressbar").progressbar({
@@ -139,35 +223,7 @@ function journey(dist) {
 }
 
 
-// function for resting -- cure illness, gain some health
-Wagon.prototype.rest = function () {
-  wagon.characters.forEach(function (char) {
-    char.illness.splice(0, 1)
-    if (char.health < 99) {
-      char.health += 2
-    }
-  });
-  wagon.statusAdjuster()
-  wagon.food -= (wagon.characters.length * 5)
-  this.days += 1
-  wagon.resourceChecker()
-}
 
-// Event grabber for the Wagon prototype
-Wagon.prototype.eventGrabber = function () {
-  var num = Math.floor(Math.random() * Math.floor(100));
-
-  // Check if specific distances trigger events
-  if (this.distance === 4 || this.distance === 8 || this.distance === 12 || this.distance === 15 || this.distance === 17) {
-    // Handle special events at certain distances
-  } else if (num >= 80) {
-    positiveEvent(); // Call positive event
-  } else if (num < 80 && num >= 40) {
-    negativeEvent(); // Call negative event
-  } else if (num < 40 && num >= 35) {
-    deathEvent(); // Call death event
-  }
-};
 
 // Random positiveEvent
 function positiveEvent() {
@@ -202,17 +258,16 @@ function negativeEvent() {
   var ranSupplyDecrease = Math.floor(Math.random() * (200 - 100) + 100)
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num === 1) {
-    $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your La Croix. " + this.characters[index].name + " got hurt! <br><br><br>")
-    this.food -= ranSupplyDecrease
-    this.characters.health -= 10
+    $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your La Croix. " + wagon.characters[index].name + " got hurt! <br><br><br>")
+    wagon.food -= ranSupplyDecrease
+    wagon.characters.health -= 10
   } else if (num === 2) {
     $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
-    wagon.days += 5
+    wagon.days += 2
     document.getElementById('DunDunDun').play();
   } else if (num === 3) {
     $(".ongoing-events").prepend("Your party takes a chance on Joe's ominous food bowl. Unfortunately you got food poisoning. <br><br><br>")
     wagon.characters.health -= 10
-    $('.wagon-food-remaining').text(wagon.food.toFixed(2));
   } else if (num === 4) {
     $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
     wagon.days += 5
@@ -233,7 +288,7 @@ function negativeEvent() {
     $("#jesus").slideUp(5000).fadeOut(500);
     $("#star").delay(5250).fadeIn("puff").fadeOut();
   } else if (num === 5) {
-    $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your La Croix are emptied because " + wagon.characters[index].name + " was shotgunning the la croix last night. <br><br><br>")
+    $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your La Croix are emptied because " + wagon.characters[index].name + " was shotgunning the La Croix last night. <br><br><br>")
     wagon.food -= ranSupplyDecrease
     $('.wagon-food-remaining').text(wagon.food.toFixed(2));
   }
@@ -269,12 +324,6 @@ function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
   )
 }
 
-Wagon.prototype.buildScore = function () {
-  var finalScore = 10000;
-  finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.tacos * .1)
-  return finalScore.toFixed();
-
-}
 //Push text to class .button-content
 //Option 1 button - id #option1-button
 //Option 2 button - id #option2-button
@@ -430,53 +479,7 @@ function deathEvent() {
     wagon.characters[index].status = "Dead"
   }
 }
-// //Hunting
-Wagon.prototype.huntingTime = function () {
-  var hunt = Math.floor(Math.random() * Math.floor(150))
-  if (this.hunted == 1) {
-    var num = 1;
-    document.getElementById('taco-fire').play();
-    buildModal(num);
-    $(".ongoing-events").prepend("You have already hunted. You must continue to a new area to hunt further.<br><br><br>");
-  } else if (this.hunted == 0 && wagon.tacos > 0) {
-    this.food += hunt
-    this.tacos -= 1
-    wagon.statusAdjuster()
-    this.hunted += 1;
-    $(".ongoing-events").prepend("You got " + hunt + " cans of La Croix.<br><br><br>")
-    document.getElementById('taco-fire').play();
-  }
 
-  if (hunt === 0) {
-    buildModal("huntFail");
-    $(".ongoing-events").prepend("You came back empty handed. Your team resents you.<br><br><br>");
-    $("#myModal").toggle();
-  }
-
-  if (wagon.tacos <= 0) {
-    wagon.tacos = 0
-  }
-  $('#wagon-tacos-remaining').text(wagon.tacos);
-}
-
-//team checker
-Wagon.prototype.team = function (input) {
-  if (input == 1) {
-    this.gas += 500
-  } else if (input == 2) {
-    this.gas += 300
-  } else if (input == 3) {
-    this.food += 500
-  } else if (input == 4) {
-    this.food += 250
-    this.gas += 250
-  } else if (input == 5) {
-    this.gas += 400
-    this.food += 100
-  } else if (input == 6) {
-    this.gas += 50
-  }
-}
 
 function textUpdateUI() {
   $('#player-one-name').text(char1.name);
