@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 8BitPusab;
+  src: url(/fonts/8-bit-pusab.ttf);
+  font-weight: bold;
+}
+
 body {
   height: 100%;
   background-image: url(../img/topography.png);
@@ -458,7 +464,7 @@ div#status-panel {
   top: 21%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: '8-bit pusab';
+  font-family: 8BitPusab;
   color: #36465d;
 
 }
