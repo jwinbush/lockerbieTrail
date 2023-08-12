@@ -23,7 +23,7 @@ function Wagon() {
 // Prototype method for displaying character health bars
 Character.prototype.healthBar = function () {
   var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Dead: "black" };
-  
+
   // Display health bars and set their styles
   $("#char1-health-bar").progressbar({ value: char1.health });
   $("#char1-health-bar .ui-widget-header").css("background", pairs[char1.status]).css("border-color", pairs[char1.status]);
@@ -38,7 +38,7 @@ Character.prototype.healthBar = function () {
 // Prototype method for generating character illnesses
 Character.prototype.illnessGenerator = function () {
   var num = Math.floor(Math.random() * Math.floor(80))
-  
+
   // Generate and display various illnesses
   if (num === 1 && this.illness.includes("Dysentery") == false) {
     this.illness.push("Dysentery");
@@ -51,7 +51,7 @@ Character.prototype.illnessGenerator = function () {
     $(".ongoing-events").prepend(this.name + " has to wait in line for the restroom. <br><br><br>");
   } else if (num === 4 && this.illness.includes("Sprained Ankle") == false) {
     this.illness.push("Sprained Ankle");
-    $(".ongoing-events").prepend(this.name + " sprained their ankle on a walk. <br><br><br>");
+    $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
   } else if (num === 5 && this.illness.includes("Mauled") == false) {
     this.illness.push("Mauled");
     $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
@@ -62,7 +62,7 @@ Character.prototype.illnessGenerator = function () {
 Wagon.prototype.resourceChecker = function () {
   if (this.food <= 0) {
     this.food = 0;
-    
+
     // Reduce health of characters if food runs out
     wagon.characters.forEach(function (char) {
       char.health -= 10;
@@ -175,6 +175,7 @@ function positiveEvent() {
 
   if (num === 1) {
     $('.ongoing-events').prepend('Lisa ran out of diet coke on the way to the new office! You must make a pit stop to pick up another case. <br><br><br>');
+    this.gas -= 10
     // Modify wagon attributes
   } else if (num === 2) {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
@@ -188,7 +189,7 @@ function positiveEvent() {
     // Modify wagon attributes
     this.gas -= 10
   } else if (num === 5) {
-    $('.ongoing-events').prepend('You are stuck in traffic and Rachel starts a discussion on the latest SCOTUS decision. Arrival is delayed by 5 blocks. <br><br><br>');
+    $('.ongoing-events').prepend('You are stuck in traffic and someone starts a discussion on the latest SCOTUS decision. Arrival is delayed by 5 blocks. <br><br><br>');
     // Modify wagon attributes
     this.days += 5
   }
@@ -200,9 +201,9 @@ function negativeEvent() {
   var ranSupplyDecrease = Math.floor(Math.random() * (200 - 100) + 100)
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num === 1) {
-    $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your La Croix. " + wagon.characters[index].name + " got hurt! <br><br><br>")
-    wagon.food -= ranSupplyDecrease
-    wagon.characters.health -= 10
+    $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your La Croix. " + this.characters[index].name + " got hurt! <br><br><br>")
+    this.food -= ranSupplyDecrease
+    this.characters.health -= 10
   } else if (num === 2) {
     $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
     wagon.days += 5
@@ -280,18 +281,18 @@ function landmarkEvent() {
   var num = wagon.distance
   if (num === 4) {
     buildLandmarkModal(num, "fixRamen", "leaveRamen", "Reassemble Ramen", "Leave it")
-    $(".button-content").prepend("While you're packing for the move, you accidentally knock over Joe Black's Great Wall of Ramen. You can either reassemble the ramen exactly the way it was without telling Joe, or leave it knocked down and face his wrath. . . Keep in mind he hasn't had lunch yet. <br><br><br>")
+    $(".button-content").prepend("During the move, you accidentally knock over Joe Black's Great Wall of Ramen that's piled precariously high in the moving van. You can either reassemble the ramen exactly the way it was without telling Joe, or leave it and face his wrath...    <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 8) {
     buildModal("Idle");
-    $(".ongoing-events").prepend("Your party has reached your first stop! You venture on a mysterious path through the woods, ignoring the “danger” warning signs on each side. Eventually you reach a clearing and find a shaded spot to sit down. You have reached the famous roadside attraction, Idle Park! Located where I-65 meets I-75 this is your new favorite place to watch the traffic go by. <br><br><br>")
+    $(".ongoing-events").prepend("Your party has reached your first stop! You venture on a mysterious path through the woods, ignoring the “danger” warning signs on each side. Eventually, you reach a clearing and find a shady spot to sit down. You’ve reached the famous roadside attraction, Idle Park! Located where I-65 meets I-70, this is your new favorite place to watch the traffic go by. <br><br><br>")
     $("#myModal").toggle();
     $("#gameMainScreen").fadeOut(500);
     $("#landmarkStop1").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 12) {
     buildLandmarkModal(num, "crossRiver", "detourRiver", "Go Under Bridge", "Go Another Way")
-    $(".button-content").prepend("You have reached the College Ave bridge. You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip. <br><br><br>")
+    $(".button-content").prepend("You have reached the College Ave bridge. You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip.  <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 14) {
     buildModal("sunKing");
@@ -330,19 +331,13 @@ function fixRamen() {
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Dead"
     buildModal("ramenFail");
-    $(".ongoing-events").prepend(" Uh oh, the ramen was placed in the wrong order. A rabid Joe hunts your party down. " + wagon.characters[index].name + "  is dead. <br><br><br>")
+    $(".ongoing-events").prepend(" Uh oh, the ramen was left in the wrong order. Joe is now coming for you. " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
     $("#myModal").toggle();
     for (i = 0; i < 4; i++) {
       wagon.statusAdjuster()
       wagon.days += 1
     }
-  } else {
-    buildModal("ramenWin");
-    $(".ongoing-events").prepend(" Congratulations! Joe didn't even notice. <br><br><br>")
-    $("#myModal").toggle();
-    wagon.days += 1
   }
-
   wagon.resourceChecker()
   wagon.statusAdjuster()
 }
@@ -365,12 +360,11 @@ function crossRiver() {
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Dead"
     buildModal("bridgeFail");
-    $(".ongoing-events").prepend("The moving van got stuck under the bridge! While getting out to investigate what happened,  " + wagon.characters[index].name + " got flattened by a passerby. " + wagon.characters[index].name + " is dead. <br><br><br>")
+    $(".ongoing-events").prepend("The moving van got stuck under the bridge! While getting out to investigate what happened,  " + wagon.characters[index].name + " fell into a pothole. Their journey has ended. <br><br><br>")
     $("#myModal").toggle();
     for (i = 0; i < 4; i++) {
       wagon.statusAdjuster()
       wagon.days += 1
-      wagon.food -= (wagon.characters.length * 5)
     }
   } else {
     buildModal("bridgeWin");
@@ -406,34 +400,30 @@ function deathEvent() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num === 1 && wagon.characters[index].health < 65) {
     buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server and died of guilt. <br><br><br>")
+    $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server. They went back to the old office with a guilty conscience. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Dead"
-  } else if (num === 2 && wagon.characters[index].illness.includes("Dysentery") == true && wagon.characters[index].health < 65) {
+  } else if (num === 2 && wagon.characters[index].health < 65) {
     buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + " wakes up screaming in the middle of their nap. They hunch over and fall to the ground. Their chest bursts open and the creature inside jumps out and attacks " + wagon.characters[0].name + " with acid and scurries off into the wilderness.<br><br><br>" + wagon.characters[index].name + " is dead.")
+    $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey.")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Dead"
-    wagon.characters[0].health -= 15
-    wagon.characters[0].illness.push("Acid Burns")
   } else if (num === 3 && wagon.characters[index].health < 65) {
     buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + "left the door open and fell out with all of our supplies. They die. <br><br><br>")
     $("#myModal").toggle();
-    wagon.gas -= (wagon.gas * 0.5)
-    $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Dead"
-  } else if (num === 4) {
+  } else if (num === 4 && wagon.characters[index].health < 65) {
     buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + " got thirsty and drunk all of the la croix. You lose " + (wagon.food * 0.5).toFixed(2) + " cans of La Croix.<br><br><br>")
-    wagon.food -= (wagon.food * 0.5)
-    $('.wagon-food-remaining').text(wagon.food.toFixed(2));
-  } else if (num === 5 && wagon.characters[index].illness == "Alcohol Poisoning") {
+    $(".ongoing-events").prepend(wagon.characters[index].name + " told the movers the wrong address. Everyone gangs up on them and they're forced back to the old office. <br><br><br>")
+    wagon.characters[index].health = 0
+    wagon.characters[index].status = "Dead"
+  } else if (num === 5 && wagon.characters[index].health < 65) {
     buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + " has also contracted chlamyida and it has run rampant. They run off into the woods, never to be seen again.<br><br><br>")
+    $(".ongoing-events").prepend(wagon.characters[index].name + " dropped a monitor on their own foot. They head to the hospital instead of to the new office. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Dead"
@@ -446,7 +436,7 @@ Wagon.prototype.huntingTime = function () {
     var num = 1;
     document.getElementById('taco-fire').play();
     buildModal(num);
-    $(".ongoing-events").prepend("You have already hunted- you must continue to a new area to hunt further.<br><br><br>");
+    $(".ongoing-events").prepend("You have already hunted. You must continue to a new area to hunt further.<br><br><br>");
   } else if (this.hunted == 0 && wagon.tacos > 0) {
     this.food += hunt
     this.tacos -= 1
@@ -748,9 +738,9 @@ $(document).ready(function () {
   const sacrificeButton = document.getElementById('sacrifice-button');
 
   // Add a click event listener to the button
-  sacrificeButton.addEventListener('click', function() {
-      // Refresh the page
-      location.reload();
+  sacrificeButton.addEventListener('click', function () {
+    // Refresh the page
+    location.reload();
   });
 
   $(document).ready(function () {
@@ -812,32 +802,32 @@ $(document).ready(function () {
       $("#characterInput").delay(500).fadeIn(500);
     });
 
-    
+
   });
 
-  $(document).ready(function() {
-    $('#nameDropdown1').change(function() {
+  $(document).ready(function () {
+    $('#nameDropdown1').change(function () {
       var selectedValue = $(this).val();
       var imageSrc = "../img/" + selectedValue + ".png"; // Assuming your image filenames are like "Joe.png", "Teresa.png", etc.
       $('#image1').attr('src', imageSrc);
     });
-    $('#nameDropdown2').change(function() {
+    $('#nameDropdown2').change(function () {
       var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png"; 
+      var imageSrc = "../img/" + selectedValue + ".png";
       $('#image2').attr('src', imageSrc);
     });
-    $('#nameDropdown3').change(function() {
+    $('#nameDropdown3').change(function () {
       var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png"; 
+      var imageSrc = "../img/" + selectedValue + ".png";
       $('#image3').attr('src', imageSrc);
     });
-    $('#nameDropdown4').change(function() {
+    $('#nameDropdown4').change(function () {
       var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png"; 
+      var imageSrc = "../img/" + selectedValue + ".png";
       $('#image4').attr('src', imageSrc);
     });
   });
-  
+
   const teamArray = [
     { team: "creative", name: "Anne" },
     { team: "creative", name: "Carlee" },
@@ -881,43 +871,43 @@ $(document).ready(function () {
     { team: 'interns', name: 'Jawon' }
 
 
-];
+  ];
 
 
-const radioButtons = document.querySelectorAll("input[name=team]");
-const dropdowns = [
+  const radioButtons = document.querySelectorAll("input[name=team]");
+  const dropdowns = [
     document.getElementById("char1"),
     document.getElementById("char2"),
     document.getElementById("char3"),
     document.getElementById("char4")
-];
+  ];
 
-radioButtons.forEach(radioButton => {
+  radioButtons.forEach(radioButton => {
     radioButton.addEventListener("change", () => {
-        const selectedTeam = radioButton.value;
-        const teamNames = teamArray.filter(item => item.team === selectedTeam).map(item => item.name);
+      const selectedTeam = radioButton.value;
+      const teamNames = teamArray.filter(item => item.team === selectedTeam).map(item => item.name);
 
-        dropdowns.forEach((dropdown, index) => {
-            // Clear previous options
-            dropdown.innerHTML = "";
+      dropdowns.forEach((dropdown, index) => {
+        // Clear previous options
+        dropdown.innerHTML = "";
 
-            // Populate dropdown with options
-            teamNames.forEach(name => {
-                const option = document.createElement("option");
-                option.value = name;
-                option.textContent = name;
-                dropdown.appendChild(option);
-            });
-
-            // Set default value for dropdowns
-            if (teamNames.length >= index + 1) {
-                dropdown.value = teamNames[index];
-            } else {
-                dropdown.value = ""; // No default value if there are fewer names than dropdowns
-            }
+        // Populate dropdown with options
+        teamNames.forEach(name => {
+          const option = document.createElement("option");
+          option.value = name;
+          option.textContent = name;
+          dropdown.appendChild(option);
         });
+
+        // Set default value for dropdowns
+        if (teamNames.length >= index + 1) {
+          dropdown.value = teamNames[index];
+        } else {
+          dropdown.value = ""; // No default value if there are fewer names than dropdowns
+        }
+      });
     });
-});
+  });
 
 
   // const movingImage = document.getElementById('wagon-images');
@@ -933,7 +923,7 @@ radioButtons.forEach(radioButton => {
   // });
 
 
-  
+
 
   const nameInput1 = document.getElementById('char1');
   const nameInput2 = document.getElementById('char2');
