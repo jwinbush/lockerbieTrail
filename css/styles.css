@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 8BitPusab;
+  font-family: '8-bit pusab';
   src: url(/fonts/8-bit-pusab.ttf);
   font-weight: bold;
 }
@@ -464,7 +464,7 @@ div#status-panel {
   top: 21%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 8BitPusab;
+  font-family: '8-bit pusab';
   color: #36465d;
 
 }
@@ -586,7 +586,7 @@ img {
   font-weight: 300;
   letter-spacing: 1px;
   font-size: 18px;
-  font-family: 8BitPusab;
+  font-family: '8-bit pusab';
   text-transform: uppercase;
   box-shadow: inset 0 0 10px #9c9c9c;
 }
@@ -604,7 +604,7 @@ img {
 p.ongoing-events {
   font-size: 25px;
   line-height: 55px;
-  font-family: 8BitPusab;
+  font-family: '8-bit pusab';
 }
 
 #player-one-name,
