@@ -38,8 +38,8 @@ class Character {
     } else if (num === 4 && this.illness.includes("Lost") == false) {
       this.illness.push("Lost");
       $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
-      this.characters[index].health = 0
-      this.characters[index].status = "Unresponsive"
+      this.characters[index].health = 0;
+      this.characters[index].status = "Unresponsive";
     } else if (num === 5 && this.illness.includes("Mauled") == false) {
       this.illness.push("Mauled");
       $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
