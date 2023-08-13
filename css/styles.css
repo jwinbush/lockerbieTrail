@@ -26,6 +26,7 @@ body {
   /* background: white; */
   border: 2px solid rgb(180 180 180);
   padding: 30px;
+  border-radius: 10px;
 }
 
 #client-images, #creative-images, #operations-images, #strategy-images, #web-images, #intern-images {
@@ -841,7 +842,7 @@ p.ongoing-events {
   /* Full width */
   height: 100%;
   /* Full height */
-  background-image: url(../img/newBuilding.png);
+  background-image: url(../img/confetti.gif);
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
