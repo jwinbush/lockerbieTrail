@@ -103,11 +103,11 @@ class Wagon {
 
     if (wagon.characters.length <= 0) {
       buildEndModal("unresponsive", "death", "Play Again");
-      $(".button-content").prepend("You killed everyone. Great job...");
+      $(".button-content").prepend("You didn't make it . ");
       $("#myModal").toggle();
-    } else if (wagon.gas.length <= 0) {
+    } else if (wagon.gas <= 0) {
       buildEndModal("unresponsive", "death", "Play Again");
-      $(".button-content").prepend("You ran out of gas before you could make it to the your destination! Game Over! ");
+      $(".button-content").prepend("You ran out of gas before you could make it to the destination! Game Over! ");
       $("#myModal").toggle();
     }
   }
@@ -128,6 +128,8 @@ class Wagon {
     this.distance += 1;
     this.gas -= 1;
     landmarkEvent();
+
+    // This allows the progress bar to become 100% after 17 clicks
     this.completed = (this.completed + 5.88235294118);
     journey(this.completed);
     wagon.resourceChecker();
@@ -245,9 +247,9 @@ function positiveEvent() {
     wagon.food += 100
     wagon.gas += 10
   } else if (num === 3) {
-    $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. addies increased by ' + 4 + '. <br><br><br>');
+    $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. Tacos increased by ' + 30 + '. <br><br><br>');
     // Modify wagon attributes
-    wagon.addies += 4
+    wagon.food += 30
   } else if (num === 4) {
     $('.ongoing-events').prepend('As you travel along, Nicholas remembers that he left Sofie at the office. Arrival is delayed. Gas decreased by ' + 10 + '. <br><br><br>');
     // Modify wagon attributes
@@ -378,7 +380,6 @@ function fixRamen() {
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
     for (i = 0; i < 4; i++) {
-      wagon.statusAdjuster()
       wagon.days += 1
     }
   }
@@ -404,6 +405,7 @@ function crossRiver() {
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
     buildModal("bridgeFail");
+    document.getElementById('car-braking').play();
     $(".ongoing-events").prepend("The moving van got stuck under the bridge! While getting out to investigate what happened,  " + wagon.characters[index].name + " fell into a pothole. Their journey has ended. <br><br><br>")
     $("#myModal").toggle();
     for (i = 0; i < 4; i++) {
@@ -456,7 +458,7 @@ function deathEvent() {
     wagon.characters[index].status = "Unresponsive"
   } else if (num === 3 && wagon.characters[index].health < 80) {
     buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + "left the door open and fell out with all of our supplies. They die. <br><br><br>")
+    $(".ongoing-events").prepend(wagon.characters[index].name + " left the door open and fell out with all of our supplies. Their journey has ended. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
