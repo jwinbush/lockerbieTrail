@@ -224,6 +224,7 @@ class Wagon {
 
 function journey(dist) {
   $("#progressbar").progressbar({
+    //distance
     value: dist
   });
 }

@@ -1122,6 +1122,10 @@ p.ongoing-events {
   margin-top: 15px;
 }
 
+div#progressbar {
+  transform: scaleX(-1);
+}
+
 .ui-widget.ui-widget-content {
   border: 1px solid #c5c5c5;
   background: #eeeeee;
