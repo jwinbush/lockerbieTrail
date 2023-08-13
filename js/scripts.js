@@ -330,7 +330,7 @@ function landmarkEvent() {
     buildModal("Idle");
     $(".ongoing-events").prepend("Your party has reached the famous roadside attraction, Idle Park! Located where I-65 meets I-70, this is your new favorite place to watch the traffic go by. <br><br><br>")
     $("#myModal").toggle();
-    $("#gameMainScreen").fadeOut(500);
+    $("#gameMainScreen").hide();
     $("#landmarkStop1").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 12) {
@@ -342,7 +342,7 @@ function landmarkEvent() {
     $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
     $("#myModal").toggle();
     wagon.food += 100;
-    $("#gameMainScreen").fadeOut(500);
+    $("#gameMainScreen").hide();
     $("#landmarkStop2").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 16) {
@@ -522,9 +522,9 @@ $(document).ready(function () {
 
   $("#startBTN").click(function () {
     document.getElementById('openingSong').play();
-    $("#start").fadeOut(500);
-    $("#startBTN").fadeOut(500);
-    $(".mainStickyNote").delay(500).fadeIn(500);
+    $("#start").fadeOut(300);
+    $("#startBTN").hide();
+    $(".mainStickyNote").fadeIn(300);
   });
 
   $("#characterBTN").click(function () {
@@ -556,9 +556,9 @@ $(document).ready(function () {
     $('#wagon-food-remaining').text(wagon.food);
     $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
     $('#wagon-addies-remaining').text(wagon.addies);
-    $("#landmarkStop1").fadeOut(500);
-    $("#landmarkStop2").fadeOut(500);
-    $("#gameMainScreen").fadeIn(500);
+    $("#landmarkStop1").hide();
+    $("#landmarkStop2").hide();
+    $("#gameMainScreen").fadeIn(300);
   });
 
 
