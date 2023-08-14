@@ -181,7 +181,7 @@ class Wagon {
       this.addies -= 1;
       wagon.statusAdjuster();
       this.hunted += 1;
-      $(".ongoing-events").prepend("You got " + hunt + " Tacos.<br><br><br>");
+      $(".ongoing-events").prepend("You got " + hunt + " Tacos. Eat to regain health. <br><br><br>");
       document.getElementById('addie-fire').play();
     }
 
@@ -653,10 +653,18 @@ $(document).ready(function () {
     });
   });
 
+  const movingImage = document.getElementById("progress-truck");
+  const moveAmount = 55.96; // Pixels to move left
+
+
   $("#continue-button").click(function () {
     wagon.turn()
     wagon.statusAdjuster()
     textUpdateUI()
+    $("#progress-truck").fadeIn(300)
+    const currentLeft = parseFloat(getComputedStyle(movingImage).left);
+    const newLeft = currentLeft - moveAmount;
+    movingImage.style.left = newLeft + "px";
 
     if (x < 6) {
       $('#wagon-' + x).toggle();
@@ -672,6 +680,8 @@ $(document).ready(function () {
       $('#wagon-images').addClass('sky' + x);
     }
   });
+
+
 
   $("#rest-button").click(function () {
     wagon.rest()

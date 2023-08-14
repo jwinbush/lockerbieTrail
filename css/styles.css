@@ -10,9 +10,12 @@ body {
   font-family: 'Londrina Solid', cursive;
 }
 
-@media (max-width: 3072px) { /* Adjust the value to target the desired screen width */
+@media (max-width: 3072px) {
+
+  /* Adjust the value to target the desired screen width */
   html {
-    zoom: 0.9; /* Apply the zoom factor */
+    zoom: 0.9;
+    /* Apply the zoom factor */
   }
 }
 
@@ -779,7 +782,7 @@ p.ongoing-events {
   z-index: 1;
   /* Sit on top */
   padding-top: 320px;
-    /* Location of the box */
+  /* Location of the box */
   left: 0;
   top: 0;
   width: 100%;
@@ -1124,6 +1127,35 @@ p.ongoing-events {
 
 div#progressbar {
   transform: scaleX(-1);
+  width: 90%;
+  margin-left: 50px;
+}
+
+#progress-truck {
+  display: none;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
+  right: 40px;
+  top: 305px;
+  transition: left 0.3s ease-in-out;
+}
+
+#progress-new-building {
+  /* display: none; */
+  position: absolute;
+  width: 40px;
+  z-index: 1;
+  left: 35px;
+  top: 294px;
+}
+
+#progress-old-building {
+  position: absolute;
+    width: 45px;
+    z-index: 1;
+    right: 35px;
+    top: 290px;
 }
 
 .ui-widget.ui-widget-content {
@@ -1135,6 +1167,12 @@ div#progressbar {
   height: 2em;
   border-radius: 10px;
   border: 2px solid white;
+}
+
+.ui-progressbar .ui-progressbar-value {
+  height: 100%;
+  margin: 0;
+
 }
 
 .health-bar {
