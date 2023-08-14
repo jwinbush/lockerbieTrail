@@ -129,11 +129,20 @@ class Wagon {
     this.gas -= 1;
     landmarkEvent();
 
+    if (this.distance > 5) {
+      $("#wagon-old-building").hide();
+    }
+
+    if (this.distance > 11) {
+      $("#wagon-new-building").show();
+    }
+
     // This allows the progress bar to become 100% after 17 clicks
     this.completed = (this.completed + 5.88235294118);
     journey(this.completed);
     wagon.resourceChecker();
   }
+
   // function for resting -- cure illness, gain some health
   rest() {
     wagon.characters.forEach(function (char) {
@@ -274,18 +283,20 @@ function negativeEvent() {
     $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
     wagon.food -= ranSupplyDecrease
     wagon.characters.health -= 15
-  } else if (num === 3) {
-    $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
-    wagon.days += 2
-    document.getElementById('DunDunDun').play();
-  } else if (num === 4) {
-    $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
-    wagon.days += 5
-  } else if (num === 5 && wagon.food > 20) {
+
+  } else if (num === 3 && wagon.food > 10) {
     $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your Tacos are emptied because " + wagon.characters[index].name + " got hungry. <br><br><br>")
     wagon.food -= ranSupplyDecrease
     $('.wagon-food-remaining').text(wagon.food.toFixed(2));
+  } else if (num === 4) {
+    $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
+    wagon.days += 5
+  } else if (num === 5) {
+    $(".ongoing-events").prepend("Art Director comes towards your group for a final critique. <br><br><br>")
+    wagon.days += 2
+    document.getElementById('DunDunDun').play();
   }
+
 }
 //landmarkEvent for distance traveled
 
@@ -391,13 +402,14 @@ function fixRamen() {
 function detourRiver() {
   for (i = 0; i < 8; i++) {
     wagon.days += 1
-    wagon.food -= (wagon.characters.length * 5)
+    wagon.food -= 20
     wagon.resourceChecker()
     wagon.statusAdjuster()
   }
   $(".ongoing-events").prepend("You drove three blocks to get around the College Ave bridge. <br><br><br>")
   wagon.statusAdjuster()
 }
+
 function crossRiver() {
   var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
