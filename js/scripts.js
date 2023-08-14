@@ -287,6 +287,7 @@ function negativeEvent() {
   } else if (num === 3 && wagon.food > 10) {
     $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your Tacos are emptied because " + wagon.characters[index].name + " got hungry. <br><br><br>")
     wagon.food -= ranSupplyDecrease
+    wagon.characters[index].health = 100
     $('.wagon-food-remaining').text(wagon.food.toFixed(2));
   } else if (num === 4) {
     $(".ongoing-events").prepend("You caught a flat tire! Your party loses 5 blocks. <br><br><br>")
@@ -402,12 +403,15 @@ function fixRamen() {
 function detourRiver() {
   for (i = 0; i < 8; i++) {
     wagon.days += 1
-    wagon.food -= 20
+    wagon.food -= 10
     wagon.resourceChecker()
     wagon.statusAdjuster()
   }
   $(".ongoing-events").prepend("You drove three blocks to get around the College Ave bridge. <br><br><br>")
   wagon.statusAdjuster()
+  wagon.resourceChecker()
+
+
 }
 
 function crossRiver() {
