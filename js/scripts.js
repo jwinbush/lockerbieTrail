@@ -678,6 +678,7 @@ $(document).ready(function () {
     wagon.statusAdjuster()
     textUpdateUI()
     $("#progress-truck").fadeIn(300)
+    $("#ongoing-text-box").animate({ scrollTop: 0 }, "slow");
     const currentLeft = parseFloat(getComputedStyle(movingImage).left);
     const newLeft = currentLeft - moveAmount;
     movingImage.style.left = newLeft + "px";
