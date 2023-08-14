@@ -126,7 +126,7 @@ class Wagon {
     }
     this.days += 1;
     this.distance += 1;
-    this.gas -= 1;
+    this.gas -= 0.5;
     landmarkEvent();
 
     if (this.distance > 5) {
