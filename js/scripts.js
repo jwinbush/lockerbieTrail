@@ -367,7 +367,7 @@ function landmarkEvent() {
     var endScore = wagon.buildScore()
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
-    $(".ending-button").fadeIn(600);
+    $("#ending-button").fadeIn(600);
     $(".button-content").prepend("<h4>WINNER!</h4>Your score is: " + endScore);
 
   }
@@ -713,11 +713,15 @@ $(document).ready(function () {
     history.go(0)
   });
 
+  $(document).on('click', '#ending-button', function () {
+    history.go(0)
+  });
+
   $(document).on('click', '#winButton', function () {
     history.go(0)
   });
 
-  $(document).on('click', '#fight', function () {
+  $(document).on('click', '#fightButton', function () {
     history.go(0)
   });
 
