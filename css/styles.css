@@ -988,6 +988,7 @@ p.ongoing-events {
   margin: 0 auto;
   font-size: 22px;
   text-align: center;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .modal-child,
@@ -1000,6 +1001,7 @@ p.ongoing-events {
   max-width: 673px;
   max-height: 400px;
   object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
 }
 
 #team input {
