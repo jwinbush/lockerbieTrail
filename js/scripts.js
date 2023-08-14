@@ -540,6 +540,7 @@ $(document).ready(function () {
   $("#startBTN").click(function () {
     document.getElementById('openingSong').play();
     $("#start").fadeOut(300);
+    $(".container").hide();
     $("#startBTN").hide();
     $(".mainStickyNote").fadeIn(300);
   });
@@ -830,8 +831,10 @@ $(document).ready(function () {
     });
 
     $(".skipButtonThree").on("click", function () {
-      $(".letters > div").delay(500).fadeOut(500);
-      $("#characterInput").delay(500).fadeIn(500);
+      $(".letters > div").fadeOut(500);
+      $(".container").fadeIn(500);
+      $("#characterInput").fadeIn(500);
+
     });
 
 
