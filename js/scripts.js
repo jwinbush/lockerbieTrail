@@ -304,14 +304,14 @@ function negativeEvent() {
 
 
 function buildModal(value) {
-  $('.modal-child').html('<img src="../img/' + value + '.jpg" alt="an image">' +
+  $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="ongoing-events">' +
     '</div>'
   )
 }
 
 function buildEndModal(value, btnID1, btn1Name) {
-  $('.modal-child').html('<img src="../img/' + value + '.jpg" alt="an image">' +
+  $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
     '<span id="' + btnID1 + 'Button" class="btn btn-success">' + btn1Name + '</span>' +
@@ -321,7 +321,7 @@ function buildEndModal(value, btnID1, btn1Name) {
 }
 
 function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
-  $('.modal-child').html('<img src="../img/' + value + '.jpg" alt="an image">' +
+  $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
     '<span id="' + btnID1 + 'Button" class="btn btn-success">' + btn1Name + '</span> <span id="' + btnID2 + 'Button" class="btn btn-success">' + btn2Name + '</span>' +
