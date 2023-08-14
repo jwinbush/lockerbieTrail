@@ -1117,7 +1117,7 @@ p.ongoing-events {
 
 .ui-widget-header {
   border: 1px solid #28a745;
-  background: linear-gradient(270deg, #28a745, #12d03e, #298a3f);
+  background: linear-gradient(270deg, #28a745, #0dbc36, #298a3f);
   background-size: 600% 600%;
   -webkit-animation: AnimationName 19s ease infinite;
   -moz-animation: AnimationName 19s ease infinite;
