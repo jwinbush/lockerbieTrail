@@ -722,7 +722,7 @@ $(document).ready(function () {
     history.go(0)
   });
 
-  $(document).on('click', '#fightButton', function () {
+  $(document).on('click', '#fight', function () {
     history.go(0)
   });
 
