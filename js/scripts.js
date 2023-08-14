@@ -380,6 +380,7 @@ function leaveRamen() {
     wagon.statusAdjuster()
   }
   $(".ongoing-events").prepend("Joe didn't even notice. <br><br><br>")
+  wagon.resourceChecker()
   wagon.statusAdjuster()
 }
 function fixRamen() {
