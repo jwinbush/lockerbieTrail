@@ -662,7 +662,7 @@ p.ongoing-events {
 }
 
 #food-fields .col-md-3,
-#addie-fields .col-md-3 {
+#award-fields .col-md-3 {
   border: 1px solid black;
   text-align: right;
   line-height: 41px;
@@ -671,7 +671,7 @@ p.ongoing-events {
 }
 
 #food-fields .col-md-3:first-of-type,
-#addie-fields .col-md-3:first-of-type {
+#award-fields .col-md-3:first-of-type {
   padding: 0px;
 }
 

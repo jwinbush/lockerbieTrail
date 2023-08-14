@@ -53,7 +53,7 @@ class Wagon {
     this.gas = 40;
     this.days = 0;
     this.characters = [];
-    this.addies = 10;
+    this.awards = 10;
     this.distance = 0;
     this.hunted = 0;
     this.completed = 0.01;
@@ -68,8 +68,8 @@ class Wagon {
         char.health -= 10;
       });
     }
-    if (this.addie <= 0) {
-      this.addie = 0;
+    if (this.award <= 0) {
+      this.award = 0;
     }
   }
   //Checks for illness, status changes, and character death
@@ -164,7 +164,7 @@ class Wagon {
   }
   buildScore() {
     var finalScore = 10000;
-    finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.addies * .1);
+    finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.awards * .1);
     return finalScore.toFixed();
 
   }
@@ -173,16 +173,16 @@ class Wagon {
     var hunt = Math.floor(Math.random() * Math.floor(150));
     if (this.hunted == 1) {
       var num = 1;
-      document.getElementById('addie-fire').play();
+      document.getElementById('award-fire').play();
       buildModal(num);
       $(".ongoing-events").prepend("You have already hunted. You must continue to a new area to hunt further.<br><br><br>");
-    } else if (this.hunted == 0 && wagon.addies > 0) {
+    } else if (this.hunted == 0 && wagon.awards > 0) {
       this.food += hunt;
-      this.addies -= 1;
+      this.awards -= 1;
       wagon.statusAdjuster();
       this.hunted += 1;
       $(".ongoing-events").prepend("You got " + hunt + " Tacos. Eat to regain health. <br><br><br>");
-      document.getElementById('addie-fire').play();
+      document.getElementById('award-fire').play();
     }
 
     if (hunt === 0) {
@@ -191,10 +191,10 @@ class Wagon {
       $("#myModal").toggle();
     }
 
-    if (wagon.addies <= 0) {
-      wagon.addies = 0;
+    if (wagon.awards <= 0) {
+      wagon.awards = 0;
     }
-    $('#wagon-addies-remaining').text(wagon.addies);
+    $('#wagon-awards-remaining').text(wagon.awards);
   }
   //team checker
   team(input) {
@@ -244,7 +244,7 @@ function positiveEvent() {
   } else if (num === 2) {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
     // Modify wagon attributes
-    wagon.addies += 5
+    wagon.awards += 5
     wagon.food += 100
     wagon.gas += 10
   } else if (num === 3) {
@@ -364,7 +364,6 @@ function landmarkEvent() {
 function leaveRamen() {
   for (i = 0; i < 8; i++) {
     wagon.days += 1
-    wagon.food -= (wagon.characters.length * 5)
     wagon.resourceChecker()
     wagon.statusAdjuster()
   }
@@ -493,7 +492,7 @@ function textUpdateUI() {
   $('#player-four-illness').text(char4.illness.length);
   $('#wagon-food-remaining').text(wagon.food.toFixed(0));
   $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
-  $('#wagon-addies-remaining').text(wagon.addies.toFixed(0));
+  $('#wagon-awards-remaining').text(wagon.awards.toFixed(0));
   $('.current-date').text(wagon.days);
   $('.distance-traveled').text(wagon.distance);
 }
@@ -549,14 +548,14 @@ $(document).ready(function () {
 
     $('#wagon-food-remaining').text(wagon.food);
     $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
-    $('#wagon-addies-remaining').text(wagon.addies);
+    $('#wagon-awards-remaining').text(wagon.awards);
   });
 
 
   $("#stopBTN1, #stopBTN2").click(function () {
     $('#wagon-food-remaining').text(wagon.food);
     $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
-    $('#wagon-addies-remaining').text(wagon.addies);
+    $('#wagon-awards-remaining').text(wagon.awards);
     $("#landmarkStop1").hide();
     $("#landmarkStop2").hide();
     $("#gameMainScreen").fadeIn(300);
