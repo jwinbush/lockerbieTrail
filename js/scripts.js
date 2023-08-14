@@ -190,7 +190,7 @@ class Wagon {
       this.awards -= 1;
       wagon.statusAdjuster();
       this.hunted += 1;
-      $(".ongoing-events").prepend("You got " + hunt + " Tacos. Eat to regain health. <br><br><br>");
+      $(".ongoing-events").prepend("You got " + hunt + " Tacos. Rest to regain health. <br><br><br>");
       document.getElementById('award-fire').play();
     }
 
