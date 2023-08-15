@@ -368,7 +368,7 @@ function landmarkEvent() {
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
     $("#ending-button").fadeIn(600);
-    $(".button-content").prepend("<h4>WINNER!</h4>Your score is: " + endScore);
+    // $(".button-content").prepend("<h4>WINNER!</h4>Your score is: " + endScore);
 
   }
 }
