@@ -405,13 +405,11 @@ function detourRiver() {
   for (i = 0; i < 8; i++) {
     wagon.days += 1
     wagon.food -= 10
-    wagon.resourceChecker()
     wagon.statusAdjuster()
   }
   $(".ongoing-events").prepend("You drove three blocks to get around the College Ave bridge. <br><br><br>")
-  wagon.statusAdjuster()
   wagon.resourceChecker()
-
+  wagon.statusAdjuster()
 
 }
 
