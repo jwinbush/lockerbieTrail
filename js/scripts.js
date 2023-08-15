@@ -363,7 +363,7 @@ function landmarkEvent() {
     $(".button-content").prepend("You have made it! But it appears you are stopped by the ghost of Gilbert Matzke, a little boy who choked and died in the building. Since 1913, he has haunted the building, cursing whoever crosses his path to choke on a peanut, and thus needs to be tamed. Luckily our in-house historian Evan, thinks he can befriend the ghost. Do you give him a chance or take your fate into your own hands? <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 17) {
-    buildEndModal(num, "win", "Play Again!")
+    // buildEndModal(num, "win", "Play Again!")
     var endScore = wagon.buildScore()
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
