@@ -48,8 +48,8 @@ body {
 }
 
 .grid-item img {
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 200px;
+  max-height: 200px;
   border: 2px solid #b4b4b4;
   border-radius: 10px;
   background: #fafafa;
@@ -96,25 +96,25 @@ span {
 #wagon-3,
 #wagon-2 {
   display: none;
-  margin-top: 135px;
+  margin-top: 120px;
   position: absolute;
   z-index: 1;
 }
 
 #wagon-1 {
   position: absolute;
-  margin-top: 135px;
+  margin-top: 120px;
   z-index: 1;
 }
 
 #wagon-old-building {
   position: absolute;
-  top: 44px;
+  top: 20px;
 }
 
 #wagon-new-building {
   position: absolute;
-  top: 47px;
+  top: 21px;
   display: none;
 }
 /* .wagon-select-screen {
@@ -197,7 +197,7 @@ input[type="radio"] {
 }
 
 #wagon-images {
-  background-image: url(../img/longBackground.png);
+  background-image: url(../img/long-background.png);
   background-size: cover;
   background-position: bottom;
   padding: 10px;

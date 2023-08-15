@@ -257,11 +257,11 @@ function positiveEvent() {
     wagon.food += 100
     wagon.gas += 10
   } else if (num === 3) {
-    $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Easy Rider Diner. Tacos increased by ' + 30 + '. <br><br><br>');
+    $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Iaria’s Italian Restaurant. Tacos increased by ' + 30 + '. <br><br><br>');
     // Modify wagon attributes
     wagon.food += 30
   } else if (num === 4) {
-    $('.ongoing-events').prepend('As you travel along, Nicholas remembers that he left Sofie at the office. Arrival is delayed. Gas decreased by ' + 10 + '. <br><br><br>');
+    $('.ongoing-events').prepend('Nicholas forgot his dog Sofie at the old office. Arrival is delayed. Gas decreased by ' + 10 + '. <br><br><br>');
     // Modify wagon attributes
     wagon.gas -= 10
   } else if (num === 5) {
@@ -282,11 +282,11 @@ function negativeEvent() {
   } else if (num === 2) {
     $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
     wagon.food -= ranSupplyDecrease
-    wagon.characters.health -= 15
+    wagon.characters[index].health -= 15
 
-  } else if (num === 3 && wagon.food > 10) {
-    $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your Tacos are emptied because " + wagon.characters[index].name + " got hungry. <br><br><br>")
-    wagon.food -= ranSupplyDecrease
+  } else if (num === 3 && wagon.addie > 10) {
+    $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your addies are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
+    wagon.addie -= ranSupplyDecrease
     wagon.characters[index].health = 100
     $('.wagon-food-remaining').text(wagon.food.toFixed(2));
   } else if (num === 4) {
@@ -337,7 +337,7 @@ function landmarkEvent() {
   var num = wagon.distance
   if (num === 4) {
     buildLandmarkModal(num, "fixRamen", "leaveRamen", "Reassemble Ramen", "Leave it")
-    $(".button-content").prepend("During the move, you accidentally knock over Joe Black's Great Wall of Ramen that's piled precariously high in the moving van. You can either reassemble the ramen exactly the way it was without telling Joe, or leave it and face his wrath...    <br><br><br>")
+    $(".button-content").prepend("During the move, you accidentally knock over The Great Wall of Ramen that’s piled precariously high in the moving van. You can either reassemble the ramen exactly the way it was, or leave it and face an art director's wrath… <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 8) {
     buildModal("Idle");
@@ -348,56 +348,60 @@ function landmarkEvent() {
     $("#back-button").hide();
   } else if (num === 12) {
     buildLandmarkModal(num, "crossRiver", "detourRiver", "Go Under Bridge", "Go Another Way")
-    $(".button-content").prepend("You have reached the College Ave bridge. You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip.  <br><br><br>")
+    $(".button-content").prepend("You have reached the College Ave bridge (Clearance Height 13’ 9”). The only question now is will you fit? You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip. <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 14) {
     buildModal("sunKing");
-    $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
+    $(".ongoing-events").prepend("You’re pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
     $("#myModal").toggle();
     wagon.food += 200;
     $("#gameMainScreen").hide();
     $("#landmarkStop2").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 16) {
-    buildLandmarkModal(num, "friend", "fight", "Become Friends", "Fight")
-    $(".button-content").prepend("You have made it! But it appears you are stopped by the ghost of Gilbert Matzke, a little boy who choked and died in the building. Since 1913, he has haunted the building, cursing whoever crosses his path to choke on a peanut, and thus needs to be tamed. Luckily our in-house historian Evan, thinks he can befriend the ghost. Do you give him a chance or take your fate into your own hands? <br><br><br>")
+    buildLandmarkModal(num, "friend", "fight", "Confront Riley In A Rhyme Battle", "Run Past Riley Into The New Building")
+    $(".button-content").prepend("You've made it to Lockerbie Square! But it appears you have been stopped by James Whitcomb Riley, guardian poet-spirit of the neighborhood. He's challenged you to a rhyme battle before you can enter. Do you step up, or just try to run past him into our new building? <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 17) {
     // buildEndModal(num, "win", "Play Again!")
-    var endScore = wagon.buildScore()
+    // var endScore = wagon.buildScore()
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
     $("#ending-button").fadeIn(600);
-    // $(".button-content").prepend("<h4>WINNER!</h4>Your score is: " + endScore);
+    // $(".button-content").prepend("<h4>Congratulations, you win!! </h4>Your score is: " + endScore);
 
   }
 }
 //landmark 1 button events
 function leaveRamen() {
-  for (i = 0; i < 8; i++) {
-    wagon.days += 1
-    wagon.resourceChecker()
-    wagon.statusAdjuster()
-  }
-  $(".ongoing-events").prepend("Joe didn't even notice. <br><br><br>")
+  var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
+  buildModal("ramenFail");
+  $(".ongoing-events").prepend("Uh oh, the ramen was placed in the wrong order. The art director  is now coming for you " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
+  $("#myModal").toggle();
+  wagon.characters[index].health = 0
+  wagon.characters[index].status = "Unresponsive"
   wagon.resourceChecker()
   wagon.statusAdjuster()
 }
+
 function fixRamen() {
   var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
     buildModal("ramenFail");
-    $(".ongoing-events").prepend(" Uh oh, the ramen was left in the wrong order. Joe is now coming for you. " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
+    $(".ongoing-events").prepend("Uh oh, the ramen was placed in the wrong order. The art director  is now coming for you " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
     for (i = 0; i < 4; i++) {
       wagon.days += 1
     }
+  } else {
+    $(".ongoing-events").prepend("Congratulations! No one noticed. <br><br><br>")
   }
   wagon.resourceChecker()
   wagon.statusAdjuster()
+
 }
 
 //landmark 1 button events
@@ -442,16 +446,16 @@ function crossRiver() {
 // landmark 3 button events
 function fight() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
+  $(".ongoing-events").prepend("Your rhyming skills were far too weak Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
   wagon.characters[index].health = 0
-  $(".ongoing-events").prepend("The little boy was stronger than you thought. " + wagon.characters[index].name + " choked on a peanut and ran away. <br><br><br>")
   wagon.statusAdjuster()
+  wagon.resourceChecker()
 }
+
 function friend() {
-  var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  if (num > 50) {
-    $(".ongoing-events").prepend("Evan was successful! The little boy's ghost is now peacefully haunting the new office. <br><br><br>")
-  }
+  wagon.characters[index].health = 0
+  $(".ongoing-events").prepend("Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
   wagon.statusAdjuster()
   wagon.resourceChecker()
 }
@@ -467,7 +471,7 @@ function deathEvent() {
     wagon.characters[index].status = "Unresponsive"
   } else if (num === 2 && wagon.characters[index].health < 50) {
     buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey.")
+    $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey. <br><br><br>")
     $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
@@ -997,17 +1001,17 @@ $(document).ready(function () {
     { name: 'jody', src: 'img/Jody.png' },
     { name: 'mary', src: 'https://placehold.co/350x450' },
     { name: 'lisa', src: 'img/Lisa.png' },
-    { name: 'joel', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Joel-350x450.jpg' },
-    { name: 'mandy', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Mandy-350x450.jpg' },
-    { name: 'marissa', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Marissa-350x450.jpg' },
-    { name: 'rachel', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rachel-350x450.jpg' },
-    { name: 'rebecca', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rebecca-350x450.jpg' },
-    { name: 'zarrien', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Zarrien-350x450.jpg' },
-    { name: 'brian', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Brian-350x450.jpg' },
-    { name: 'eric', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Eric-350x450.jpg' },
-    { name: 'josh', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Josh-350x450.jpg' },
-    { name: 'kim', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-KimColes-350x450.jpg' },
-    { name: 'nate', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nate-350x450.jpg' },
+    { name: 'joel', src: 'img/Joel.png' },
+    { name: 'mandy', src: 'img/Mandy.png' },
+    { name: 'marissa', src: 'img/Marissa.png' },
+    { name: 'rachel', src: 'img/Rachel.png' },
+    { name: 'rebecca', src: 'img/Rebecca.png' },
+    { name: 'zarrien', src: 'img/Zarrien.png' },
+    { name: 'brian', src: 'img/Brian.png' },
+    { name: 'eric', src: 'img/Eric.png' },
+    { name: 'josh', src: 'img/Josh.png' },
+    { name: 'kim', src: 'img/Kim.png' },
+    { name: 'nate', src: 'img/Nate.png' },
     { name: 'ashlynn', src: 'https://placehold.co/350x450' },
     { name: 'daniel', src: 'https://placehold.co/350x450' },
     { name: 'teresa', src: 'https://placehold.co/350x450' },
