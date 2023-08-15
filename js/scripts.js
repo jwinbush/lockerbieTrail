@@ -354,7 +354,7 @@ function landmarkEvent() {
     buildModal("sunKing");
     $(".ongoing-events").prepend("You're pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
     $("#myModal").toggle();
-    wagon.food += 100;
+    wagon.food += 200;
     $("#gameMainScreen").hide();
     $("#landmarkStop2").fadeIn(500);
     $("#back-button").hide();
