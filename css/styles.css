@@ -376,7 +376,7 @@ input[type="radio"] {
   -webkit-animation: wagonwheel 40s linear 0s infinite reverse;
 }
 
-.skipButtonOne, .skipButtonTwo, .skipButtonThree, #ending-button {
+.skipButtonOne, .skipButtonTwo, .skipButtonThree {
   display: none;
   position: absolute;
   top: 750px;
@@ -387,6 +387,18 @@ input[type="radio"] {
   height: 40px;
   margin: auto;
 
+}
+
+#ending-button {
+  display: none;
+  position: absolute;
+  top: 740px;
+  right: 0;
+  left: 0;
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+  margin: auto;
 }
 
 div#status-panel {

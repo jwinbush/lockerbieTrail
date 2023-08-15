@@ -993,9 +993,9 @@ $(document).ready(function () {
     { name: 'nick', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nick-350x450.jpg' },
     { name: 'rob', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rob-350x450.jpg' },
     { name: 'shelby', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Shelby-350x450.jpg' },
-    { name: 'alex w', src: 'https://placehold.co/250x250' },
+    { name: 'alex w', src: 'https://placehold.co/350x450' },
     { name: 'jody', src: 'img/Jody.png' },
-    { name: 'mary', src: 'https://placehold.co/250x250' },
+    { name: 'mary', src: 'https://placehold.co/350x450' },
     { name: 'lisa', src: 'img/Lisa.png' },
     { name: 'joel', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Joel-350x450.jpg' },
     { name: 'mandy', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Mandy-350x450.jpg' },
@@ -1008,10 +1008,10 @@ $(document).ready(function () {
     { name: 'josh', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Josh-350x450.jpg' },
     { name: 'kim', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-KimColes-350x450.jpg' },
     { name: 'nate', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nate-350x450.jpg' },
-    { name: 'ashlynn', src: 'https://placehold.co/250x250' },
-    { name: 'daniel', src: 'https://placehold.co/250x250' },
-    { name: 'teresa', src: 'https://placehold.co/250x250' },
-    { name: 'jawon', src: 'https://placehold.co/250x250' },
+    { name: 'ashlynn', src: 'https://placehold.co/350x450' },
+    { name: 'daniel', src: 'https://placehold.co/350x450' },
+    { name: 'teresa', src: 'https://placehold.co/350x450' },
+    { name: 'jawon', src: 'https://placehold.co/350x450' },
     // Add more name-image pairs as needed
   ];
 
@@ -1027,7 +1027,7 @@ $(document).ready(function () {
       image1.src = matchedPair1.src;
       console.log("Test1")
     } else {
-      image1.src = 'https://placehold.co/250x250';
+      image1.src = 'https://placehold.co/350x450';
     }
   });
 
@@ -1040,7 +1040,7 @@ $(document).ready(function () {
       image2.src = matchedPair2.src;
       console.log("Test2")
     } else {
-      image2.src = 'https://placehold.co/250x250';
+      image2.src = 'https://placehold.co/350x450';
     }
   });
 
@@ -1053,7 +1053,7 @@ $(document).ready(function () {
       image3.src = matchedPair3.src;
       console.log("Test3")
     } else {
-      image3.src = 'https://placehold.co/250x250';
+      image3.src = 'https://placehold.co/350x450';
     }
   });
 
@@ -1066,7 +1066,7 @@ $(document).ready(function () {
       image4.src = matchedPair4.src;
       console.log("Test4")
     } else {
-      image4.src = 'https://placehold.co/250x250';
+      image4.src = 'https://placehold.co/350x450';
     }
   });
 
