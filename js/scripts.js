@@ -28,7 +28,7 @@ class Character {
     // Generate and display various illnesses
     if (num === 1 && this.illness.includes("Dysentery") == false) {
       this.illness.push("Dysentery");
-      $(".ongoing-events").prepend(this.name + " got Dysentery. <br><br><br>");
+      $(".ongoing-events").prepend(this.name + " got Dysentery (IT’S STILL A THING, PEOPLE). <br><br><br>");
     } else if (num === 2 && this.illness.includes("Alcohol Poisoning") == false) {
       this.illness.push("Alcohol Poisoning");
       $(".ongoing-events").prepend(this.name + " tried a mystery shot from the creatives' bar cart. <br><br><br>");
@@ -40,7 +40,7 @@ class Character {
       $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
     } else if (num === 5 && this.illness.includes("Mauled") == false) {
       this.illness.push("Mauled");
-      $(".ongoing-events").prepend(this.name + " got mauled by an army of feral cats. <br><br><br>");
+      $(".ongoing-events").prepend(this.name + " got attacked by an army of feral cats. <br><br><br>");
     }
   }
 }
@@ -446,7 +446,7 @@ function crossRiver() {
 // landmark 3 button events
 function fight() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  $(".ongoing-events").prepend("Your rhyming skills were far too weak Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
+  $(".ongoing-events").prepend("Your rhyming skills were far too weak Riley's nine little goblins (oh, did we not mention he has nine little goblins?) They tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
   wagon.characters[index].health = 0
   wagon.statusAdjuster()
   wagon.resourceChecker()
@@ -548,11 +548,44 @@ $(document).ready(function () {
   });
 
   $("#characterBTN").click(function () {
-    var playerOneName = $("#char1").val()
-    var playerTwoName = $("#char2").val()
-    var playerThreeName = $("#char3").val()
-    var playerFourName = $("#char4").val()
-    var professionValue = $("input:radio[name=team]:checked").val()
+
+    var playerOneName; // Declare the variable outside the conditions
+
+    // Checking the selected radio button
+    if ($("#client").is(":checked")) {
+      playerOneName = $("#char1").val()
+      playerTwoName = $("#char2").val()
+      playerThreeName = $("#char3").val()
+      playerFourName = $("#char4").val()
+    } else if ($("#creative").is(":checked")) {
+      playerOneName = $("#char5").val()
+      playerTwoName = $("#char6").val()
+      playerThreeName = $("#char7").val()
+      playerFourName = $("#char8").val()
+    } else if ($("#operations").is(":checked")) {
+      playerOneName = $("#char9").val()
+      playerTwoName = $("#char10").val()
+      playerThreeName = $("#char11").val()
+      playerFourName = $("#char12").val()
+    } else if ($("#strategy").is(":checked")) {
+      playerOneName = $("#char13").val()
+      playerTwoName = $("#char14").val()
+      playerThreeName = $("#char15").val()
+      playerFourName = $("#char16").val()
+    } else if ($("#web").is(":checked")) {
+      playerOneName = $("#char17").val()
+      playerTwoName = $("#char18").val()
+      playerThreeName = $("#char19").val()
+      playerFourName = $("#char20").val()
+    } else if ($("#intern").is(":checked")) {
+      playerOneName = $("#char21").val()
+      playerTwoName = $("#char22").val()
+      playerThreeName = $("#char23").val()
+      playerFourName = $("#char24").val()
+    }
+
+
+    var professionValue = $("input:radio[name=team]:checked").val("")
 
     validateNames(professionValue, playerOneName, playerTwoName, playerThreeName, playerFourName)
     char1 = new Character(playerOneName)
@@ -594,13 +627,33 @@ $(document).ready(function () {
       $("#char2").val(names[1]);
       $("#char3").val(names[2]);
       $("#char4").val(names[3]);
+      $("#char5").val(names[0]);
+      $("#char6").val(names[1]);
+      $("#char7").val(names[2]);
+      $("#char8").val(names[3]);
+      $("#char9").val(names[0]);
+      $("#char10").val(names[1]);
+      $("#char11").val(names[2]);
+      $("#char12").val(names[3]);
+      $("#char13").val(names[0]);
+      $("#char14").val(names[1]);
+      $("#char15").val(names[2]);
+      $("#char16").val(names[3]);
+      $("#char17").val(names[0]);
+      $("#char18").val(names[1]);
+      $("#char19").val(names[2]);
+      $("#char20").val(names[3]);
+      $("#char21").val(names[0]);
+      $("#char22").val(names[1]);
+      $("#char23").val(names[2]);
+      $("#char24").val(names[3]);
     }
 
     // Event listener for radio button change
     $('input[type="radio"]').on('change', function () {
       if ($(this).attr('id') === 'client') {
         // When radio button with id is selected, change player names
-        const playerNames = ["Alex", "Jen", "Judd", "Kelly"];
+        const playerNames = ["Alex", "Jen", "Joe Judd", "Kelly"];
         updatePlayerNames(playerNames);
         $("#client-images").css("display", "grid");
         $("#creative-images").css("display", "none");
@@ -664,11 +717,7 @@ $(document).ready(function () {
         $("#strategy-images").css("display", "none");
         $("#web-images").css("display", "none");
         $("#intern-images").css("display", "grid");
-      } else {
-        // When any other radio button is selected, clear the player names
-        updatePlayerNames(["", "", "", ""]);
-        $("#grid-container").css("display", "none");
-      }
+      } 
     });
   });
 
@@ -842,28 +891,6 @@ $(document).ready(function () {
 
   });
 
-  $(document).ready(function () {
-    $('#nameDropdown1').change(function () {
-      var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png"; // Assuming your image filenames are like "Joe.png", "Teresa.png", etc.
-      $('#image1').attr('src', imageSrc);
-    });
-    $('#nameDropdown2').change(function () {
-      var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png";
-      $('#image2').attr('src', imageSrc);
-    });
-    $('#nameDropdown3').change(function () {
-      var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png";
-      $('#image3').attr('src', imageSrc);
-    });
-    $('#nameDropdown4').change(function () {
-      var selectedValue = $(this).val();
-      var imageSrc = "../img/" + selectedValue + ".png";
-      $('#image4').attr('src', imageSrc);
-    });
-  });
 
   const teamArray = [
     { team: "creative", name: "Anne" },
@@ -872,7 +899,7 @@ $(document).ready(function () {
     { team: "creative", name: "Chad" },
     { team: "creative", name: "Evan" },
     { team: "creative", name: "Grace" },
-    { team: "creative", name: "Black" },
+    { team: "creative", name: "Joe Black" },
     { team: "creative", name: "Jonathan" },
     { team: "creative", name: "Konah" },
     { team: "creative", name: "Monika" },
@@ -881,7 +908,7 @@ $(document).ready(function () {
     { team: "creative", name: "Shelby" },
     { team: "client", name: "Alex" },
     { team: "client", name: "Jen" },
-    { team: "client", name: "Judd" },
+    { team: "client", name: "Joe Judd" },
     { team: "client", name: "Kelly" },
     { team: "client", name: "Kiersten" },
     { team: "client", name: "Melissa" },
@@ -913,71 +940,73 @@ $(document).ready(function () {
 
   const radioButtons = document.querySelectorAll("input[name=team]");
   const dropdowns = [
-    document.getElementById("char1"),
-    document.getElementById("char2"),
-    document.getElementById("char3"),
-    document.getElementById("char4")
+    document.getElementById('char1'),
+    document.getElementById('char2'),
+    document.getElementById('char3'),
+    document.getElementById('char4'),
+    document.getElementById('char5'),
+    document.getElementById('char6'),
+    document.getElementById('char7'),
+    document.getElementById('char8'),
+    document.getElementById('char9'),
+    document.getElementById('char10'),
+    document.getElementById('char11'),
+    document.getElementById('char12'),
+    document.getElementById('char13'),
+    document.getElementById('char14'),
+    document.getElementById('char15'),
+    document.getElementById('char16'),
+    document.getElementById('char17'),
+    document.getElementById('char18'),
+    document.getElementById('char19'),
+    document.getElementById('char20'),
+    document.getElementById('char21'),
+    document.getElementById('char22'),
+    document.getElementById('char23'),
+    document.getElementById('char24')
+
   ];
 
   radioButtons.forEach(radioButton => {
     radioButton.addEventListener("change", () => {
+      // The event listener triggers when a radio button is changed/selected.
+
       const selectedTeam = radioButton.value;
+      // Get the value of the selected radio button, presumably representing a team.
+
       const teamNames = teamArray.filter(item => item.team === selectedTeam).map(item => item.name);
+      // Filter the `teamArray` to get an array of `name` values corresponding to the selected team.
 
       dropdowns.forEach((dropdown, index) => {
-        // Clear previous options
-        dropdown.innerHTML = "";
+        // Loop through each dropdown menu and execute the following actions.
 
-        // Populate dropdown with options
+        dropdown.innerHTML = "";
+        // Clear previous options in the dropdown.
+
         teamNames.forEach(name => {
           const option = document.createElement("option");
           option.value = name;
           option.textContent = name;
           dropdown.appendChild(option);
         });
+        // Populate the dropdown with options based on the `teamNames` array.
 
-        // Set default value for dropdowns
         if (teamNames.length >= index + 1) {
           dropdown.value = teamNames[index];
         } else {
           dropdown.value = ""; // No default value if there are fewer names than dropdowns
         }
+        // Set the value of the dropdown to the corresponding value from `teamNames`.
+        // If there are fewer names than dropdowns, the dropdown value will be cleared.
       });
     });
   });
-
-
-  // const movingImage = document.getElementById('wagon-images');
-  // const moveButton = document.getElementById('continue-button');
-
-  // moveButton.addEventListener('click', () => {
-  //   // Get the current left position of the image
-  //   let currentLeft = parseFloat(getComputedStyle(movingImage).left);
-
-  //   // Move the image 2 pixels to the right
-  //   let newLeft = currentLeft + 20;
-  //   movingImage.style.left = newLeft + 'px';
-  // });
-
-
-
-
-  const nameInput1 = document.getElementById('char1');
-  const nameInput2 = document.getElementById('char2');
-  const nameInput3 = document.getElementById('char3');
-  const nameInput4 = document.getElementById('char4');
-
-
-  const image1 = document.getElementById('image1');
-  const image2 = document.getElementById('image2');
-  const image3 = document.getElementById('image3');
-  const image4 = document.getElementById('image4');
 
   // Create an array of name-image pairs
   const nameImageArray = [
     { name: 'alex', src: 'img/Alex.png' },
     { name: 'jen', src: 'img/Jen.png' },
-    { name: 'judd', src: 'img/Joe Judd.png' },
+    { name: 'joe judd', src: 'img/Joe Judd.png' },
     { name: 'kelly', src: 'img/Kelly.png' },
     { name: 'kiersten', src: 'img/Kiersten.png' },
     { name: 'melissa', src: 'img/Melissa.png' },
@@ -989,7 +1018,7 @@ $(document).ready(function () {
     { name: 'chad', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Chad-350x450.jpg' },
     { name: 'evan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Evan-350x450.jpg' },
     { name: 'grace', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Grace-350x450.jpg' },
-    { name: 'joe b', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-JoeBlack-350x450.jpg' },
+    { name: 'joe black', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-JoeBlack-350x450.jpg' },
     { name: 'jonathan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jonathan-350x450.jpg' },
     { name: 'konah', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Konah-350x450.jpg' },
     { name: 'monika', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Monika-350x450.jpg' },
@@ -1015,63 +1044,130 @@ $(document).ready(function () {
     { name: 'ashlynn', src: 'https://placehold.co/350x450' },
     { name: 'daniel', src: 'https://placehold.co/350x450' },
     { name: 'teresa', src: 'https://placehold.co/350x450' },
-    { name: 'jawon', src: 'https://placehold.co/350x450' },
+    { name: 'jawon', src: 'https://placehold.co/350x450' }
     // Add more name-image pairs as needed
   ];
 
+  const nameInputs = [
+    document.getElementById('char1'),
+    document.getElementById('char2'),
+    document.getElementById('char3'),
+    document.getElementById('char4'),
+    document.getElementById('char5'),
+    document.getElementById('char6'),
+    document.getElementById('char7'),
+    document.getElementById('char8'),
+    document.getElementById('char9'),
+    document.getElementById('char10'),
+    document.getElementById('char11'),
+    document.getElementById('char12'),
+    document.getElementById('char13'),
+    document.getElementById('char14'),
+    document.getElementById('char15'),
+    document.getElementById('char16'),
+    document.getElementById('char17'),
+    document.getElementById('char18'),
+    document.getElementById('char19'),
+    document.getElementById('char20'),
+    document.getElementById('char21'),
+    document.getElementById('char22'),
+    document.getElementById('char23'),
+    document.getElementById('char24')
+  ];
 
+  const images = [
+    document.getElementById('image1'),
+    document.getElementById('image2'),
+    document.getElementById('image3'),
+    document.getElementById('image4'),
+    document.getElementById('image5'),
+    document.getElementById('image6'),
+    document.getElementById('image7'),
+    document.getElementById('image8'),
+    document.getElementById('image9'),
+    document.getElementById('image10'),
+    document.getElementById('image11'),
+    document.getElementById('image12'),
+    document.getElementById('image13'),
+    document.getElementById('image14'),
+    document.getElementById('image15'),
+    document.getElementById('image16'),
+    document.getElementById('image17'),
+    document.getElementById('image18'),
+    document.getElementById('image19'),
+    document.getElementById('image20'),
+    document.getElementById('image21'),
+    document.getElementById('image22'),
+    document.getElementById('image23'),
+    document.getElementById('image24')
+  ];
 
-  nameInput1.addEventListener('input', function () {
-    const inputValue1 = nameInput1.value.toLowerCase();
+  nameInputs.forEach((nameInput, index) => {
+    nameInput.addEventListener('input', function () {
+      const inputValue = nameInput.value.toLowerCase();
+      const matchedPair = nameImageArray.find(pair => pair.name === inputValue);
 
-    // Find the corresponding image source in the array
-    const matchedPair1 = nameImageArray.find(pair => pair.name === inputValue1);
-
-    if (matchedPair1) {
-      image1.src = matchedPair1.src;
-      console.log("Test1")
-    } else {
-      image1.src = 'https://placehold.co/350x450';
-    }
+      if (matchedPair) {
+        images[index].src = matchedPair.src;
+        console.log(`Test${index + 1}`);
+      } else {
+        images[index].src = 'https://placehold.co/350x450';
+      }
+    });
   });
 
-  nameInput2.addEventListener('input', function () {
-    const inputValue2 = nameInput2.value.toLowerCase();
-    // Find the corresponding image source in the array
-    const matchedPair2 = nameImageArray.find(pair => pair.name === inputValue2);
+  $(document).ready(function () {
+    $('input[name="team"]').on('click', function () {
+      var selectedParty = $(this).val();
 
-    if (matchedPair2) {
-      image2.src = matchedPair2.src;
-      console.log("Test2")
-    } else {
-      image2.src = 'https://placehold.co/350x450';
-    }
-  });
+      if (selectedParty === "client") {
+        $('#client-dropdown').css('display', 'block');
+        $('#client-images').css('display', 'grid');
+      } else {
+        $('#client-dropdown').css('display', 'none');
+        $('#client-images').css('display', 'none');
+      }
 
-  nameInput3.addEventListener('input', function () {
-    const inputValue3 = nameInput3.value.toLowerCase();
-    // Find the corresponding image source in the array
-    const matchedPair3 = nameImageArray.find(pair => pair.name === inputValue3);
+      if (selectedParty === "creative") {
+        $('#creative-dropdown').css('display', 'block');
+        $('#creative-images').css('display', 'grid');
+      } else {
+        $('#creative-dropdown').css('display', 'none');
+        $('#creative-images').css('display', 'none');
+      }
 
-    if (matchedPair3) {
-      image3.src = matchedPair3.src;
-      console.log("Test3")
-    } else {
-      image3.src = 'https://placehold.co/350x450';
-    }
-  });
+      if (selectedParty === "operations") {
+        $('#operations-dropdown').css('display', 'block');
+        $('#operations-images').css('display', 'grid');
+      } else {
+        $('#operations-dropdown').css('display', 'none');
+        $('#operations-images').css('display', 'none');
+      }
 
-  nameInput4.addEventListener('input', function () {
-    const inputValue4 = nameInput4.value.toLowerCase();
-    // Find the corresponding image source in the array
-    const matchedPair4 = nameImageArray.find(pair => pair.name === inputValue4);
+      if (selectedParty === "strategy") {
+        $('#strategy-dropdown').css('display', 'block');
+        $('#strategy-images').css('display', 'grid');
+      } else {
+        $('#strategy-dropdown').css('display', 'none');
+        $('#strategy-images').css('display', 'none');
+      }
 
-    if (matchedPair4) {
-      image4.src = matchedPair4.src;
-      console.log("Test4")
-    } else {
-      image4.src = 'https://placehold.co/350x450';
-    }
+      if (selectedParty === "web") {
+        $('#web-dropdown').css('display', 'block');
+        $('#web-images').css('display', 'grid');
+      } else {
+        $('#web-dropdown').css('display', 'none');
+        $('#web-images').css('display', 'none');
+      }
+
+      if (selectedParty === "interns") {
+        $('#intern-dropdown').css('display', 'block');
+        $('#intern-images').css('display', 'grid');
+      } else {
+        $('#intern-dropdown').css('display', 'none');
+        $('#intern-images').css('display', 'none');
+      }
+    });
   });
 
 });

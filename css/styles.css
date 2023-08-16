@@ -39,6 +39,10 @@ body {
   z-index: 1;
 }
 
+#client-dropdown, #creative-dropdown, #operations-dropdown, #strategy-dropdown, #web-dropdown, #intern-dropdown {
+  display: none;
+}
+
 .grid-item {
   display: flex;
   flex-direction: column;
