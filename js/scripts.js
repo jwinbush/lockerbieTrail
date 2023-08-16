@@ -577,7 +577,7 @@ $(document).ready(function () {
       playerTwoName = $("#char18").val()
       playerThreeName = $("#char19").val()
       playerFourName = $("#char20").val()
-    } else if ($("#intern").is(":checked")) {
+    } else if ($("#interns").is(":checked")) {
       playerOneName = $("#char21").val()
       playerTwoName = $("#char22").val()
       playerThreeName = $("#char23").val()
