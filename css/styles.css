@@ -890,6 +890,9 @@ p.ongoing-events {
   border-radius: 10px;
 }
 
+img#closeProfile {
+  width: 150px;
+}
 
 
 .letter-modal-1, .letter-modal-2, .letter-modal-3 {

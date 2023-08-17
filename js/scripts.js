@@ -814,21 +814,6 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
-    // When the "Open Map" button is clicked
-    $('#map').on('click', function () {
-      // Show the map modal
-      $('#mapModal').show();
-    });
-
-    // When the "Close" button inside the map modal is clicked
-    $('#closeMap').on('click', function () {
-      // Hide the map modal
-      $('#mapModal').hide();
-    });
-  });
-
-
-  $(document).ready(function () {
     let currentLetter = 0; // Initialize to 0, as array indices start from 0
     const numLetters = $(".letters > div").length;
 
@@ -988,6 +973,19 @@ $(document).ready(function () {
     });
   });
 
+  $('.profile-image').click(function() {
+    var imgSrc = $(this).attr('src');
+    var name = $(this).data('name');
+
+    var matchingProfile = nameImageArray.find(function(item) {
+        return item.src === imgSrc;
+    });
+
+    if (matchingProfile) {
+        $(this).attr('src', matchingProfile.profile);
+    }
+});
+
   // Create an array of name-image pairs
   const nameImageArray = [
     { name: 'alex w.', src: 'img/Alex W..png', profile: 'img/profiles-Jody.png' },
@@ -1087,6 +1085,28 @@ $(document).ready(function () {
     document.getElementById('image23'),
     document.getElementById('image24')
   ];
+
+  const profileImageElement = document.getElementById('profileImage');
+const profileModalElement = document.getElementById('profileModal');
+const closeProfileButton = document.getElementById('closeProfile');
+
+// Loop through each image element and attach the click event
+images.forEach(imageElement => {
+  imageElement.addEventListener('click', function() {
+    // Find the corresponding profile image URL
+    const clickedImageSrc = imageElement.getAttribute('src');
+    const matchedProfile = nameImageArray.find(item => item.src === clickedImageSrc);
+
+    if (matchedProfile) {
+      profileImageElement.setAttribute('src', matchedProfile.profile);
+      profileModalElement.style.display = 'block'; // Show the profile modal
+    }
+  });
+});
+
+closeProfileButton.addEventListener('click', function() {
+  profileModalElement.style.display = 'none'; // Hide the profile modal
+});
 
   nameInputs.forEach((nameInput, index) => {
     nameInput.addEventListener('input', function () {
