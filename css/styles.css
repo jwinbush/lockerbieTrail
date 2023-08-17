@@ -1085,8 +1085,18 @@ img#closeProfile {
   width: 100%;
   top: 50%;
   transform: translate(-50%, -50%);
-
 }
+
+/* Media query for smaller screens */
+/* @media (max-width: 1200px) {
+    .letters img {
+        max-width: 90%; 
+    }
+
+    .letter {
+        font-size: 0%; 
+    }
+}  */
 
 .modal-child img {
   width: 50%;
@@ -1109,7 +1119,7 @@ img#closeProfile {
   position: relative;
 }
 
-#team .tooltiptext {
+#team .tooltiptext, #continue-button .tooltiptext,  #hunt-button .tooltiptext,  #rest-button .tooltiptext {
   visibility: hidden;
   width: 230px;
   background-color: #ffffff;
