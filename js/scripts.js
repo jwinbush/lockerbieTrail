@@ -49,7 +49,7 @@ class Character {
 class Wagon {
   constructor() {
     // Properties for the wagon and inventory
-    this.food = 300;
+    this.food = 200;
     this.gas = 40;
     this.days = 0;
     this.characters = [];
@@ -432,9 +432,7 @@ function crossRiver() {
       wagon.days += 1
     }
   } else {
-    buildModal("bridgeWin");
     $(".ongoing-events").prepend("Your truck successfully crossed the College Ave bridge! <br><br><br>")
-    $("#myModal").toggle();
     wagon.days += 1
     wagon.food -= (wagon.characters.length * 5)
   }
@@ -578,6 +576,7 @@ $(document).ready(function () {
       playerThreeName = $("#char19").val()
       playerFourName = $("#char20").val()
     } else if ($("#interns").is(":checked")) {
+      $('#charNameInput').show()
       playerOneName = $("#char21").val()
       playerTwoName = $("#char22").val()
       playerThreeName = $("#char23").val()
@@ -653,7 +652,7 @@ $(document).ready(function () {
     $('input[type="radio"]').on('change', function () {
       if ($(this).attr('id') === 'client') {
         // When radio button with id is selected, change player names
-        const playerNames = ["Alex", "Jen", "Joe Judd", "Kelly"];
+        const playerNames = ["Alex W.", "Jen", "Joe J.", "Kelly"];
         updatePlayerNames(playerNames);
         $("#client-images").css("display", "grid");
         $("#creative-images").css("display", "none");
@@ -675,7 +674,7 @@ $(document).ready(function () {
 
       } else if ($(this).attr('id') === 'operations') {
         // When radio button with id is selected, change player names
-        const playerNames = ["Alex", "Jody", "Mary", "Lisa"];
+        const playerNames = ["Alex S.", "Jody", "Mary", "Lisa"];
         updatePlayerNames(playerNames);
         $("#client-images").css("display", "none");
         $("#creative-images").css("display", "none");
@@ -708,7 +707,7 @@ $(document).ready(function () {
 
       } else if ($(this).attr('id') === 'interns') {
         // When radio button with id is selected, change player names
-        const playerNames = ["Ashlynn", "Daniel", "Teresa", "Jawon"];
+        const playerNames = ["Ashlynn", "Daniel", "Jawon", "Teresa"];
         updatePlayerNames(playerNames);
 
         $("#client-images").css("display", "none");
@@ -899,22 +898,22 @@ $(document).ready(function () {
     { team: "creative", name: "Chad" },
     { team: "creative", name: "Evan" },
     { team: "creative", name: "Grace" },
-    { team: "creative", name: "Joe Black" },
+    { team: "creative", name: "Joe B." },
     { team: "creative", name: "Jonathan" },
     { team: "creative", name: "Konah" },
     { team: "creative", name: "Monika" },
     { team: "creative", name: "Nicholas" },
     { team: "creative", name: "Rob" },
     { team: "creative", name: "Shelby" },
-    { team: "client", name: "Alex" },
+    { team: "client", name: "Alex W." },
     { team: "client", name: "Jen" },
-    { team: "client", name: "Joe Judd" },
+    { team: "client", name: "Joe J." },
     { team: "client", name: "Kelly" },
     { team: "client", name: "Kiersten" },
     { team: "client", name: "Melissa" },
     { team: "client", name: "Michaela" },
     { team: "client", name: "Natalie" },
-    { team: "operations", name: "Alex" },
+    { team: "operations", name: "Alex S." },
     { team: "operations", name: "Jody" },
     { team: "operations", name: "Mary" },
     { team: "operations", name: "Lisa" },
@@ -931,8 +930,8 @@ $(document).ready(function () {
     { team: 'web', name: 'Nate' },
     { team: 'interns', name: 'Ashlynn' },
     { team: 'interns', name: 'Daniel' },
-    { team: 'interns', name: 'Teresa' },
-    { team: 'interns', name: 'Jawon' }
+    { team: 'interns', name: 'Jawon' },
+    { team: 'interns', name: 'Teresa' }
 
 
   ];
@@ -1004,47 +1003,47 @@ $(document).ready(function () {
 
   // Create an array of name-image pairs
   const nameImageArray = [
-    { name: 'alex', src: 'img/Alex.png' },
-    { name: 'jen', src: 'img/Jen.png' },
-    { name: 'joe judd', src: 'img/Joe Judd.png' },
-    { name: 'kelly', src: 'img/Kelly.png' },
-    { name: 'kiersten', src: 'img/Kiersten.png' },
-    { name: 'melissa', src: 'img/Melissa.png' },
-    { name: 'michaela', src: 'img/Michaela.png' },
-    { name: 'natalie', src: 'img/Natalie.png' },
-    { name: 'anne', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Anne-350x450.jpg' },
-    { name: 'carlee', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Carlee-350x450.jpg' },
-    { name: 'von', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Von-350x450.jpg' },
-    { name: 'chad', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Chad-350x450.jpg' },
-    { name: 'evan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Evan-350x450.jpg' },
-    { name: 'grace', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Grace-350x450.jpg' },
-    { name: 'joe black', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-JoeBlack-350x450.jpg' },
-    { name: 'jonathan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jonathan-350x450.jpg' },
-    { name: 'konah', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Konah-350x450.jpg' },
-    { name: 'monika', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Monika-350x450.jpg' },
-    { name: 'nicholas', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nicholas-350x450.jpg' },
-    { name: 'nick', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nick-350x450.jpg' },
-    { name: 'rob', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rob-350x450.jpg' },
-    { name: 'shelby', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Shelby-350x450.jpg' },
-    { name: 'alex w', src: 'https://placehold.co/350x450' },
-    { name: 'jody', src: 'img/Jody.png' },
-    { name: 'mary', src: 'https://placehold.co/350x450' },
-    { name: 'lisa', src: 'img/Lisa.png' },
-    { name: 'joel', src: 'img/Joel.png' },
-    { name: 'mandy', src: 'img/Mandy.png' },
-    { name: 'marissa', src: 'img/Marissa.png' },
-    { name: 'rachel', src: 'img/Rachel.png' },
-    { name: 'rebecca', src: 'img/Rebecca.png' },
-    { name: 'zarrien', src: 'img/Zarrien.png' },
-    { name: 'brian', src: 'img/Brian.png' },
-    { name: 'eric', src: 'img/Eric.png' },
-    { name: 'josh', src: 'img/Josh.png' },
-    { name: 'kim', src: 'img/Kim.png' },
-    { name: 'nate', src: 'img/Nate.png' },
-    { name: 'ashlynn', src: 'https://placehold.co/350x450' },
-    { name: 'daniel', src: 'https://placehold.co/350x450' },
-    { name: 'teresa', src: 'https://placehold.co/350x450' },
-    { name: 'jawon', src: 'https://placehold.co/350x450' }
+    { name: 'alex w.', src: 'img/Alex W..png', profile: 'img/profiles-Jody.png' },
+    { name: 'jen', src: 'img/Jen.png', profile: 'img/profiles-Jody.png' },
+    { name: 'joe j.', src: 'img/Joe J..png', profile: 'img/profiles-Jody.png' },
+    { name: 'kelly', src: 'img/Kelly.png', profile: 'img/profiles-Jody.png' },
+    { name: 'kiersten', src: 'img/Kiersten.png', profile: 'img/profiles-Jody.png' },
+    { name: 'melissa', src: 'img/Melissa.png', profile: 'img/profiles-Jody.png' },
+    { name: 'michaela', src: 'img/Michaela.png', profile: 'img/profiles-Jody.png' },
+    { name: 'natalie', src: 'img/Natalie.png', profile: 'img/profiles-Jody.png' },
+    { name: 'anne', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Anne-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'carlee', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Carlee-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'von', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Von-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'chad', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Chad-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'evan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Evan-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'grace', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Grace-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'joe b.', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-JoeBlack-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'jonathan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jonathan-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'konah', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Konah-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'monika', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Monika-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'nicholas', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nicholas-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'nick', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nick-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'rob', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rob-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'shelby', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-ShelbyNovitski-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'alex s.', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
+    { name: 'jody', src: 'img/Jody.png', profile: 'img/profiles-Jody.png' },
+    { name: 'mary', src: 'https://placehold.co/250x250' },
+    { name: 'lisa', src: 'img/Lisa.png', profile: 'img/profiles-Jody.png' },
+    { name: 'joel', src: 'img/Joel.png', profile: 'img/profiles-Jody.png' },
+    { name: 'mandy', src: 'img/Mandy.png', profile: 'img/profiles-Jody.png' },
+    { name: 'marissa', src: 'img/Marissa.png', profile: 'img/profiles-Jody.png' },
+    { name: 'rachel', src: 'img/Rachel.png', profile: 'img/profiles-Jody.png' },
+    { name: 'rebecca', src: 'img/Rebecca.png', profile: 'img/profiles-Jody.png' },
+    { name: 'zarrien', src: 'img/Zarrien.png', profile: 'img/profiles-Jody.png' },
+    { name: 'brian', src: 'img/Brian.png', profile: 'img/profiles-Jody.png' },
+    { name: 'eric', src: 'img/Eric.png', profile: 'img/profiles-Jody.png' },
+    { name: 'josh', src: 'img/Josh.png', profile: 'img/profiles-Jody.png' },
+    { name: 'kim', src: 'img/Kim.png', profile: 'img/profiles-Jody.png' },
+    { name: 'nate', src: 'img/Nate.png', profile: 'img/profiles-Jody.png' },
+    { name: 'ashlynn', src: 'img/Ashlynn.png', profile: 'img/profiles-Jody.png' },
+    { name: 'daniel', src: 'img/Daniel.png', profile: 'img/profiles-Jody.png' },
+    { name: 'jawon', src: 'img/Jawon.png', profile: 'img/profiles-Jody.png' },
+    { name: 'teresa', src: 'img/Teresa.png', profile: 'img/profiles-Jody.png' }
     // Add more name-image pairs as needed
   ];
 
@@ -1111,7 +1110,7 @@ $(document).ready(function () {
         images[index].src = matchedPair.src;
         console.log(`Test${index + 1}`);
       } else {
-        images[index].src = 'https://placehold.co/350x450';
+        images[index].src = 'https://placehold.co/250x250';
       }
     });
   });
@@ -1169,6 +1168,14 @@ $(document).ready(function () {
       }
     });
   });
+
+  $('input[name="team"]').on('change', function() {
+    if ($(this).is(':checked')) {
+        $('#charNameInput p').show();
+    } else {
+        $('#charNameInput p').hide();
+    }
+});
 
 });
 

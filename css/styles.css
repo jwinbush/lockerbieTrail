@@ -587,6 +587,10 @@ img {
   margin-bottom: 1rem;
 }
 
+#charNameInput p {
+display: none;
+}
+
 #characterInput .col-md-12 {
   text-align: left;
   margin-top: 20px;
