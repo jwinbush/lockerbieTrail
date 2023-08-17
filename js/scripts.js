@@ -444,7 +444,7 @@ function friend() {
   if (num > 50) {
     $(".ongoing-events").prepend("Riley respects the way " + wagon.characters[index].name + " rhymed \"swimmin' hole\" with \"brimmin' bowl.\" He fist-bumps you on your way into the building. <br><br><br>");
   } else {
-    $(".ongoing-events").prepend("Your rhyming skills were far too weak Riley's nine little goblins (oh, did we not mention he has nine little goblins?) They tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>");
+    $(".ongoing-events").prepend("Your rhyming skills were far too weak. Riley's nine little goblins (oh, did we not mention he has nine little goblins?) They tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>");
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
   }
@@ -823,7 +823,7 @@ $(document).ready(function () {
     }
 
     // Event listener for the click event on the .letters div
-    $(".letter-button-arrow").on("click", function () {
+    $("#startBTN").on("click", function () {
       currentLetter = 1; // Reset currentLetter to 0 when .letters is clicked
       showNextLetter();
       $(".skipButtonOne").show();
@@ -865,6 +865,7 @@ $(document).ready(function () {
     { team: "creative", name: "Carlee" },
     { team: "creative", name: "Von" },
     { team: "creative", name: "Chad" },
+    { team: "creative", name: "Chris" },
     { team: "creative", name: "Evan" },
     { team: "creative", name: "Grace" },
     { team: "creative", name: "Macey" },

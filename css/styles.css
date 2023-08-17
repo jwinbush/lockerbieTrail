@@ -117,7 +117,7 @@ span {
 .ending-letter-content {
   font-size: 20px;
   line-height: 35px;
-  padding-top: 100px;
+  padding-top: 60px;
 }
 .letter-signature, .ending-letter-signature {
   margin-top: 30px;
@@ -238,6 +238,8 @@ span {
 
 input[type="radio"] {
   accent-color: rgb(255, 60, 0);
+  cursor: pointer;
+
 }
 
 #wagon-images {
@@ -405,7 +407,6 @@ input[type="radio"] {
 
   }
 }
-
 .icon-wagon {
   width: 300px;
   height: 200px;
@@ -415,10 +416,25 @@ input[type="radio"] {
   z-index: 15;
   background-image: url(../img/NewTruck.gif);
   background-size: cover;
-  animation: wagonwheel 40s linear 0s infinite reverse;
-  -moz-animation: 40s linear 0s reverse none infinite wagonwheel;
-  -webkit-animation: wagonwheel 40s linear 0s infinite reverse;
+  animation: wagonwheel 40s linear 0s infinite; /* Remove 'alternate' for forward animation only */
+  -moz-animation: wagonwheel 40s linear 0s infinite;
+  -webkit-animation: wagonwheel 40s linear 0s infinite;
+
+  /* Add these lines for animation */
+  animation-fill-mode: both;
 }
+
+@keyframes wagonwheel {
+  0%, 100% {
+    transform: translateX(0); /* Start and end positions */
+  }
+  50% {
+    transform: translateX(50px); /* Highest forward translation */
+  }
+}
+
+/* Add similar @-moz-keyframes and @-webkit-keyframes definitions if needed */
+
 
 .skipButtonOne, .skipButtonTwo, .skipButtonThree {
   display: none;
@@ -502,7 +518,7 @@ div#status-panel {
 
 
 /* Safari 4.0 - 8.0 */
-@-webkit-keyframes wagonwheel {
+/* @-webkit-keyframes wagonwheel {
   0% {
     right: 5%;
   }
@@ -516,7 +532,6 @@ div#status-panel {
   }
 }
 
-/* Standard syntax */
 @keyframes wagonwheel {
   0% {
     right: 5%;
@@ -529,7 +544,7 @@ div#status-panel {
   100% {
     right: 5%;
   }
-}
+} */
 
 .main-title {
   position: absolute;
@@ -914,7 +929,7 @@ img#closeProfile {
   /* Full width */
   height: 100%;
   /* Full height */
-  background-image: url(../img/goodbye-background.png);
+  background-image: url(../img/Goodbye.png);
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
@@ -972,7 +987,7 @@ img#closeProfile {
   top: 0;
   overflow: auto;
   /* Enable scroll if needed */
-  background-image: url(../img/goodbye-background.png);
+  background-image: url(../img/Goodbye.png);
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
@@ -1119,23 +1134,6 @@ img#closeProfile {
   position: relative;
 }
 
-#team .tooltiptext, #continue-button .tooltiptext,  #hunt-button .tooltiptext,  #rest-button .tooltiptext {
-  visibility: hidden;
-  width: 230px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px #9c9c9c;
-  color: #000;
-  text-align: left;
-  border-radius: 10px 10px 10px 10px;
-  padding: 16px;
-  right: inherit;
-  margin-top: 20px;
-  position: absolute;
-  z-index: 10;
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin-left: 5px;
-}
 
 #map .tooltiptext,
 #sacrifice-button .tooltiptext {
@@ -1154,39 +1152,6 @@ img#closeProfile {
   z-index: 10;
   font-weight: 300;
   letter-spacing: 1px;
-}
-
-#radio1:hover .tooltiptext {
-  visibility: visible;
-}
-
-#radio2:hover .tooltiptext {
-  visibility: visible;
-}
-
-#radio3:hover .tooltiptext {
-  visibility: visible;
-}
-
-#radio4:hover .tooltiptext {
-  visibility: visible;
-}
-
-#radio5:hover .tooltiptext {
-  visibility: visible;
-}
-
-#radio6:hover .tooltiptext {
-  visibility: visible;
-}
-
-#map:hover .tooltiptext {
-  visibility: visible;
-}
-
-
-#sacrifice-button:hover .tooltiptext {
-  visibility: visible;
 }
 
 #supplies {
