@@ -121,6 +121,7 @@ span {
   top: 21px;
   display: none;
 }
+
 /* .wagon-select-screen {
   margin-top: 100px;
 } */
@@ -565,11 +566,28 @@ img {
   max-width: 100%;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons .button {
+  width: 180px;
+  padding: 0px 10px;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
 #characterBTN {
   margin-top: 23px;
   width: 108px;
   cursor: pointer;
   transition: all 1s ease;
+  display: none;
 
 }
 
@@ -588,7 +606,7 @@ img {
 }
 
 #charNameInput p {
-display: none;
+  display: none;
 }
 
 #characterInput .col-md-12 {
@@ -1058,12 +1076,12 @@ p.ongoing-events {
   border-radius: 10px 10px 10px 10px;
   padding: 16px;
   right: inherit;
-  /* margin-right: 0px; */
-  margin-top: 2px;
+  margin-top: 20px;
   position: absolute;
   z-index: 10;
   font-weight: 300;
   letter-spacing: 1px;
+  margin-left: 5px;
 }
 
 #map .tooltiptext,
@@ -1172,19 +1190,45 @@ p.ongoing-events {
 }
 
 @-webkit-keyframes AnimationName {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
+
 @-moz-keyframes AnimationName {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
+
 @keyframes AnimationName {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 #progress-title {
@@ -1219,10 +1263,10 @@ div#progressbar {
 
 #progress-old-building {
   position: absolute;
-    width: 45px;
-    z-index: 1;
-    right: 35px;
-    top: 290px;
+  width: 45px;
+  z-index: 1;
+  right: 35px;
+  top: 290px;
 }
 
 .ui-widget.ui-widget-content {
