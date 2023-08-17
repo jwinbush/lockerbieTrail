@@ -57,6 +57,7 @@ body {
   border: 2px solid #b4b4b4;
   border-radius: 10px;
   background: #fafafa;
+  cursor: help;
 }
 
 .img-equal-size {
@@ -891,7 +892,7 @@ p.ongoing-events {
 }
 
 img#closeProfile {
-  width: 150px;
+    width: 150px;
 }
 
 

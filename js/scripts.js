@@ -183,8 +183,7 @@ class Wagon {
     if (this.hunted == 1) {
       var num = 1;
       document.getElementById('award-fire').play();
-      buildModal(num);
-      $(".ongoing-events").prepend("You have already hunted. You must continue to a new area to hunt further.<br><br><br>");
+      $(".ongoing-events").prepend("You have already bartered. You must continue to a new area. <br><br><br>");
     } else if (this.hunted == 0 && wagon.awards > 0) {
       this.food += hunt;
       this.awards -= 1;
@@ -195,9 +194,7 @@ class Wagon {
     }
 
     if (hunt === 0) {
-      buildModal("huntFail");
-      $(".ongoing-events").prepend("You came back empty handed. Your team resents you.<br><br><br>");
-      $("#myModal").toggle();
+      $(".ongoing-events").prepend("You came back empty handed. Your team resents you. <br><br><br>");
     }
 
     if (wagon.awards <= 0) {
@@ -361,8 +358,8 @@ function landmarkEvent() {
     $("#buttonModal").toggle();
   } else if (num === 17) {
     buildModal("Win");
-    $(".button-content").prepend("You win! Enjoy an ice cold limited edition Lacroix and start settling in.");
-    $("#buttonModal").toggle();
+    // $(".button-content").prepend("You win! Enjoy an ice cold limited edition Lacroix and start settling in.");
+    // $("#buttonModal").toggle();
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
     $("#ending-button").fadeIn(600);
