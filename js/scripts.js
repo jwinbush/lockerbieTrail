@@ -337,22 +337,22 @@ function landmarkEvent() {
   var num = wagon.distance
   if (num === 4) {
     buildLandmarkModal(num, "fixRamen", "leaveRamen", "Reassemble Ramen", "Leave it")
-    $(".button-content").prepend("During the move, you accidentally knock over The Great Wall of Ramen that’s piled precariously high in the moving van. You can either reassemble the ramen exactly the way it was, or leave it and face an art director's wrath… <br><br><br>")
+    $(".button-content").prepend("You accidentally knocked the agency's treasured ramen collection out of the moving van window. You can either go back and retrieve the ramen without telling anyone, or do nothing and risk the scorn of your peers.  <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 8) {
     buildModal("Idle");
-    $(".ongoing-events").prepend("Your party has reached the famous roadside attraction, Idle Park! Located where I-65 meets I-70, this is your new favorite place to watch the traffic go by. <br><br><br>")
+    $(".ongoing-events").prepend("Your party has reached your first stop! You venture on a mysterious path through the woods, ignoring the “danger” warning signs on each side. Eventually you reach a clearing: the famous Idle Park, overlooking I-65 and I-70. This is your favorite place to watch the traffic go by. <br><br><br>")
     $("#myModal").toggle();
     $("#gameMainScreen").hide();
     $("#landmarkStop1").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 12) {
     buildLandmarkModal(num, "crossRiver", "detourRiver", "Go Under Bridge", "Go Another Way")
-    $(".button-content").prepend("You have reached the College Ave bridge (Clearance Height 13’ 9”). The only question now is will you fit? You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip. <br><br><br>")
+    $(".button-content").prepend("You have reached the College Avenue bridge (Clearance Height 13’ 9”). You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip. <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 14) {
     buildModal("sunKing");
-    $(".ongoing-events").prepend("You’re pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost. This is a one-stop shop for all the beer and Mexican food your heart desires, just a five minute walk from the new building! <br><br><br>")
+    $(".ongoing-events").prepend("You’re pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost.  <br><br><br>")
     $("#myModal").toggle();
     wagon.food += 200;
     $("#gameMainScreen").hide();
@@ -375,9 +375,7 @@ function landmarkEvent() {
 //landmark 1 button events
 function leaveRamen() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  buildModal("ramenFail");
-  $(".ongoing-events").prepend("Uh oh, the ramen was placed in the wrong order. The art director  is now coming for you " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
-  $("#myModal").toggle();
+  $(".ongoing-events").prepend("Uh oh, you were seen knocking the ramen out the window. Ramen-mourning coworkers send " + wagon.characters[index].name + " home. <br><br><br>")
   wagon.characters[index].health = 0
   wagon.characters[index].status = "Unresponsive"
   wagon.resourceChecker()
@@ -388,16 +386,14 @@ function fixRamen() {
   var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
-    buildModal("ramenFail");
-    $(".ongoing-events").prepend("Uh oh, the ramen was placed in the wrong order. The art director  is now coming for you " + wagon.characters[index].name + " heads back to the old office to hide. <br><br><br>")
-    $("#myModal").toggle();
+    $(".ongoing-events").prepend("Uh oh, someone spotted your ramen misadventure. Vengeful coworkers send " + wagon.characters[index].name + " home. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
     for (i = 0; i < 4; i++) {
       wagon.days += 1
     }
   } else {
-    $(".ongoing-events").prepend("Congratulations! No one noticed. <br><br><br>")
+    $(".ongoing-events").prepend("Congratulations! No one even noticed the ramen went missing. <br><br><br>")
   }
   wagon.resourceChecker()
   wagon.statusAdjuster()
@@ -423,10 +419,8 @@ function crossRiver() {
   if (num > 50) {
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-    buildModal("bridgeFail");
     document.getElementById('car-braking').play();
-    $(".ongoing-events").prepend("The moving van got stuck under the bridge! While getting out to investigate what happened,  " + wagon.characters[index].name + " fell into a pothole. Their journey has ended. <br><br><br>")
-    $("#myModal").toggle();
+    $(".ongoing-events").prepend("The moving van got stuck under the bridge! While getting out to investigate what happened, " + wagon.characters[index].name + " gets hit by a southbound truck, which carries them all the way back to Fountain Square. <br><br><br>")
     for (i = 0; i < 4; i++) {
       wagon.statusAdjuster()
       wagon.days += 1
@@ -444,50 +438,48 @@ function crossRiver() {
 // landmark 3 button events
 function fight() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  $(".ongoing-events").prepend("Your rhyming skills were far too weak Riley's nine little goblins (oh, did we not mention he has nine little goblins?) They tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
+  $(".ongoing-events").prepend("Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and them back to Fountain Square. <br><br><br>")
   wagon.characters[index].health = 0
+  wagon.characters[index].status = "Unresponsive"
   wagon.statusAdjuster()
   wagon.resourceChecker()
 }
 
 function friend() {
+  var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
-  wagon.characters[index].health = 0
-  $(".ongoing-events").prepend("Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
-  wagon.statusAdjuster()
+  if (num > 50) {
+    $(".ongoing-events").prepend("Riley respects the way " + wagon.characters[index].name + " rhymed \"swimmin' hole\" with \"brimmin' bowl.\" He fist-bumps you on your way into the building. <br><br><br>");
+  } else {
+    $(".ongoing-events").prepend("Your rhyming skills were far too weak Riley's nine little goblins (oh, did we not mention he has nine little goblins?) They tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>");
+    wagon.characters[index].health = 0
+    wagon.characters[index].status = "Unresponsive"
+  }
   wagon.resourceChecker()
+  wagon.statusAdjuster()
 }
 
 function deathEvent() {
   var num = Math.floor(Math.random() * Math.floor(5))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num === 1 && wagon.characters[index].health < 60) {
-    buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server. They went back to the old office with a guilty conscience. <br><br><br>")
-    $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
   } else if (num === 2 && wagon.characters[index].health < 50) {
-    buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey. <br><br><br>")
-    $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
   } else if (num === 3 && wagon.characters[index].health < 80) {
-    buildModal(num);
-    $(".ongoing-events").prepend(wagon.characters[index].name + " left the door open and fell out with all of our supplies. Their journey has ended. <br><br><br>")
-    $("#myModal").toggle();
+    $(".ongoing-events").prepend(wagon.characters[index].name + " left the moving van door open and fell out with all of our supplies. They never make it. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
   } else if (num === 4 && wagon.characters[index].health < 90) {
-    buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " told the movers the wrong address. Everyone gangs up on them and they're forced back to the old office. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
   } else if (num === 5 && wagon.characters[index].health < 70) {
-    buildModal(num);
     $(".ongoing-events").prepend(wagon.characters[index].name + " dropped a monitor on their own foot. They head to the hospital instead of to the new office. <br><br><br>")
-    $("#myModal").toggle();
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
   }
@@ -716,7 +708,7 @@ $(document).ready(function () {
         $("#strategy-images").css("display", "none");
         $("#web-images").css("display", "none");
         $("#intern-images").css("display", "grid");
-      } 
+      }
     });
   });
 
@@ -1169,13 +1161,13 @@ $(document).ready(function () {
     });
   });
 
-  $('input[name="team"]').on('change', function() {
+  $('input[name="team"]').on('change', function () {
     if ($(this).is(':checked')) {
-        $('#charNameInput p').show();
+      $('#charNameInput p').show();
     } else {
-        $('#charNameInput p').hide();
+      $('#charNameInput p').hide();
     }
-});
+  });
 
 });
 
