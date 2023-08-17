@@ -360,13 +360,12 @@ function landmarkEvent() {
     $(".button-content").prepend("You've made it to Lockerbie Square! But it appears you have been stopped by James Whitcomb Riley, guardian poet-spirit of the neighborhood. He's challenged you to a rhyme battle before you can enter. Do you step up, or just try to run past him into our new building? <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 17) {
-    buildModal(num, "win", "Play Again!")
-    var endScore = wagon.buildScore()
+    buildModal("Win");
+    $(".button-content").prepend("You win! Enjoy an ice cold limited edition Lacroix and start settling in.");
+    $("#buttonModal").toggle();
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
     $("#ending-button").fadeIn(600);
-    $(".button-content").prepend("You win! Your score is: " + endScore + "! <br><br> Enjoy an ice cold limited edition Lacroix and start settling in. ");
-
   }
 }
 //landmark 1 button events
@@ -1159,7 +1158,7 @@ $(document).ready(function () {
 
   $('input[name="team"]').on('change', function () {
     if ($(this).is(':checked')) {
-      $('#charNameInput p').show();
+      $('#charNameInput p').fadeIn(300);
       $('#characterBTN').fadeIn(300);
     } else {
       $('#charNameInput p').hide();

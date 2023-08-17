@@ -86,6 +86,38 @@ span {
   position: absolute;
 }
 
+.letter-body, .ending-letter-body {
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: '8-bit pusab';
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  top: 20%;
+  line-height: 40px;
+  color: black;
+}
+
+.letter-header, .ending-letter-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 40px;
+}
+.letter-content, .ending-letter-content {
+  font-size: 20px;
+  line-height: 35px;
+  
+}
+.letter-signature, .ending-letter-signature {
+  margin-top: 30px;
+  font-style: italic;
+  text-align: left;
+}
+
 #store, #landmarkStop {
   display: none;
 }
@@ -384,7 +416,7 @@ input[type="radio"] {
 .skipButtonOne, .skipButtonTwo, .skipButtonThree {
   display: none;
   position: absolute;
-  top: 750px;
+  top: 920px;
   right: 0;
   left: 0;
   cursor: pointer;
@@ -397,12 +429,12 @@ input[type="radio"] {
 #ending-button {
   display: none;
   position: absolute;
-  top: 740px;
+  top: 920px;
   right: 0;
   left: 0;
-  height: 50px;
-  width: 200px;
   cursor: pointer;
+  width: 130px;
+  height: 40px;
   margin: auto;
 }
 
@@ -419,12 +451,11 @@ div#status-panel {
 }
 
 #startBTN {
-  width: 130px;
+  width: 200px;
   display: block;
-  height: 50px;
   cursor: pointer;
   position: absolute;
-  border-radius: 20px;
+  border-radius: 25px;
   transition: all 0.3s ease 0s;
   margin: auto;
   left: 0;
@@ -435,7 +466,7 @@ div#status-panel {
 
 #startBTN:hover {
   transform: scale(1.1);
-  box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.45);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.525);
 
 }
 
@@ -587,7 +618,7 @@ img {
 
 #characterBTN {
   margin-top: 23px;
-  width: 108px;
+  width: 200px;
   cursor: pointer;
   transition: all 1s ease;
   display: none;
@@ -868,7 +899,7 @@ p.ongoing-events {
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
-  padding-top: 185px;
+  padding-top: 150px;
   /* Location of the box */
   left: 0;
   top: 0;
@@ -914,7 +945,7 @@ p.ongoing-events {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 640px;
+  max-width: 850px;
 
 }
 
