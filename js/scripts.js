@@ -358,8 +358,8 @@ function landmarkEvent() {
     $("#buttonModal").toggle();
   } else if (num === 17) {
     buildModal("Win");
-    // $(".button-content").prepend("You win! Enjoy an ice cold limited edition Lacroix and start settling in.");
-    // $("#buttonModal").toggle();
+    $(".ongoing-events").prepend("You win! Enjoy an ice cold limited edition Lacroix and start settling in.");
+    $("#myModal").fadeIn(500);
     $(".endingStickyNote").fadeIn(500);
     $(".ending-modal").fadeIn(600);
     $("#ending-button").fadeIn(600);
@@ -867,6 +867,7 @@ $(document).ready(function () {
     { team: "creative", name: "Chad" },
     { team: "creative", name: "Evan" },
     { team: "creative", name: "Grace" },
+    { team: "creative", name: "Macey" },
     { team: "creative", name: "Joe B." },
     { team: "creative", name: "Jonathan" },
     { team: "creative", name: "Konah" },
@@ -985,28 +986,30 @@ $(document).ready(function () {
 
   // Create an array of name-image pairs
   const nameImageArray = [
-    { name: 'alex w.', src: 'img/Alex W..png', profile: 'img/profiles-Jody.png' },
-    { name: 'jen', src: 'img/Jen.png', profile: 'img/profiles-Jody.png' },
-    { name: 'joe j.', src: 'img/Joe J..png', profile: 'img/profiles-Jody.png' },
-    { name: 'kelly', src: 'img/Kelly.png', profile: 'img/profiles-Jody.png' },
-    { name: 'kiersten', src: 'img/Kiersten.png', profile: 'img/profiles-Jody.png' },
-    { name: 'melissa', src: 'img/Melissa.png', profile: 'img/profiles-Jody.png' },
-    { name: 'michaela', src: 'img/Michaela.png', profile: 'img/profiles-Jody.png' },
-    { name: 'natalie', src: 'img/Natalie.png', profile: 'img/profiles-Jody.png' },
-    { name: 'anne', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Anne-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'carlee', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Carlee-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'von', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Von-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'chad', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Chad-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'evan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Evan-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'grace', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Grace-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'joe b.', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-JoeBlack-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'jonathan', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Jonathan-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'konah', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Konah-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'monika', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Monika-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'nicholas', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nicholas-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'nick', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Nick-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'rob', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-Rob-350x450.jpg', profile: 'img/profiles-Jody.png' },
-    { name: 'shelby', src: 'https://www.welldonemarketing.com/wp-content/uploads/2023/05/WDM_Personality-ShelbyNovitski-350x450.jpg', profile: 'img/profiles-Jody.png' },
+    { name: 'alex w.', src: 'img/Alex W..png', profile: 'img/profiles-Alex.png' },
+    { name: 'jen', src: 'img/Jen.png', profile: 'img/profiles-Jen.png' },
+    { name: 'joe j.', src: 'img/Joe J..png', profile: 'img/profiles-Joe-J.png' },
+    { name: 'kelly', src: 'img/Kelly.png', profile: 'img/profiles-Kelly.png' },
+    { name: 'kiersten', src: 'img/Kiersten.png', profile: 'img/profiles-Kiersten.png' },
+    { name: 'melissa', src: 'img/Melissa.png', profile: 'img/profiles-Melissa.png' },
+    { name: 'michaela', src: 'img/Michaela.png', profile: 'img/profiles-Michaela.png' },
+    { name: 'natalie', src: 'img/Natalie.png', profile: 'img/profiles-Natalie.png' },
+    { name: 'anne', src: 'img/Anne.png', profile: 'img/profiles-Jody.png' },
+    { name: 'carlee', src: 'img/Carlee.png', profile: 'img/profiles-Jody.png' },
+    { name: 'von', src: 'img/Von.png', profile: 'img/profiles-Jody.png' },
+    { name: 'chad', src: 'img/Chad.png', profile: 'img/profiles-Jody.png' },
+    { name: 'chris', src: 'img/Chris.png', profile: 'img/profiles-Chris.png' },
+    { name: 'evan', src: 'img/Evan.png', profile: 'img/profiles-Jody.png' },
+    { name: 'grace', src: 'img/Grace.png', profile: 'img/profiles-Jody.png' },
+    { name: 'macey', src: 'img/Macey.png', profile: 'img/profiles-Macey.png' },
+    { name: 'joe b.', src: 'img/Joe B..png', profile: 'img/profiles-Joe-B.png' },
+    { name: 'jonathan', src: 'img/Jonathan.png', profile: 'img/profiles-Jody.png' },
+    { name: 'konah', src: 'img/Konah.png', profile: 'img/profiles-Jody.png' },
+    { name: 'monika', src: 'img/Monika.png', profile: 'img/profiles-Jody.png' },
+    { name: 'nicholas', src: 'img/Nicholas.png', profile: 'img/profiles-Jody.png' },
+    { name: 'nick', src: 'img/Nick.png', profile: 'img/profiles-Jody.png' },
+    { name: 'rob', src: 'img/Rob.png', profile: 'img/profiles-Jody.png' },
+    { name: 'shelby', src: 'img/Shelby.png', profile: 'img/profiles-Jody.png' },
     { name: 'alex s.', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
     { name: 'jody', src: 'img/Jody.png', profile: 'img/profiles-Jody.png' },
     { name: 'mary', src: 'https://placehold.co/250x250' },
@@ -1017,15 +1020,15 @@ $(document).ready(function () {
     { name: 'rachel', src: 'img/Rachel.png', profile: 'img/profiles-Jody.png' },
     { name: 'rebecca', src: 'img/Rebecca.png', profile: 'img/profiles-Jody.png' },
     { name: 'zarrien', src: 'img/Zarrien.png', profile: 'img/profiles-Jody.png' },
-    { name: 'brian', src: 'img/Brian.png', profile: 'img/profiles-Jody.png' },
-    { name: 'eric', src: 'img/Eric.png', profile: 'img/profiles-Jody.png' },
-    { name: 'josh', src: 'img/Josh.png', profile: 'img/profiles-Jody.png' },
-    { name: 'kim', src: 'img/Kim.png', profile: 'img/profiles-Jody.png' },
-    { name: 'nate', src: 'img/Nate.png', profile: 'img/profiles-Jody.png' },
-    { name: 'ashlynn', src: 'img/Ashlynn.png', profile: 'img/profiles-Jody.png' },
-    { name: 'daniel', src: 'img/Daniel.png', profile: 'img/profiles-Jody.png' },
-    { name: 'jawon', src: 'img/Jawon.png', profile: 'img/profiles-Jody.png' },
-    { name: 'teresa', src: 'img/Teresa.png', profile: 'img/profiles-Jody.png' }
+    { name: 'brian', src: 'img/Brian.png', profile: 'img/profiles-Brian.png' },
+    { name: 'eric', src: 'img/Eric.png', profile: 'img/profiles-Eric.png' },
+    { name: 'josh', src: 'img/Josh.png', profile: 'img/profiles-Josh.png' },
+    { name: 'kim', src: 'img/Kim.png', profile: 'img/profiles-Kim.png' },
+    { name: 'nate', src: 'img/Nate.png', profile: 'img/profiles-Nate.png' },
+    { name: 'ashlynn', src: 'img/Ashlynn.png', profile: 'img/profiles-Ashlynn.png' },
+    { name: 'daniel', src: 'img/Daniel.png', profile: 'img/profiles-Daniel.png' },
+    { name: 'jawon', src: 'img/Jawon.png', profile: 'img/profiles-Jawon.png' },
+    { name: 'teresa', src: 'img/Teresa.png', profile: 'img/profiles-Teresa.png' }
     // Add more name-image pairs as needed
   ];
 
@@ -1113,6 +1116,7 @@ closeProfileButton.addEventListener('click', function() {
       if (matchedPair) {
         images[index].src = matchedPair.src;
         console.log(`Test${index + 1}`);
+        $("#closeProfile").show();
       } else {
         images[index].src = 'https://placehold.co/250x250';
       }
@@ -1184,6 +1188,10 @@ closeProfileButton.addEventListener('click', function() {
 
     }
   });
+
+ 
+  
+
 
 });
 
