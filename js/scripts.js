@@ -1160,10 +1160,11 @@ $(document).ready(function () {
   $('input[name="team"]').on('change', function () {
     if ($(this).is(':checked')) {
       $('#charNameInput p').show();
-      $('#characterBTN').show();
+      $('#characterBTN').fadeIn(300);
     } else {
       $('#charNameInput p').hide();
-      
+      $('#characterBTN').fadeOut(300);
+
 
     }
   });
