@@ -238,8 +238,8 @@ span {
 
 
 input[type="radio"] {
-  accent-color: rgb(255, 60, 0);
-  cursor: pointer;
+  accent-color: rgb(128 152 20);
+    cursor: pointer;
 
 }
 
