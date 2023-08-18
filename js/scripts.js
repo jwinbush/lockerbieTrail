@@ -102,13 +102,13 @@ class Wagon {
     });
 
     if (wagon.characters.length <= 0) {
-      buildEndModal("unresponsive", "death", "Play-Again");
+      buildPlayAgainModal("unresponsive", "death", "Play-Again");
       $(".button-content").prepend("You didn't make it! Game over! ");
       $("#myModal").fadeIn(300);
       // document.getElementById('introMusic').pause();
       document.getElementById('game-over').play();
     } else if (wagon.gas <= 0) {
-      buildEndModal("unresponsive", "death", "Play Again");
+      buildPlayAgainModal("unresponsive", "death", "Play Again");
       $(".button-content").prepend("You ran out of gas before you could make it to the destination! Game Over! ");
       $("#myModal").fadeIn(300);
       // document.getElementById('introMusic').pause();
@@ -324,6 +324,16 @@ function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
     '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button"> <img id="' + btnID2 + 'Button" class="button" src="img/' + btn2Name + '.png" alt="modal button">' +
+    '</div>' +
+    '</div>'
+  )
+}
+
+function buildPlayAgainModal(value, btnID1, btn1Name) {
+  $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
+    '<div id="popup-text" class="button-content">' +
+    '<div class="buttons">' +
+    '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button">' +
     '</div>' +
     '</div>'
   )
