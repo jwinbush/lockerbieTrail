@@ -1038,7 +1038,7 @@ $(document).ready(function () {
     { name: 'alex s.', src: 'img/Alex S..png', profile: 'img/profiles-Jody.png' },
     { name: 'jody', src: 'img/Jody.png', profile: 'img/profiles-Jody.png' },
     { name: 'mary', src: 'https://placehold.co/250x250' },
-    { name: 'lisa', src: 'img/Lisa.png', profile: 'img/profiles-Jody.png' },
+    { name: 'lisa', src: 'img/Lisa.png', profile: 'img/profiles-Lisa.png' },
     { name: 'joel', src: 'img/Joel.png', profile: 'img/profiles-Jody.png' },
     { name: 'mandy', src: 'img/Mandy.png', profile: 'img/profiles-Jody.png' },
     { name: 'marissa', src: 'img/Marissa.png', profile: 'img/profiles-Jody.png' },
