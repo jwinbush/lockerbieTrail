@@ -9,7 +9,7 @@ class Character {
   }
   // Prototype method for displaying character health bars
   healthBar() {
-    var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Dead: "black" };
+    var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Unresponsive: "black" };
 
     // Display health bars and set their styles
     $("#char1-health-bar").progressbar({ value: char1.health });
@@ -49,7 +49,7 @@ class Character {
 class Wagon {
   constructor() {
     // Properties for the wagon and inventory
-    this.food = 200;
+    this.food = 100;
     this.gas = 40;
     this.days = 0;
     this.characters = [];
@@ -105,13 +105,13 @@ class Wagon {
       buildEndModal("unresponsive", "death", "Play-Again");
       $(".button-content").prepend("You didn't make it! Game over! ");
       $("#myModal").fadeIn(300);
-      document.getElementById('introMusic').pause();
+      // document.getElementById('introMusic').pause();
       document.getElementById('game-over').play();
     } else if (wagon.gas <= 0) {
       buildEndModal("unresponsive", "death", "Play Again");
       $(".button-content").prepend("You ran out of gas before you could make it to the destination! Game Over! ");
       $("#myModal").fadeIn(300);
-      document.getElementById('introMusic').pause();
+      // document.getElementById('introMusic').pause();
       document.getElementById('game-over').play();
     }
   }
@@ -284,7 +284,7 @@ function negativeEvent() {
   } else if (num === 2) {
     $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
     wagon.food -= ranSupplyDecrease
-    wagon.characters[index].health -= 15
+    wagon.characters[index].health -= 30
   } else if (num === 3 && wagon.addie > 0) {
     $(".ongoing-events").prepend(+ ranSupplyDecrease + " of your Addy's are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
     wagon.addie -= ranSupplyDecrease

@@ -30,6 +30,7 @@ body {
   border: 2px solid rgb(180 180 180);
   padding: 30px;
   border-radius: 10px;
+  min-height: 527px;
 }
 
 #client-images, #creative-images, #operations-images, #strategy-images, #web-images, #intern-images {
@@ -699,9 +700,15 @@ img {
   box-shadow: inset 0 0 10px #9c9c9c;
 }
 
+#ongoing-text-box img {
+  width: 35px;
+  position: absolute;
+  top: 30px;
+}
+
 #ongoing-text-box p:before {
   content: "\2605";
-  color: rgb(255, 0, 0);
+  color: rgba(255, 0, 0, 0);
   padding-right: 20px;
 }
 
