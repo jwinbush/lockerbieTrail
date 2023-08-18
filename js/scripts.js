@@ -103,12 +103,16 @@ class Wagon {
 
     if (wagon.characters.length <= 0) {
       buildEndModal("unresponsive", "death", "Play-Again");
-      $(".button-content").prepend("You didn't make it . ");
-      $("#myModal").toggle();
+      $(".button-content").prepend("You didn't make it! Game over! ");
+      $("#myModal").fadeIn(300);
+      document.getElementById('introMusic').pause();
+      document.getElementById('game-over').play();
     } else if (wagon.gas <= 0) {
       buildEndModal("unresponsive", "death", "Play Again");
       $(".button-content").prepend("You ran out of gas before you could make it to the destination! Game Over! ");
-      $("#myModal").toggle();
+      $("#myModal").fadeIn(300);
+      document.getElementById('introMusic').pause();
+      document.getElementById('game-over').play();
     }
   }
   //calculates potential illnesses
@@ -249,6 +253,7 @@ function positiveEvent() {
     // Modify wagon attributes
   } else if (num === 2) {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
+    document.getElementById('level-up').pause();
     // Modify wagon attributes
     wagon.awards += 5
     wagon.food += ranSupplyIncrease
@@ -348,12 +353,13 @@ function landmarkEvent() {
     buildModal("sunKing");
     $(".ongoing-events").prepend("You’re pretty far along on your journey, but your party is suffering from starvation. It has only been a few minutes since their last taco! You must pull over and enter Sun King Brewery, the home of Nacho A La Margarita Outpost.  <br><br><br>")
     $("#myModal").toggle();
-    wagon.food += 200;
+    wagon.food += 50;
     $("#gameMainScreen").hide();
     $("#landmarkStop2").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 16) {
     buildLandmarkModal(num, "friend", "fight", "Confront-Riley", "Run-Past-Riley")
+    document.getElementById('ghost').play();
     $(".button-content").prepend("You've made it to Lockerbie Square! But it appears you have been stopped by James Whitcomb Riley, guardian poet-spirit of the neighborhood. He's challenged you to a rhyme battle before you can enter. Do you step up, or just try to run past him into our new building? <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 17) {
@@ -432,6 +438,7 @@ function crossBridge() {
 function fight() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   $(".ongoing-events").prepend("Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>")
+  document.getElementById('ghost').pause();
   wagon.characters[index].health = 0
   wagon.characters[index].status = "Unresponsive"
   wagon.statusAdjuster()
@@ -443,10 +450,13 @@ function friend() {
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
     $(".ongoing-events").prepend("Riley respects the way " + wagon.characters[index].name + " rhymed \"swimmin' hole\" with \"brimmin' bowl.\" He fist-bumps you on your way into the building. <br><br><br>");
+    document.getElementById('ghost').pause();
   } else {
     $(".ongoing-events").prepend("Your rhyming skills were far too weak. Riley's nine little goblins (oh, did we not mention he has nine little goblins?) tackle " + wagon.characters[index].name + " and carry them back to Fountain Square. <br><br><br>");
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
+    document.getElementById('ghost').pause();
+
   }
   wagon.resourceChecker()
   wagon.statusAdjuster()
