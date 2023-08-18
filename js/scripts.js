@@ -533,6 +533,7 @@ $(document).ready(function () {
   }
 
   $("#startBTN").click(function () {
+    document.getElementById('press-play').play(); // Start playing the audio
     var openingSong = document.getElementById('openingSong');
     openingSong.loop = true; // Enable looping
     openingSong.play(); // Start playing the audio
