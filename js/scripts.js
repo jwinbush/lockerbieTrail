@@ -251,7 +251,7 @@ function positiveEvent() {
     $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
     // Modify wagon attributes
     wagon.awards += 5
-    wagon.food += 100
+    wagon.food += ranSupplyIncrease
     wagon.gas += 10
   } else if (num === 3) {
     $('.ongoing-events').prepend('Eric gets hungry and convinces the rest of the Lunch Bunch to stop at Iaria’s Italian Restaurant. Tacos increased by ' + 30 + '. <br><br><br>');
@@ -308,7 +308,7 @@ function buildEndModal(value, btnID1, btn1Name) {
   $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
-    '<img id="' + btnID1 + 'Button" class="button" src="img/'+ btn1Name +'.png" alt="modal button">' +
+    '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button">' +
     '</div>' +
     '</div>'
   )
@@ -318,7 +318,7 @@ function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
   $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
     '<div id="popup-text" class="button-content">' +
     '<div class="buttons">' +
-    '<img id="' + btnID1 + 'Button" class="button" src="img/'+ btn1Name +'.png" alt="modal button"> <img id="' + btnID2 + 'Button" class="button" src="img/'+ btn2Name +'.png" alt="modal button">' +
+    '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button"> <img id="' + btnID2 + 'Button" class="button" src="img/' + btn2Name + '.png" alt="modal button">' +
     '</div>' +
     '</div>'
   )
@@ -341,7 +341,7 @@ function landmarkEvent() {
     $("#landmarkStop1").fadeIn(500);
     $("#back-button").hide();
   } else if (num === 12) {
-    buildLandmarkModal(num, "crossRiver", "detourRiver", "Under", "Detour")
+    buildLandmarkModal(num, "crossBridge", "detourBridge", "Under", "Detour")
     $(".button-content").prepend("You have reached the College Avenue bridge (Clearance Height 13’ 9”). You can choose to risk supplies and your party by going under the bridge, or take a detour that adds time to your trip. <br><br><br>")
     $("#buttonModal").toggle();
   } else if (num === 14) {
@@ -394,7 +394,7 @@ function fixRamen() {
 }
 
 //landmark 1 button events
-function detourRiver() {
+function detourBridge() {
   for (i = 0; i < 8; i++) {
     wagon.days += 1
     wagon.food -= 10
@@ -406,7 +406,7 @@ function detourRiver() {
 
 }
 
-function crossRiver() {
+function crossBridge() {
   var num = Math.floor(Math.random() * Math.floor(100))
   var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
   if (num > 50) {
@@ -459,19 +459,19 @@ function deathEvent() {
     $(".ongoing-events").prepend(wagon.characters[index].name + " lost all of our backups on the server. They went back to the old office with a guilty conscience. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 2 ) {
+  } else if (num === 2) {
     $(".ongoing-events").prepend(wagon.characters[index].name + " ate a fry they found between the seats. They got a suspicious stomach bug and have to end their journey. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 3 ) {
+  } else if (num === 3) {
     $(".ongoing-events").prepend(wagon.characters[index].name + " left the moving van door open and fell out with all of our supplies. They never make it. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 4 ) {
+  } else if (num === 4) {
     $(".ongoing-events").prepend(wagon.characters[index].name + " told the movers the wrong address. Everyone gangs up on them and they're forced back to the old office. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
-  } else if (num === 5 ) {
+  } else if (num === 5) {
     $(".ongoing-events").prepend(wagon.characters[index].name + " dropped a monitor on their own foot. They head to the hospital instead of to the new office. <br><br><br>")
     wagon.characters[index].health = 0
     wagon.characters[index].status = "Unresponsive"
@@ -523,7 +523,9 @@ $(document).ready(function () {
   }
 
   $("#startBTN").click(function () {
-    document.getElementById('openingSong').play();
+    var openingSong = document.getElementById('openingSong');
+    openingSong.loop = true; // Enable looping
+    openingSong.play(); // Start playing the audio
     $("#start").fadeOut(300);
     $(".container").hide();
     $("#startBTN").hide();
@@ -776,14 +778,14 @@ $(document).ready(function () {
   });
 
 
-  $(document).on('click', '#crossRiverButton', function () {
-    crossRiver()
+  $(document).on('click', '#crossBridgeButton', function () {
+    crossBridge()
     textUpdateUI()
     $('#buttonModal').hide();
   });
 
-  $(document).on('click', '#detourRiverButton', function () {
-    detourRiver()
+  $(document).on('click', '#detourBridgeButton', function () {
+    detourBridge()
     textUpdateUI()
     $('#buttonModal').hide();
 
@@ -874,6 +876,7 @@ $(document).ready(function () {
     { team: "creative", name: "Konah" },
     { team: "creative", name: "Monika" },
     { team: "creative", name: "Nicholas" },
+    { team: "creative", name: "Nick" },
     { team: "creative", name: "Rob" },
     { team: "creative", name: "Shelby" },
     { team: "client", name: "Alex W." },
@@ -972,18 +975,18 @@ $(document).ready(function () {
     });
   });
 
-  $('.profile-image').click(function() {
+  $('.profile-image').click(function () {
     var imgSrc = $(this).attr('src');
     var name = $(this).data('name');
 
-    var matchingProfile = nameImageArray.find(function(item) {
-        return item.src === imgSrc;
+    var matchingProfile = nameImageArray.find(function (item) {
+      return item.src === imgSrc;
     });
 
     if (matchingProfile) {
-        $(this).attr('src', matchingProfile.profile);
+      $(this).attr('src', matchingProfile.profile);
     }
-});
+  });
 
   // Create an array of name-image pairs
   const nameImageArray = [
@@ -1005,12 +1008,12 @@ $(document).ready(function () {
     { name: 'macey', src: 'img/Macey.png', profile: 'img/profiles-Macey.png' },
     { name: 'joe b.', src: 'img/Joe B..png', profile: 'img/profiles-Joe-B.png' },
     { name: 'jonathan', src: 'img/Jonathan.png', profile: 'img/profiles-Jody.png' },
-    { name: 'konah', src: 'img/Konah.png', profile: 'img/profiles-Jody.png' },
-    { name: 'monika', src: 'img/Monika.png', profile: 'img/profiles-Jody.png' },
-    { name: 'nicholas', src: 'img/Nicholas.png', profile: 'img/profiles-Jody.png' },
-    { name: 'nick', src: 'img/Nick.png', profile: 'img/profiles-Jody.png' },
-    { name: 'rob', src: 'img/Rob.png', profile: 'img/profiles-Jody.png' },
-    { name: 'shelby', src: 'img/Shelby.png', profile: 'img/profiles-Jody.png' },
+    { name: 'konah', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
+    { name: 'monika', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
+    { name: 'nicholas', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
+    { name: 'nick', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
+    { name: 'rob', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
+    { name: 'shelby', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
     { name: 'alex s.', src: 'https://placehold.co/250x250', profile: 'img/profiles-Jody.png' },
     { name: 'jody', src: 'img/Jody.png', profile: 'img/profiles-Jody.png' },
     { name: 'mary', src: 'https://placehold.co/250x250' },
@@ -1088,26 +1091,26 @@ $(document).ready(function () {
   ];
 
   const profileImageElement = document.getElementById('profileImage');
-const profileModalElement = document.getElementById('profileModal');
-const closeProfileButton = document.getElementById('closeProfile');
+  const profileModalElement = document.getElementById('profileModal');
+  const closeProfileButton = document.getElementById('closeProfile');
 
-// Loop through each image element and attach the click event
-images.forEach(imageElement => {
-  imageElement.addEventListener('click', function() {
-    // Find the corresponding profile image URL
-    const clickedImageSrc = imageElement.getAttribute('src');
-    const matchedProfile = nameImageArray.find(item => item.src === clickedImageSrc);
+  // Loop through each image element and attach the click event
+  images.forEach(imageElement => {
+    imageElement.addEventListener('click', function () {
+      // Find the corresponding profile image URL
+      const clickedImageSrc = imageElement.getAttribute('src');
+      const matchedProfile = nameImageArray.find(item => item.src === clickedImageSrc);
 
-    if (matchedProfile) {
-      profileImageElement.setAttribute('src', matchedProfile.profile);
-      profileModalElement.style.display = 'block'; // Show the profile modal
-    }
+      if (matchedProfile) {
+        profileImageElement.setAttribute('src', matchedProfile.profile);
+        profileModalElement.style.display = 'block'; // Show the profile modal
+      }
+    });
   });
-});
 
-closeProfileButton.addEventListener('click', function() {
-  profileModalElement.style.display = 'none'; // Hide the profile modal
-});
+  closeProfileButton.addEventListener('click', function () {
+    profileModalElement.style.display = 'none'; // Hide the profile modal
+  });
 
   nameInputs.forEach((nameInput, index) => {
     nameInput.addEventListener('input', function () {
@@ -1190,8 +1193,8 @@ closeProfileButton.addEventListener('click', function() {
     }
   });
 
- 
-  
+
+
 
 
 });
