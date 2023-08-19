@@ -89,6 +89,24 @@ span {
   position: absolute;
 }
 
+@media (max-width: 1500px) {
+  .letter-modal-1 {
+    zoom: 80%; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 1300px) {
+  .letter-modal-1 {
+    zoom: 60%; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 1000px) {
+  .letter-modal-1 {
+    zoom: 40%; /* Adjust this value as needed */
+  }
+}
+
 .letter-body, .ending-letter-body {
   justify-content: center;
   align-items: center;
@@ -98,8 +116,9 @@ span {
   left: 0;
   right: 0;
   margin: 0 auto;
+  z-index: 1;
   max-width: 600px;
-  top: 20%;
+  top: 10%;
   line-height: 40px;
   color: black;
   /* zoom: 0.8; */
@@ -111,6 +130,7 @@ span {
   font-weight: bold;
   padding-bottom: 40px;
 }
+
 .letter-content {
   font-size: 20px;
   line-height: 35px;
@@ -121,6 +141,7 @@ span {
   line-height: 35px;
   padding-top: 60px;
 }
+
 .letter-signature, .ending-letter-signature {
   margin-top: 30px;
   font-style: italic;
@@ -240,7 +261,7 @@ span {
 
 input[type="radio"] {
   accent-color: rgb(128 152 20);
-    cursor: pointer;
+  cursor: pointer;
 
 }
 
@@ -409,6 +430,7 @@ input[type="radio"] {
 
   }
 }
+
 .icon-wagon {
   width: 300px;
   height: 200px;
@@ -418,7 +440,8 @@ input[type="radio"] {
   z-index: 15;
   background-image: url(../img/NewTruck.gif);
   background-size: cover;
-  animation: wagonwheel 40s linear 0s infinite; /* Remove 'alternate' for forward animation only */
+  animation: wagonwheel 40s linear 0s infinite;
+  /* Remove 'alternate' for forward animation only */
   -moz-animation: wagonwheel 40s linear 0s infinite;
   -webkit-animation: wagonwheel 40s linear 0s infinite;
 
@@ -428,10 +451,13 @@ input[type="radio"] {
 
 @keyframes wagonwheel {
   0%, 100% {
-    transform: translateX(0); /* Start and end positions */
+    transform: translateX(0);
+    /* Start and end positions */
   }
+
   50% {
-    transform: translateX(50px); /* Highest forward translation */
+    transform: translateX(50px);
+    /* Highest forward translation */
   }
 }
 
@@ -439,17 +465,18 @@ input[type="radio"] {
 
 
 .skipButtonOne, .skipButtonTwo, .skipButtonThree {
-  display: none;
+  z-index: 1;
   position: absolute;
-  top: 920px;
-  right: 0;
-  left: 0;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
   width: 130px;
   height: 40px;
   margin: auto;
-
 }
+
+
 
 #ending-button {
   display: none;
@@ -902,47 +929,45 @@ p.ongoing-events {
 }
 
 .map-modal img {
-  display: block;
-  margin: auto;
   max-width: 808px;
   border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 img#closeProfile {
+  z-index: 1;
   width: 150px;
   position: absolute;
-  bottom: 260px;
-  right: 0;
-  left: 0;
   cursor: pointer;
   height: 40px;
-  margin: auto;
+  max-width: 808px;
+  border-radius: 10px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-
 
 .letter-modal-1, .letter-modal-2, .letter-modal-3 {
   display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
+  max-width: 850px;
+  /* cursor: pointer; */
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  /* font-size: 10%; */
+  left: 50%;
   z-index: 1;
-  /* Sit on top */
-  padding-top: 150px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
+  transform: translate(-50%, -50%);
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  overflow: hidden;
   background-image: url(../img/Goodbye.png);
-  /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  overflow: hidden;
 }
 
 .ending-modal {
@@ -970,13 +995,7 @@ img#closeProfile {
 }
 
 
-.letters img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 850px;
 
-}
 
 
 .mainStickyNote {
@@ -998,7 +1017,7 @@ img#closeProfile {
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
 }
 
@@ -1159,6 +1178,10 @@ img#closeProfile {
   z-index: 10;
   font-weight: 300;
   letter-spacing: 1px;
+}
+
+.tooltiptext:hover {
+  visibility: visible;
 }
 
 #supplies {
