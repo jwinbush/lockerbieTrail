@@ -90,20 +90,37 @@ span {
 }
 
 @media (max-width: 1500px) {
-  .letter-modal-1 {
-    zoom: 80%; /* Adjust this value as needed */
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 80%;
+    /* Adjust this value as needed */
   }
 }
 
 @media (max-width: 1300px) {
-  .letter-modal-1 {
-    zoom: 60%; /* Adjust this value as needed */
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 60%;
+    /* Adjust this value as needed */
   }
 }
 
 @media (max-width: 1000px) {
-  .letter-modal-1 {
-    zoom: 40%; /* Adjust this value as needed */
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 50%;
+    /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 700px) {
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 40%;
+    /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 400px) {
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 30%;
+    /* Adjust this value as needed */
   }
 }
 
@@ -139,7 +156,7 @@ span {
 .ending-letter-content {
   font-size: 20px;
   line-height: 35px;
-  padding-top: 60px;
+  padding-top: 15px;
 }
 
 .letter-signature, .ending-letter-signature {
@@ -480,13 +497,15 @@ input[type="radio"] {
 
 #ending-button {
   display: none;
+  max-width: 200px;
+  z-index: 1;
   position: absolute;
-  top: 920px;
-  right: 0;
-  left: 0;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
+  height: 40px;
   margin: auto;
-  width: 200px;
 }
 
 div#status-panel {
@@ -973,18 +992,17 @@ img#closeProfile {
 .ending-modal {
   display: none;
   /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
+  max-width: 850px;
+  /* cursor: pointer; */
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  /* font-size: 10%; */
+  left: 50%;
   z-index: 1;
-  /* Sit on top */
-  padding-top: 185px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
+  transform: translate(-50%, -50%);
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  overflow: hidden;
   background-image: url(../img/newBuilding.png);
   /* Fallback color */
   background-size: cover;
