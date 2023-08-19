@@ -91,35 +91,35 @@ span {
 
 @media (max-width: 1500px) {
   .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
-    zoom: 80%;
-    /* Adjust this value as needed */
-  }
-}
-
-@media (max-width: 1300px) {
-  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
-    zoom: 60%;
+    zoom: 90%;
     /* Adjust this value as needed */
   }
 }
 
 @media (max-width: 1000px) {
   .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
-    zoom: 50%;
+    zoom: 80%;
     /* Adjust this value as needed */
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
-    zoom: 40%;
+    zoom: 70%;
+    /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 600px) {
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 60%;
     /* Adjust this value as needed */
   }
 }
 
 @media (max-width: 400px) {
   .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
-    zoom: 30%;
+    zoom: 55%;
     /* Adjust this value as needed */
   }
 }
@@ -947,27 +947,25 @@ p.ongoing-events {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.map-modal img {
+#profileImage {
   max-width: 808px;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-img#closeProfile {
+#closeProfile {
   z-index: 1;
-  width: 150px;
-  position: absolute;
-  cursor: pointer;
-  height: 40px;
-  max-width: 808px;
-  border-radius: 10px;
   position: absolute;
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
+  max-width: 130px;
+  max-height: 40px;
+  margin: auto;
 }
 
 .letter-modal-1, .letter-modal-2, .letter-modal-3 {
