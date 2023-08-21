@@ -27,7 +27,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   /* background: rgb(214 211 211); */
-  background: hsl(72deg 5.01% 81.3%);
+  background: hsl(72, 4%, 77%);
   border: 2px solid rgb(180 180 180);
   padding: 30px;
   border-radius: 10px;
