@@ -554,6 +554,7 @@ $(document).ready(function() {
     });
 
     $("#characterBTN").click(function() {
+        document.getElementById('press-play').play(); // Start playing the audio
 
         var playerOneName; // Declare the variable outside the conditions
 

@@ -2,492 +2,491 @@
 <html>
 
 <head>
-  <title>Lockerbie Trail</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Londrina+Solid:300,400,900" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="css/jquery-ui.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-  <script src="js/scripts.js"></script>
-  <audio id="car-braking" src="sounds/car-braking.mp3" preload="auto"></audio>
-  <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
-  <audio id="award-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
-  <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
-  <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
-  <audio id="game-over" src="sounds/game-over.mp3" preload="auto"></audio>
-  <audio id="ghost" src="sounds/ghost.mp3" preload="auto"></audio>
-  <audio id="level-up" src="sounds/level-up.mp3" preload="auto"></audio>
-  <audio id="press-play" src="sounds/PressPlay.mp3" preload="auto"></audio>
+    <title>Lockerbie Trail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid:300,400,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <audio id="car-braking" src="sounds/car-braking.mp3" preload="auto"></audio>
+    <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
+    <audio id="award-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
+    <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
+    <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
+    <!-- <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio> -->
+    <audio id="game-over" src="sounds/game-over.mp3" preload="auto"></audio>
+    <audio id="ghost" src="sounds/ghost.mp3" preload="auto"></audio>
+    <audio id="level-up" src="sounds/level-up.mp3" preload="auto"></audio>
+    <audio id="press-play" src="sounds/PressPlay.mp3" preload="auto"></audio>
 
 </head>
 
 <body>
 
 
-  <div class="container">
-    <!-- Character setup screen -->
-    <div id="characterSetup">
-      <div id="start">
-        <!-- <div class="main-title">
+    <div class="container">
+        <!-- Character setup screen -->
+        <div id="characterSetup">
+            <div id="start">
+                <!-- <div class="main-title">
           <h1>Lockerbie Trail</h1>
         </div> -->
-        <div class="icon-animate">
-          <img src="img/cardboard-box.png" alt="">
-        </div>
-        <div class="icon-wagon">
-        </div>
-        <div class="animatedBackground">
-          <img src="img/MainTitle.gif" alt="valley">
-        </div>
-      </div>
-      <img id="startBTN" src="img/PlayButton.png" />
-      <div id="characterInput">
-        <h1>Lockerbie Trail</h1>
-
-        <div class="row">
-          <div id="team" class="col-md-3">
-            <!-- Squad selection section -->
-            <p>Select your squad</p>
-            <div class="prettyColumn">
-              <!-- Radio option for Client Services -->
-              <div id="radio1">
-                <label><input type="radio" name="team" value="client" id="client"> Client Services</label>
-              </div>
-              <!-- Radio option for Creative -->
-              <div id="radio2">
-                <label><input type="radio" name="team" value="creative" id="creative"> Creative</label>
-              </div>
-              <!-- Radio option for Operations -->
-              <div id="radio3">
-                <label><input type="radio" name="team" value="operations" id="operations"> Operations</label>
-              </div>
-              <!-- Radio option for Strategy -->
-              <div id="radio4">
-                <label><input type="radio" name="team" value="strategy" id="strategy"> Strategy</label>
-              </div>
-              <!-- Radio option for Web -->
-              <div id="radio5">
-                <label><input type="radio" name="team" value="web" id="web"> Web</label>
-              </div>
-              <!-- Radio option for Interns -->
-              <div id="radio6">
-                <label><input type="radio" name="team" value="interns" id="interns"> Interns</label>
-              </div>
+                <div class="icon-animate">
+                    <img src="img/cardboard-box.png" alt="">
+                </div>
+                <div class="icon-wagon">
+                </div>
+                <div class="animatedBackground">
+                    <img src="img/MainTitle.gif" alt="valley">
+                </div>
             </div>
-            <!-- Begin button -->
-            <img id="characterBTN" src="img/StartButton.png" />
-          </div>
+            <img id="startBTN" src="img/PlayButton.png" />
+            <div id="characterInput">
+                <h1>Lockerbie Trail</h1>
+
+                <div class="row">
+                    <div id="team" class="col-md-3">
+                        <!-- Squad selection section -->
+                        <p>Select your squad</p>
+                        <div class="prettyColumn">
+                            <!-- Radio option for Client Services -->
+                            <div id="radio1">
+                                <label><input type="radio" name="team" value="client" id="client"> Client Services</label>
+                            </div>
+                            <!-- Radio option for Creative -->
+                            <div id="radio2">
+                                <label><input type="radio" name="team" value="creative" id="creative"> Creative</label>
+                            </div>
+                            <!-- Radio option for Operations -->
+                            <div id="radio3">
+                                <label><input type="radio" name="team" value="operations" id="operations"> Operations</label>
+                            </div>
+                            <!-- Radio option for Strategy -->
+                            <div id="radio4">
+                                <label><input type="radio" name="team" value="strategy" id="strategy"> Strategy</label>
+                            </div>
+                            <!-- Radio option for Web -->
+                            <div id="radio5">
+                                <label><input type="radio" name="team" value="web" id="web"> Web</label>
+                            </div>
+                            <!-- Radio option for Interns -->
+                            <div id="radio6">
+                                <label><input type="radio" name="team" value="interns" id="interns"> Interns</label>
+                            </div>
+                        </div>
+                        <!-- Begin button -->
+                        <img id="characterBTN" src="img/StartButton.png" />
+                    </div>
 
 
-          <!-- Character Name Input Section -->
-          <div id="charNameInput" class="col-md-3">
-            <!-- Instructions for the user -->
-            <p>Choose your characters:</p>
+                    <!-- Character Name Input Section -->
+                    <div id="charNameInput" class="col-md-3">
+                        <!-- Instructions for the user -->
+                        <p>Choose your characters:</p>
 
-            <!-- Container for character selection dropdowns -->
-            <div id="client-dropdown" class="prettyColumn">
-              <!-- Dropdown for Character 1 -->
-              <div class="filters-mobile">
-                <select id="char1">
+                        <!-- Container for character selection dropdowns -->
+                        <div id="client-dropdown" class="prettyColumn">
+                            <!-- Dropdown for Character 1 -->
+                            <div class="filters-mobile">
+                                <select id="char1">
                   <!-- <option value="" disabled selected>Select your option</option> -->
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 2 -->
-              <div class="filters-mobile">
-                <select id="char2">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 3 -->
-              <div class="filters-mobile">
-                <select id="char3">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 4 -->
-              <div class="filters-mobile">
-                <select id="char4">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-            </div>
-
-
-            <div id="creative-dropdown" class="prettyColumn">
-              <!-- Dropdown for Character 1 -->
-              <div class="filters-mobile">
-                <select id="char5">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 2 -->
-              <div class="filters-mobile">
-                <select id="char6">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 3 -->
-              <div class="filters-mobile">
-                <select id="char7">
+                            <!-- Dropdown for Character 2 -->
+                            <div class="filters-mobile">
+                                <select id="char2">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 4 -->
-              <div class="filters-mobile">
-                <select id="char8">
+                            <!-- Dropdown for Character 3 -->
+                            <div class="filters-mobile">
+                                <select id="char3">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 4 -->
+                            <div class="filters-mobile">
+                                <select id="char4">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+                        </div>
+
+
+                        <div id="creative-dropdown" class="prettyColumn">
+                            <!-- Dropdown for Character 1 -->
+                            <div class="filters-mobile">
+                                <select id="char5">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 2 -->
+                            <div class="filters-mobile">
+                                <select id="char6">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 3 -->
+                            <div class="filters-mobile">
+                                <select id="char7">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 4 -->
+                            <div class="filters-mobile">
+                                <select id="char8">
                   <option value="" disabled selected>Select your option</option>
                 </select>
-              </div>
-            </div>
+                            </div>
+                        </div>
 
-            <div id="operations-dropdown" class="prettyColumn">
-              <!-- Dropdown for Character 1 -->
-              <div class="filters-mobile">
-                <select id="char9">
+                        <div id="operations-dropdown" class="prettyColumn">
+                            <!-- Dropdown for Character 1 -->
+                            <div class="filters-mobile">
+                                <select id="char9">
                   <!-- <option value="" disabled selected>Select your option</option> -->
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 2 -->
-              <div class="filters-mobile">
-                <select id="char10">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 3 -->
-              <div class="filters-mobile">
-                <select id="char11">
+                            <!-- Dropdown for Character 2 -->
+                            <div class="filters-mobile">
+                                <select id="char10">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 4 -->
-              <div class="filters-mobile">
-                <select id="char12">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-            </div>
-
-            <div id="strategy-dropdown" class="prettyColumn">
-              <!-- Dropdown for Character 1 -->
-              <div class="filters-mobile">
-                <select id="char13">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 2 -->
-              <div class="filters-mobile">
-                <select id="char14">
+                            <!-- Dropdown for Character 3 -->
+                            <div class="filters-mobile">
+                                <select id="char11">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 3 -->
-              <div class="filters-mobile">
-                <select id="char15">
+                            <!-- Dropdown for Character 4 -->
+                            <div class="filters-mobile">
+                                <select id="char12">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+                        </div>
+
+                        <div id="strategy-dropdown" class="prettyColumn">
+                            <!-- Dropdown for Character 1 -->
+                            <div class="filters-mobile">
+                                <select id="char13">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 2 -->
+                            <div class="filters-mobile">
+                                <select id="char14">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 4 -->
-              <div class="filters-mobile">
-                <select id="char16">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-            </div>
-
-            <div id="web-dropdown" class="prettyColumn">
-              <!-- Dropdown for Character 1 -->
-              <div class="filters-mobile">
-                <select id="char17">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 2 -->
-              <div class="filters-mobile">
-                <select id="char18">
+                            <!-- Dropdown for Character 3 -->
+                            <div class="filters-mobile">
+                                <select id="char15">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 3 -->
-              <div class="filters-mobile">
-                <select id="char19">
+                            <!-- Dropdown for Character 4 -->
+                            <div class="filters-mobile">
+                                <select id="char16">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+                        </div>
+
+                        <div id="web-dropdown" class="prettyColumn">
+                            <!-- Dropdown for Character 1 -->
+                            <div class="filters-mobile">
+                                <select id="char17">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 2 -->
+                            <div class="filters-mobile">
+                                <select id="char18">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 4 -->
-              <div class="filters-mobile">
-                <select id="char20">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-            </div>
-
-            <div id="intern-dropdown" class="prettyColumn">
-              <!-- Dropdown for Character 1 -->
-              <div class="filters-mobile">
-                <select id="char21">
-                  <!-- <option value="" disabled selected>Select your option</option> -->
-                </select>
-              </div>
-
-              <!-- Dropdown for Character 2 -->
-              <div class="filters-mobile">
-                <select id="char22">
+                            <!-- Dropdown for Character 3 -->
+                            <div class="filters-mobile">
+                                <select id="char19">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 3 -->
-              <div class="filters-mobile">
-                <select id="char23">
+                            <!-- Dropdown for Character 4 -->
+                            <div class="filters-mobile">
+                                <select id="char20">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+                        </div>
+
+                        <div id="intern-dropdown" class="prettyColumn">
+                            <!-- Dropdown for Character 1 -->
+                            <div class="filters-mobile">
+                                <select id="char21">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 2 -->
+                            <div class="filters-mobile">
+                                <select id="char22">
                   <!-- <option value="" disabled selected>Select your option</option> -->
 
                 </select>
-              </div>
+                            </div>
 
-              <!-- Dropdown for Character 4 -->
-              <div class="filters-mobile">
-                <select id="char24">
+                            <!-- Dropdown for Character 3 -->
+                            <div class="filters-mobile">
+                                <select id="char23">
+                  <!-- <option value="" disabled selected>Select your option</option> -->
+
+                </select>
+                            </div>
+
+                            <!-- Dropdown for Character 4 -->
+                            <div class="filters-mobile">
+                                <select id="char24">
                   <!-- <option value="" disabled selected>Select your option</option> -->
                 </select>
-              </div>
-            </div>
-          </div>
+                            </div>
+                        </div>
+                    </div>
 
-          <!-- Player Images Section -->
-          <div class="grid-container col-md-6 wagon-select-screen">
-            <!-- Container for player images -->
-            <div id="client-images">
-              <!-- Player 1 -->
-              <div class="grid-item">
-                <h3>Player 1</h3>
-                <img id="image1" src="img/Alex W..png" alt="">
-              </div>
+                    <!-- Player Images Section -->
+                    <div class="grid-container col-md-6 wagon-select-screen">
+                        <!-- Container for player images -->
+                        <div id="client-images">
+                            <!-- Player 1 -->
+                            <div class="grid-item">
+                                <h3>Player 1</h3>
+                                <img id="image1" src="img/Alex W..png" alt="">
+                            </div>
 
-              <!-- Player 2 -->
-              <div class="grid-item">
-                <h3>Player 2</h3>
-                <img id="image2" src="img/Jen.png" alt="">
-              </div>
+                            <!-- Player 2 -->
+                            <div class="grid-item">
+                                <h3>Player 2</h3>
+                                <img id="image2" src="img/Jen.png" alt="">
+                            </div>
 
-              <!-- Player 3 -->
-              <div class="grid-item">
-                <h3>Player 3</h3>
-                <img id="image3" src="img/Joe J..png" alt="">
-              </div>
+                            <!-- Player 3 -->
+                            <div class="grid-item">
+                                <h3>Player 3</h3>
+                                <img id="image3" src="img/Joe J..png" alt="">
+                            </div>
 
-              <!-- Player 4 -->
-              <div class="grid-item">
-                <h3>Player 4</h3>
-                <img id="image4" src="img/Kelly.png" alt="">
-              </div>
-            </div>
+                            <!-- Player 4 -->
+                            <div class="grid-item">
+                                <h3>Player 4</h3>
+                                <img id="image4" src="img/Kelly.png" alt="">
+                            </div>
+                        </div>
 
 
 
-            <!-- #####################
+                        <!-- #####################
             Trying to make images change for other departments 
             when a different name is selected from #charNameInput.
             It only works for the client department.
                  #####################-->
 
-            <!-- Creative Images Section -->
-            <div id="creative-images">
-              <!-- Player 1 -->
-              <div class="grid-item">
-                <h3>Player 1</h3>
-                <img id="image5" src="img/Anne.png" alt="">
-              </div>
-              <!-- Player 2 -->
-              <div class="grid-item">
-                <h3>Player 2</h3>
-                <img id="image6" src="img/Carlee.png" alt="">
-              </div>
-              <!-- Player 3 -->
-              <div class="grid-item">
-                <h3>Player 3</h3>
-                <img id="image7" src="img/Von.png" alt="">
-              </div>
-              <!-- Player 4 -->
-              <div class="grid-item">
-                <h3>Player 4</h3>
-                <img id="image8" src="img/Chad.png" alt="">
-              </div>
-            </div>
+                        <!-- Creative Images Section -->
+                        <div id="creative-images">
+                            <!-- Player 1 -->
+                            <div class="grid-item">
+                                <h3>Player 1</h3>
+                                <img id="image5" src="img/Anne.png" alt="">
+                            </div>
+                            <!-- Player 2 -->
+                            <div class="grid-item">
+                                <h3>Player 2</h3>
+                                <img id="image6" src="img/Carlee.png" alt="">
+                            </div>
+                            <!-- Player 3 -->
+                            <div class="grid-item">
+                                <h3>Player 3</h3>
+                                <img id="image7" src="img/Von.png" alt="">
+                            </div>
+                            <!-- Player 4 -->
+                            <div class="grid-item">
+                                <h3>Player 4</h3>
+                                <img id="image8" src="img/Chad.png" alt="">
+                            </div>
+                        </div>
 
-            <!-- Operations Images Section -->
-            <div id="operations-images">
-              <!-- Player 1 -->
-              <div class="grid-item">
-                <h3>Player 1</h3>
-                <img id="image9" src="img/Alex S..png" alt="">
-              </div>
-              <!-- Player 2 -->
-              <div class="grid-item">
-                <h3>Player 2</h3>
-                <img id="image10" src="img/Jody.png" alt="">
-              </div>
-              <!-- Player 3 -->
-              <div class="grid-item">
-                <h3>Player 3</h3>
-                <img id="image11" src="https://placehold.co/250x250" alt="">
-              </div>
-              <!-- Player 4 -->
-              <div class="grid-item">
-                <h3>Player 4</h3>
-                <img id="image12" src="img/Lisa.png" alt="">
-              </div>
-            </div>
+                        <!-- Operations Images Section -->
+                        <div id="operations-images">
+                            <!-- Player 1 -->
+                            <div class="grid-item">
+                                <h3>Player 1</h3>
+                                <img id="image9" src="img/Alex S..png" alt="">
+                            </div>
+                            <!-- Player 2 -->
+                            <div class="grid-item">
+                                <h3>Player 2</h3>
+                                <img id="image10" src="img/Jody.png" alt="">
+                            </div>
+                            <!-- Player 3 -->
+                            <div class="grid-item">
+                                <h3>Player 3</h3>
+                                <img id="image11" src="https://placehold.co/250x250" alt="">
+                            </div>
+                            <!-- Player 4 -->
+                            <div class="grid-item">
+                                <h3>Player 4</h3>
+                                <img id="image12" src="img/Lisa.png" alt="">
+                            </div>
+                        </div>
 
-            <!-- Strategy Images Section -->
-            <div id="strategy-images">
-              <!-- Player 1 -->
-              <div class="grid-item">
-                <h3>Player 1</h3>
-                <img id="image13" src="img/Joel.png" alt="">
-              </div>
-              <!-- Player 2 -->
-              <div class="grid-item">
-                <h3>Player 2</h3>
-                <img id="image14" src="img/Mandy.png" alt="">
-              </div>
-              <!-- Player 3 -->
-              <div class="grid-item">
-                <h3>Player 3</h3>
-                <img id="image15" src="img/Marissa.png" alt="">
-              </div>
-              <!-- Player 4 -->
-              <div class="grid-item">
-                <h3>Player 4</h3>
-                <img id="image16" src="img/Rachel.png" alt="">
-              </div>
-            </div>
+                        <!-- Strategy Images Section -->
+                        <div id="strategy-images">
+                            <!-- Player 1 -->
+                            <div class="grid-item">
+                                <h3>Player 1</h3>
+                                <img id="image13" src="img/Joel.png" alt="">
+                            </div>
+                            <!-- Player 2 -->
+                            <div class="grid-item">
+                                <h3>Player 2</h3>
+                                <img id="image14" src="img/Mandy.png" alt="">
+                            </div>
+                            <!-- Player 3 -->
+                            <div class="grid-item">
+                                <h3>Player 3</h3>
+                                <img id="image15" src="img/Marissa.png" alt="">
+                            </div>
+                            <!-- Player 4 -->
+                            <div class="grid-item">
+                                <h3>Player 4</h3>
+                                <img id="image16" src="img/Rachel.png" alt="">
+                            </div>
+                        </div>
 
-            <!-- Web Images Section -->
-            <div id="web-images">
-              <!-- Player 1 -->
-              <div class="grid-item">
-                <h3>Player 1</h3>
-                <img id="image17" src="img/Brian.png" alt="">
-              </div>
-              <!-- Player 2 -->
-              <div class="grid-item">
-                <h3>Player 2</h3>
-                <img id="image18" src="img/Eric.png" alt="">
-              </div>
-              <!-- Player 3 -->
-              <div class="grid-item">
-                <h3>Player 3</h3>
-                <img id="image19" src="img/Josh.png" alt="">
-              </div>
-              <!-- Player 4 -->
-              <div class="grid-item">
-                <h3>Player 4</h3>
-                <img id="image20" src="img/Kim.png" alt="">
-              </div>
-            </div>
+                        <!-- Web Images Section -->
+                        <div id="web-images">
+                            <!-- Player 1 -->
+                            <div class="grid-item">
+                                <h3>Player 1</h3>
+                                <img id="image17" src="img/Brian.png" alt="">
+                            </div>
+                            <!-- Player 2 -->
+                            <div class="grid-item">
+                                <h3>Player 2</h3>
+                                <img id="image18" src="img/Eric.png" alt="">
+                            </div>
+                            <!-- Player 3 -->
+                            <div class="grid-item">
+                                <h3>Player 3</h3>
+                                <img id="image19" src="img/Josh.png" alt="">
+                            </div>
+                            <!-- Player 4 -->
+                            <div class="grid-item">
+                                <h3>Player 4</h3>
+                                <img id="image20" src="img/Kim.png" alt="">
+                            </div>
+                        </div>
 
-            <!-- Intern Images Section -->
-            <div id="intern-images">
-              <!-- Player 1 -->
-              <div class="grid-item">
-                <h3>Player 1</h3>
-                <img id="image21" src="img/Ashlynn.png" alt="">
-              </div>
-              <!-- Player 2 -->
-              <div class="grid-item">
-                <h3>Player 2</h3>
-                <img id="image22" src="img/Daniel.png" alt="">
-              </div>
-              <!-- Player 3 -->
-              <div class="grid-item">
-                <h3>Player 3</h3>
-                <img id="image23" src="img/Jawon.png" alt="">
-              </div>
-              <!-- Player 4 -->
-              <div class="grid-item">
-                <h3>Player 4</h3>
-                <img id="image24" src="img/Teresa.png" alt="">
-              </div>
-            </div>
+                        <!-- Intern Images Section -->
+                        <div id="intern-images">
+                            <!-- Player 1 -->
+                            <div class="grid-item">
+                                <h3>Player 1</h3>
+                                <img id="image21" src="img/Ashlynn.png" alt="">
+                            </div>
+                            <!-- Player 2 -->
+                            <div class="grid-item">
+                                <h3>Player 2</h3>
+                                <img id="image22" src="img/Daniel.png" alt="">
+                            </div>
+                            <!-- Player 3 -->
+                            <div class="grid-item">
+                                <h3>Player 3</h3>
+                                <img id="image23" src="img/Jawon.png" alt="">
+                            </div>
+                            <!-- Player 4 -->
+                            <div class="grid-item">
+                                <h3>Player 4</h3>
+                                <img id="image24" src="img/Teresa.png" alt="">
+                            </div>
+                        </div>
 
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Landmark-stop modals for Idle Park and the Sun King restaurant -->
-    <div id="landmarkStop1">
-      <img id="stopBTN1" src="img/ContinueButton.png" />
-    </div>
+        <!-- Landmark-stop modals for Idle Park and the Sun King restaurant -->
+        <div id="landmarkStop1">
+            <img id="stopBTN1" src="img/ContinueButton.png" />
+        </div>
 
-    <div id="landmarkStop2">
-      <img id="stopBTN2" src="img/ContinueButton.png" />
+        <div id="landmarkStop2">
+            <img id="stopBTN2" src="img/ContinueButton.png" />
 
-    </div>
+        </div>
 
-    <!-- ####################
+        <!-- ####################
       Main Gameplay Screen
     ######################
    -->
-    <div id="gameMainScreen">
-      <div class="row" id="wagon-images">
-        <div class="col-md-2">
-          <img src="img/NewTruck.gif" id="wagon-6" alt="wagon">
-          <img src="img/new-building.png" id="wagon-new-building" alt="">
+        <div id="gameMainScreen">
+            <div class="row" id="wagon-images">
+                <div class="col-md-2">
+                    <img src="img/NewTruck.gif" id="wagon-6" alt="wagon">
+                    <img src="img/new-building.png" id="wagon-new-building" alt="">
 
-        </div>
-        <div class="col-md-2">
-          <img src="img/NewTruck.gif" id="wagon-5" alt="wagon">
+                </div>
+                <div class="col-md-2">
+                    <img src="img/NewTruck.gif" id="wagon-5" alt="wagon">
 
-        </div>
-        <div class="col-md-2">
-          <img src="img/NewTruck.gif" id="wagon-4" alt="wagon">
+                </div>
+                <div class="col-md-2">
+                    <img src="img/NewTruck.gif" id="wagon-4" alt="wagon">
 
-        </div>
-        <div class="col-md-2">
-          <img src="img/NewTruck.gif" id="wagon-3" alt="wagon">
+                </div>
+                <div class="col-md-2">
+                    <img src="img/NewTruck.gif" id="wagon-3" alt="wagon">
 
-        </div>
-        <div class="col-md-2">
-          <img src="img/NewTruck.gif" id="wagon-2" alt="wagon">
+                </div>
+                <div class="col-md-2">
+                    <img src="img/NewTruck.gif" id="wagon-2" alt="wagon">
 
-        </div>
-        <div class="col-md-2">
-          <img src="img/NewTruck.gif" id="wagon-1" alt="wagon">
-          <img src="img/old-building.png" id="wagon-old-building" alt="">
-        </div>
-      </div>
-      <!-- <div id="map">
+                </div>
+                <div class="col-md-2">
+                    <img src="img/NewTruck.gif" id="wagon-1" alt="wagon">
+                    <img src="img/old-building.png" id="wagon-old-building" alt="">
+                </div>
+            </div>
+            <!-- <div id="map">
         <img src="https://cdn-icons-png.flaticon.com/512/827/827184.png" alt="Map">
         <p class="tooltiptext">You must travel 1.7 miles to reach the goal.<br>Click 'continue' to travel 0.1 miles per
           block.<br>Click 'rest' to heal your team members.<br>Click 'gather' to gather more food.<br>All actions
@@ -495,167 +494,153 @@
           one
           block, and each team member consumes 5 Tacos per block.</p>
       </div> -->
-      <!-- <h1>Lockerbie Trail</h1> -->
-      <p id="progress-title">Journey progress:</p>
-      <div class="progress-images">
-        <img id="progress-truck" src="img/pixelTruck2.png" alt="">
-        <img id="progress-new-building" src="img/new-building.png" alt="">
-        <img id="progress-old-building" src="img/old-building.png" alt="">
-      </div>
-
-      <div id="progressbar" class="mb-4"></div>
-      <div class="row">
-        <div class="col-md-4">
-          <div id="sacrifice-button">
-            <img id="sacrifice" src="img/RestartButton.png" alt="Sacrifice Team">
-            <p class="tooltiptext">Clicking on this button will end your journey. You will be sent
-              back to the start of the trail.</p>
-          </div>
-
-          <div class="prettyColumn" id="status-panel">
-            <p class="bold">Blocks passed: <span class="current-date">0</span></p>
-            <p class="bold">Distance traveled: <span class="distance-traveled">0</span></p>
-            <ul>
-              <li><span id="player-one-name"></span>: <span id="player-one-status"></span>
-                <div id="char1-health-bar" class="health-bar"></div>
-              </li>
-              <li><span id="player-two-name"></span>: <span id="player-two-status"></span>
-                <div id="char2-health-bar" class="health-bar"></div>
-              </li>
-              <li><span id="player-three-name"></span>: <span id="player-three-status"></span>
-                <div id="char3-health-bar" class="health-bar"></div>
-              </li>
-              <li><span id="player-four-name"></span>: <span id="player-four-status"></span>
-                <div id="char4-health-bar" class="health-bar"></div>
-              </li>
-            </ul>
-            <div class="row" id="supplies">
-              <div class="col-md-4">
-                <img src="img/Taco_Icon.png" alt="tacos">
-                <p class="bold"> Tacos left <br><span id="wagon-food-remaining"></span></p>
-              </div>
-              <div class="col-md-4">
-                <img src="img/Addies.png" alt="Waiting for new icon">
-                <p class="bold"> Addies left <br><span id="wagon-awards-remaining"></span></p>
-              </div>
-              <div class="col-md-4">
-                <img src="img/gas-icon.png" alt="gas">
-                <p class="bold"> Fuel left <br><span class="wagon-gas-remaining"></span></p>
-              </div>
+            <!-- <h1>Lockerbie Trail</h1> -->
+            <p id="progress-title">Journey progress:</p>
+            <div class="progress-images">
+                <img id="progress-truck" src="img/pixelTruck2.png" alt="">
+                <img id="progress-new-building" src="img/new-building.png" alt="">
+                <img id="progress-old-building" src="img/old-building.png" alt="">
             </div>
-          </div>
+
+            <div id="progressbar" class="mb-4"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="sacrifice-button">
+                        <img id="sacrifice" src="img/RestartButton.png" alt="Sacrifice Team">
+                        <p class="tooltiptext">Clicking on this button will end your journey. You will be sent back to the start of the trail.</p>
+                    </div>
+
+                    <div class="prettyColumn" id="status-panel">
+                        <p class="bold">Blocks passed: <span class="current-date">0</span></p>
+                        <p class="bold">Distance traveled: <span class="distance-traveled">0</span></p>
+                        <ul>
+                            <li><span id="player-one-name"></span>: <span id="player-one-status"></span>
+                                <div id="char1-health-bar" class="health-bar"></div>
+                            </li>
+                            <li><span id="player-two-name"></span>: <span id="player-two-status"></span>
+                                <div id="char2-health-bar" class="health-bar"></div>
+                            </li>
+                            <li><span id="player-three-name"></span>: <span id="player-three-status"></span>
+                                <div id="char3-health-bar" class="health-bar"></div>
+                            </li>
+                            <li><span id="player-four-name"></span>: <span id="player-four-status"></span>
+                                <div id="char4-health-bar" class="health-bar"></div>
+                            </li>
+                        </ul>
+                        <div class="row" id="supplies">
+                            <div class="col-md-4">
+                                <img src="img/Taco_Icon.png" alt="tacos">
+                                <p class="bold"> Tacos left <br><span id="wagon-food-remaining"></span></p>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="img/Addies.png" alt="Waiting for new icon">
+                                <p class="bold"> Addies left <br><span id="wagon-awards-remaining"></span></p>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="img/gas-icon.png" alt="gas">
+                                <p class="bold"> Fuel left <br><span class="wagon-gas-remaining"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+
+
+                    <div id="ongoing-text-box">
+                        <img src="img/pixelTruck2.png" alt="">
+                        <p class="ongoing-events">You must travel 1.7 miles to reach the new office-but dangers lurk on every block.
+                            <br><br> Click 'Continue' to travel .1 miles per turn.<br><br> Click 'Barter' to exchange advertising awards for tacos.<br><br> Click 'Rest' to heal your team members.<br><br> All actions spend one block, and each team member
+                            eats 5 tacos every turn.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center">
+                <img id="continue-button" src="img/ContinueButton.png" class="col-md-3 img-equal-size" />
+
+                <img id="hunt-button" src="img/BarterButton.png" class="col-md-3 m-4 img-equal-size" />
+
+                <img id="rest-button" src="img/RestButton.png" class="col-md-3 img-equal-size" />
+
+            </div>
         </div>
-
-        <div class="col-md-8">
-
-
-          <div id="ongoing-text-box">
-            <img src="img/pixelTruck2.png" alt="">
-            <p class="ongoing-events">You must travel 1.7 miles to reach the new office-but dangers lurk on every
-              block.<br><br>
-              Click 'Continue' to travel .1 miles per turn.<br><br>
-              Click 'Barter' to exchange advertising awards for tacos.<br><br>
-              Click 'Rest' to heal your team members.<br><br>
-              All actions spend one block, and each team member eats 5 tacos every turn.</p>
-          </div>
-        </div>
-
-      </div>
-      <div class="text-center">
-        <img id="continue-button" src="img/ContinueButton.png" class="col-md-3 img-equal-size" />
-
-        <img id="hunt-button" src="img/BarterButton.png" class="col-md-3 m-4 img-equal-size" />
-
-        <img id="rest-button" src="img/RestButton.png" class="col-md-3 img-equal-size" />
-
-      </div>
-    </div>
-    <!-- <div id="map">
+        <!-- <div id="map">
 
   </div>
   <div id="map-background">
 
   </div> -->
-  </div>
-  <div id="profileModal" class="map-modal align-content-center">
-    <img id="closeProfile" src="img/CloseButton.png">
-
-    <img id="profileImage" src="#" alt="">
-
-  </div>
-
-  <div class="letters align-content-center">
-    <div class="mainStickyNote">
     </div>
-    <div class="letter-modal-1">
-      <div class="letter-body">
-        <div class="letter">
-          <div class="letter-header">Dear Fountain Square,</div>
-          <div class="letter-content">
-            We’ve shared a lot of special moments in the past, but-oh, how can we put this-we’ve grown.
-            (Like, REALLY grown. To the point where if we hire one more person, we’ll be repurposing the storage closets
-            as executive offices.) <br><br>
-            We’ve already found a new place, and we’re moving out today. But you’ll be fine. You’re a strong
-            neighborhood,
-            and we know you’ll find a special someone to take our square footage soon.
-            <br>
-          </div>
-          <div class="letter-signature">
-            Fare thee well,<br>
-            <em>Well Done Marketing</em>
-          </div>
+    <div id="profileModal" class="map-modal align-content-center">
+        <img id="closeProfile" src="img/CloseButton.png">
+
+        <img id="profileImage" src="#" alt="">
+
+    </div>
+
+    <div class="letters align-content-center">
+        <div class="mainStickyNote">
         </div>
-      </div>
-      <img src="img/StickyNote.gif" alt="">
-      <img class="skipButtonThree" src="img/CloseButton.png" />
+        <div class="letter-modal-1">
+            <div class="letter-body">
+                <div class="letter">
+                    <div class="letter-header">Dear Fountain Square,</div>
+                    <div class="letter-content">
+                        We’ve shared a lot of special moments in the past, but-oh, how can we put this-we’ve grown. (Like, REALLY grown. To the point where if we hire one more person, we’ll be repurposing the storage closets as executive offices.) <br><br>                        We’ve already found a new place, and we’re moving out today. But you’ll be fine. You’re a strong neighborhood, and we know you’ll find a special someone to take our square footage soon.
+                        <br>
+                    </div>
+                    <div class="letter-signature">
+                        Fare thee well,<br>
+                        <em>Well Done Marketing</em>
+                    </div>
+                </div>
+            </div>
+            <img src="img/StickyNote.gif" alt="">
+            <img class="skipButtonThree" src="img/CloseButton.png" />
 
-    </div>
-  </div>
-
-
-  <div class="letters align-content-center">
-    <div class="endingStickyNote">
-
-    </div>
-    <div class="ending-modal">
-      <div class="ending-letter-body">
-        <div class="ending-letter">
-          <div class="ending-letter-content">
-            Welcome to Lockerbie Square, the new home of Well Done Marketing!
-            Congratulations on surviving our perilous move to the exciting new office. <br>
-
-            <br>
-            Lockerbie Square offers fresh territory to explore.
-            With only a four-block walk from here to Mass Ave,
-            we now have a plethora of new restaurants to discover and savor.
-            <br><br>
-            Crack open a cold La Croix, and keep on doing bold work for a better world.
-
-          </div>
         </div>
-      </div>
-      <img id="ending-button" src="img/Play-Again.png" />
-      <img src="img/StickyNote.gif" alt="">
     </div>
-  </div>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <div class="modal-child">
 
+    <div class="letters align-content-center">
+        <div class="endingStickyNote">
+
+        </div>
+        <div class="ending-modal">
+            <div class="ending-letter-body">
+                <div class="ending-letter">
+                    <div class="ending-letter-content">
+                        Welcome to Lockerbie Square, the new home of Well Done Marketing! Congratulations on surviving our perilous move to the exciting new office. <br>
+
+                        <br> Lockerbie Square offers fresh territory to explore. With only a four-block walk from here to Mass Ave, we now have a plethora of new restaurants to discover and savor.
+                        <br><br> Crack open a cold La Croix, and keep on doing bold work for a better world.
+
+                    </div>
+                </div>
+            </div>
+            <img id="ending-button" src="img/Play-Again.png" />
+            <img src="img/StickyNote.gif" alt="">
+        </div>
     </div>
-  </div>
-  <div id="buttonModal" class="modal2">
-    <div class="modal-child">
-      <div class="button-content">
 
-      </div>
-      <div class="buttons">
-        <!-- <span id="option1-button" class="btn btn-success">Option 1</span> <span id="option2-button"
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-child">
+
+        </div>
+    </div>
+    <div id="buttonModal" class="modal2">
+        <div class="modal-child">
+            <div class="button-content">
+
+            </div>
+            <div class="buttons">
+                <!-- <span id="option1-button" class="btn btn-success">Option 1</span> <span id="option2-button"
           class="btn btn-success">Option 2</span> -->
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 </body>
 
