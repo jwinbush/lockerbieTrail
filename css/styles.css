@@ -473,7 +473,7 @@ input[type="radio"] {
   }
   
   100% {
-    transform: translateX(-86%); /* Distance the car will move */
+    transform: translateX(-860px); /* Distance the car will move */
   }
 }
 
