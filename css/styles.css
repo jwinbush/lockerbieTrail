@@ -453,28 +453,27 @@ input[type="radio"] {
   height: 200px;
   position: absolute;
   bottom: 5%;
-  right: 5%;
+  right: 0%;
   z-index: 15;
   background-image: url(../img/NewTruck.gif);
   background-size: cover;
-  animation: wagonwheel 40s linear 0s infinite;
+  animation: wagonwheel 8s linear 0s infinite;
   /* Remove 'alternate' for forward animation only */
-  -moz-animation: wagonwheel 40s linear 0s infinite;
-  -webkit-animation: wagonwheel 40s linear 0s infinite;
+  -moz-animation: wagonwheel 8s linear 0s infinite;
+  -webkit-animation: wagonwheel 8s linear 0s infinite;
 
   /* Add these lines for animation */
   animation-fill-mode: both;
 }
 
 @keyframes wagonwheel {
-  0%, 100% {
+  0% {
     transform: translateX(0);
-    /* Start and end positions */
+    z-index: 1;
   }
-
-  50% {
-    transform: translateX(50px);
-    /* Highest forward translation */
+  
+  100% {
+    transform: translateX(-86%); /* Distance the car will move */
   }
 }
 
