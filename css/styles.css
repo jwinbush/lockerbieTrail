@@ -735,7 +735,8 @@ img {
   border: 2px solid rgb(180 180 180);
   border-radius: 10px;
   height: 435px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 10px;
   font-weight: 300;
   letter-spacing: 1px;
