@@ -1076,7 +1076,7 @@ p.ongoing-events {
   top: 0;
   overflow: auto;
   /* Enable scroll if needed */
-  background-image: url(../img/newBuilding.png);
+  background-image: url(../img/welcome-screen.png);
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;

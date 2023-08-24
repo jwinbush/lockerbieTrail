@@ -50,7 +50,7 @@ class Wagon {
     constructor() {
         // Properties for the wagon and inventory
         this.food = 100;
-        this.gas = 40;
+        this.gas = 25;
         this.days = 0;
         this.characters = [];
         this.awards = 10;
@@ -289,8 +289,8 @@ function negativeEvent() {
         $(".ongoing-events").prepend(+ranSupplyDecrease + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
         wagon.addie -= ranSupplyDecrease
     } else if (num === 4) {
-        $(".ongoing-events").prepend("You have a flat tire! <br><br><br>")
-        wagon.days += 5
+        $(".ongoing-events").prepend("You have a flat tire! You must spend 2 Addys to get it replaced. <br><br><br>")
+        wagon.addie -= 2
     } else if (num === 5) {
         $(".ongoing-events").prepend("You stop at Hot Boys chicken, impulsively order the hottest spice level, and are forced to trade " + ranSupplyDecrease + " tacos for a cold La Croix. <br><br><br>")
         wagon.tacos -= ranSupplyDecrease
