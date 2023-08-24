@@ -263,7 +263,7 @@ function positiveEvent() {
         // Modify wagon attributes
         wagon.food += 30
     } else if (num === 4) {
-        $('.ongoing-events').prepend('OFFICE DOG SOFIE SPOTS A SQUIRREL AND RUNS OUT OF THE VAN. ARRIVAL IS DELAYED. Gas is decreased by' + 5 + ' <br><br><br>');
+        $('.ongoing-events').prepend('OFFICE DOG SOFIE SPOTS A SQUIRREL AND RUNS OUT OF THE VAN. ARRIVAL IS DELAYED. Gas is decreased by ' + 5 + '. <br><br><br>');
         // Modify wagon attributes
         wagon.gas -= 5
     } else if (num === 5) {
@@ -289,7 +289,7 @@ function negativeEvent() {
         $(".ongoing-events").prepend(+ranSupplyDecrease + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
         wagon.addie -= ranSupplyDecrease
     } else if (num === 4) {
-        $(".ongoing-events").prepend("You have a flat tire! Your party loses 5 blocks. <br><br><br>")
+        $(".ongoing-events").prepend("You have a flat tire! <br><br><br>")
         wagon.days += 5
     } else if (num === 5) {
         $(".ongoing-events").prepend("You stop at Hot Boys chicken, impulsively order the hottest spice level, and are forced to trade " + ranSupplyDecrease + " tacos for a cold La Croix. <br><br><br>")
