@@ -286,7 +286,7 @@ function negativeEvent() {
         wagon.food -= ranSupplyDecrease
         wagon.characters[index].health -= 30
     } else if (num === 3 && wagon.addie > 0) {
-        $(".ongoing-events").prepend(+ranSupplyDecrease + " of your Addy's are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
+        $(".ongoing-events").prepend(+ranSupplyDecrease + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
         wagon.addie -= ranSupplyDecrease
     } else if (num === 4) {
         $(".ongoing-events").prepend("You have a flat tire! Your party loses 5 blocks. <br><br><br>")
@@ -377,7 +377,7 @@ function landmarkEvent() {
         $("#buttonModal").toggle();
     } else if (num === 17) {
         buildModal("Win");
-        $(".ongoing-events").prepend("You win! Enjoy an ice cold limited edition Lacroix and start settling in.");
+        $(".ongoing-events").prepend("You win! Enjoy an ice cold limited edition La Croix and start settling in.");
         $("#myModal").fadeIn(500);
         $(".endingStickyNote").fadeIn(500);
         $(".ending-modal").fadeIn(600);
@@ -398,7 +398,7 @@ function fixRamen() {
     var num = Math.floor(Math.random() * Math.floor(100))
     var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
     if (num > 50) {
-        $(".ongoing-events").prepend("Uh oh, someone spotted your ramen misadventure. Vengeful coworkers send " + wagon.characters[index].name + " home. <br><br><br>")
+        $(".ongoing-events").prepend("Uh oh, someone spotted your ramen misadventure. Vengeful co-workers send " + wagon.characters[index].name + " home. <br><br><br>")
         wagon.characters[index].health = 0
         wagon.characters[index].status = "Unresponsive"
         for (i = 0; i < 4; i++) {
