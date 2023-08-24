@@ -354,6 +354,8 @@ function landmarkEvent() {
         $("#myModal").toggle();
         $("#gameMainScreen").hide();
         $("#landmarkStop1").fadeIn(500);
+        $("#stopBTN1").css('display', 'block');
+
         $("#back-button").hide();
     } else if (num === 12) {
         buildLandmarkModal(num, "crossBridge", "detourBridge", "Under", "Detour")
@@ -365,6 +367,7 @@ function landmarkEvent() {
         $("#myModal").toggle();
         wagon.food += 50;
         $("#gameMainScreen").hide();
+        $("#stopBTN2").css('display', 'block');
         $("#landmarkStop2").fadeIn(500);
         $("#back-button").hide();
     } else if (num === 16) {
@@ -1215,8 +1218,26 @@ $(document).ready(function() {
         }
     });
 
+    $('.profile-image').click(function() {
+        var imgSrc = $(this).attr('src');
+        var name = $(this).data('name');
 
+        var matchingProfile = nameImageArray.find(function(item) {
+            return item.src === imgSrc;
+        });
 
+        if (matchingProfile) {
+            $(this).attr('src', matchingProfile.profile);
+        }
+    });
+
+    $('#stopBTN1').click(function() {
+        $('#stopBTN1').hide();
+    });
+
+    $('#stopBTN2').click(function() {
+        $('#stopBTN2').hide();
+    });
 
 
 });
