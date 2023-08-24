@@ -846,18 +846,18 @@ p.ongoing-events {
 }
 
 #stopBTN1, #stopBTN2 {
-      /* position: absolute; */
-      width: 150px;
-      display: none;
-      margin: 0 auto;
-      padding-top: 30px;
-      top: 50%;
-      right: 470px;
-      /* display: flex; */
-      cursor: pointer;
-      transition: all 1s ease;
-      justify-content: center;
-  
+  /* position: absolute; */
+  width: 150px;
+  display: none;
+  margin: 0 auto;
+  padding-top: 30px;
+  top: 50%;
+  right: 470px;
+  /* display: flex; */
+  cursor: pointer;
+  transition: all 1s ease;
+  justify-content: center;
+
 }
 
 #stopBTN1:hover, #stopBTN2:hover {
