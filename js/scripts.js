@@ -1235,6 +1235,30 @@ $(document).ready(function () {
         $('#stopBTN2').hide();
     });
 
+    //Muted and play button
+    const audioPlayer = document.getElementById('audioPlayer');
+    const muteButton = document.getElementById('muteButton');
+    const playButton = document.getElementById('playButton');
+
+    muteButton.addEventListener('click', () => {
+        audioPlayer.muted = !audioPlayer.muted;
+        muteButton.textContent = audioPlayer.muted ? 'Unmute' : 'Mute';
+    });
+
+    playButton.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playButton.textContent = 'Pause';
+        } else {
+            audioPlayer.pause();
+            playButton.textContent = 'Play';
+        }
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+        playButton.textContent = 'Play';
+    });
+
 
 });
 

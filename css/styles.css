@@ -686,6 +686,14 @@ img {
   transform: scale(1.1);
 }
 
+#info-section img {
+  display: block;
+  width: 30px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
 #characterBTN {
   margin-top: 23px;
   width: 200px;
@@ -1204,7 +1212,26 @@ p.ongoing-events {
   letter-spacing: 1px;
 }
 
-.tooltiptext:hover {
+#info-section p {
+  visibility: hidden;
+  width: 350px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #9c9c9c;
+  color: #000;
+  text-align: left;
+  border-radius: 10px 10px 10px 10px;
+  padding: 16px;
+  right: 210px;
+  bottom: 50px;
+  /* margin-right: 0px; */
+  /* margin-top: 2px; */
+  position: absolute;
+  z-index: 10;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+#sacrifice-button:hover .tooltiptext, #info-section:hover p {
   visibility: visible;
 }
 
