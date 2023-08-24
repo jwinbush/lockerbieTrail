@@ -263,9 +263,9 @@ function positiveEvent() {
         // Modify wagon attributes
         wagon.food += 30
     } else if (num === 4) {
-        $('.ongoing-events').prepend('Nicholas forgot his dog Sofie at the old office. Arrival is delayed. Gas is decreased by ' + 10 + '. <br><br><br>');
+        $('.ongoing-events').prepend('OFFICE DOG SOFIE SPOTS A SQUIRREL AND RUNS OUT OF THE VAN. ARRIVAL IS DELAYED. Gas is decreased by' + 5 +' <br><br><br>');
         // Modify wagon attributes
-        wagon.gas -= 10
+        wagon.gas -= 5
     } else if (num === 5) {
         $('.ongoing-events').prepend('You are stuck in traffic and Rachel starts a discussion on the latest SCOTUS decision. Arrival is delayed. <br><br><br>');
         // Modify wagon attributes
