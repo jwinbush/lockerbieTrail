@@ -988,7 +988,7 @@ p.ongoing-events {
   transform: translate(-50%, -50%);
   /* background-color: rgba(0, 0, 0, 0.4); */
   overflow: hidden;
-  background-image: url(../img/Goodbye.png);
+  background-image: url(../img/Goodbye1.png);
   background-size: cover;
   background-blend-mode: color;
   background-color: rgba(0, 0, 0, 0.4);
@@ -1008,7 +1008,7 @@ p.ongoing-events {
   transform: translate(-50%, -50%);
   /* background-color: rgba(0, 0, 0, 0.4); */
   overflow: hidden;
-  background-image: url(../img/newBuilding.png);
+  background-image: url(../img/welcome-screen.png);
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
@@ -1036,7 +1036,7 @@ p.ongoing-events {
   top: 0;
   overflow: auto;
   /* Enable scroll if needed */
-  background-image: url(../img/Goodbye.png);
+  background-image: url(../img/Goodbye1.png);
   /* Fallback color */
   background-size: cover;
   background-blend-mode: color;
