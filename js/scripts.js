@@ -330,7 +330,7 @@ function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
 }
 
 function buildPlayAgainModal(value, btnID1, btn1Name) {
-    $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
+    $('.modal-child').html('<video src="img/' + value + '.mp4" autoplay></video>' +
         '<div id="popup-text" class="button-content">' +
         '<div class="buttons">' +
         '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button">' +

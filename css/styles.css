@@ -100,37 +100,192 @@ span {
 
 @media (max-width: 1500px) {
   .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 95%;
+    /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 1400px) {
+  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
     zoom: 90%;
     /* Adjust this value as needed */
   }
+
 }
 
-@media (max-width: 1000px) {
-  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+@media (max-width: 1350px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 85%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 1250px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
     zoom: 80%;
     /* Adjust this value as needed */
   }
+
 }
 
-@media (max-width: 800px) {
-  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+@media (max-width: 1180px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 75%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 1100px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
     zoom: 70%;
     /* Adjust this value as needed */
   }
+
 }
 
-@media (max-width: 600px) {
-  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+@media (max-width: 1050px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 65%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 950px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
     zoom: 60%;
     /* Adjust this value as needed */
   }
+
 }
 
-@media (max-width: 400px) {
-  .container, .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+@media (max-width: 900px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
     zoom: 55%;
     /* Adjust this value as needed */
   }
+
+}
+
+@media (max-width: 800px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 50%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 750px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 40%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 600px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 35%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 550px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 30%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 400px) {
+  .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
+    zoom: 25%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+  .container {
+    zoom: 85%;
+    min-height: 410px;
+    /* Adjust this value as needed */
+  }
+
+  .icon-wagon {
+    width: 250px;
+    height: 150px;
+  }
+
+  #characterSetup img {
+    width: 150px;
+    top: 220px;
+  }
+
+}
+
+@media (max-width: 800px) {
+  .container {
+    zoom: 70%;
+    /* Adjust this value as needed */
+  }
+
+}
+
+@media (max-width: 600px) {
+  .container {
+    zoom: 60%;
+    /* Adjust this value as needed */
+  }
+
+  #profileImage {
+    width: 500px;
+  }
+}
+
+@media (max-width: 414px) {
+  .container {
+    zoom: 55%;
+    /* Adjust this value as needed */
+  }
+
+  @keyframes wagonwheel {
+    0% {
+      transform: translateX(0);
+      z-index: 1;
+    }
+
+    100% {
+      transform: translateX(-260px);
+      /* Distance the car will move */
+    }
+  }
+
+  #profileImage {
+    width: 400px;
+  }
+
+  #closeProfile {
+    z-index: 1;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    max-width: 100px;
+    max-height: 40px;
+    margin: auto;
+  }
+
+
 }
 
 .letter-body, .ending-letter-body {
@@ -145,7 +300,7 @@ span {
   z-index: 1;
   max-width: 600px;
   top: 10%;
-  line-height: 40px;
+  line-height: 35px;
   color: black;
   /* zoom: 0.8; */
 }
@@ -159,12 +314,11 @@ span {
 
 .letter-content {
   font-size: 20px;
-  line-height: 35px;
+
 }
 
 .ending-letter-content {
   font-size: 20px;
-  line-height: 35px;
   padding-top: 15px;
 }
 
@@ -466,13 +620,16 @@ input[type="radio"] {
   z-index: 15;
   background-image: url(../img/NewTruck.gif);
   background-size: cover;
-  animation: wagonwheel 8s linear 0s infinite;
-  /* Remove 'alternate' for forward animation only */
-  -moz-animation: wagonwheel 8s linear 0s infinite;
-  -webkit-animation: wagonwheel 8s linear 0s infinite;
+  /* Only apply animation when screen width is greater than 800px */
 
-  /* Add these lines for animation */
-  animation-fill-mode: both;
+  @media (min-width: 1200px) {
+    animation: wagonwheel 8s linear 0s infinite;
+    /* Remove 'alternate' for forward animation only */
+    -moz-animation: wagonwheel 8s linear 0s infinite;
+    -webkit-animation: wagonwheel 8s linear 0s infinite;
+    animation-fill-mode: both;
+  }
+
 }
 
 @keyframes wagonwheel {
@@ -935,9 +1092,8 @@ p.ongoing-events {
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(0 0 0 / 84%);
   /* Black w/ opacity */
 }
 
@@ -1196,6 +1352,14 @@ p.ongoing-events {
   border-radius: 10px 10px 0px 0px;
 }
 
+.modal-child video {
+  width: 50%;
+  max-width: 673px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
 #team input {
   margin-right: 10px;
 }
@@ -1443,8 +1607,8 @@ select {
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
+/* @media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;
   }
-}
+} */
