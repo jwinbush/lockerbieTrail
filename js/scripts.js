@@ -1014,7 +1014,7 @@ $(document).ready(function () {
 
     // Create an array of name-image pairs
     const nameImageArray = [
-        { name: 'alex w.', src: 'img/Alex W..png', profile: 'img/profiles-Alex.png' },
+        { name: 'alex w.', src: 'img/Alex W..png', profile: 'img/profiles-Alex-W.png' },
         { name: 'jen', src: 'img/Jen.png', profile: 'img/profiles-Jen.png' },
         { name: 'joe j.', src: 'img/Joe J..png', profile: 'img/profiles-Joe-J.png' },
         { name: 'kelly', src: 'img/Kelly.png', profile: 'img/profiles-Kelly.png' },
