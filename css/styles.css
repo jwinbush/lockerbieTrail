@@ -201,9 +201,9 @@ span {
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 414px) {
   .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
-    zoom: 25%;
+    zoom: 24%;
     /* Adjust this value as needed */
   }
 
@@ -267,6 +267,15 @@ span {
       transform: translateX(-260px);
       /* Distance the car will move */
     }
+  }
+
+  .icon-wagon {
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    bottom: 10%;
+    right: 6%;
+    z-index: 15;
   }
 
   #profileImage {
