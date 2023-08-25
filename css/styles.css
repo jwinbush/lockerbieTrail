@@ -35,9 +35,24 @@ body {
 
 }
 
+#sound-off {
+  display: none;
+  position: absolute;
+  width: 25px;
+  top: -32px;
+  left: 0;
+}
+
+#sound-on {
+  position: absolute;
+  width: 25px;
+  top: -32px;
+  left: 0;
+}
+
 #muteButton, #unmuteButton {
   top: -30px;
-  left: 0;
+  left: 30px;
   position: absolute;
   width: 70px;
   cursor: pointer;

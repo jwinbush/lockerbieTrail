@@ -1244,10 +1244,16 @@ $(document).ready(function () {
     });
 
     const muteButton = document.getElementById("muteButton");
+    const soundOff = document.getElementById("sound-off");
     const unmuteButton = document.getElementById("unmuteButton");
+    const soundOn = document.getElementById("sound-on");
+
 
     muteButton.addEventListener("click", () => {
         openingSong.muted = true;
+        soundOff.style.display = "block"; // Hide mute button
+        soundOn.style.display = "none"; // Hide mute button
+
         muteButton.style.display = "none"; // Hide mute button
         unmuteButton.style.display = "block"; // Show unmute button
     });
@@ -1256,6 +1262,9 @@ $(document).ready(function () {
         var openingSong = document.getElementById('openingSong');
         openingSong.muted = false; // Enable looping
         openingSong.play();
+        soundOn.style.display = "block"; // Hide mute button
+        soundOff.style.display = "none"; // Hide mute button
+
         unmuteButton.style.display = "none"; // Hide unmute button
         muteButton.style.display = "block"; // Show mute button
     });
