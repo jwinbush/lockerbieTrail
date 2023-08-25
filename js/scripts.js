@@ -116,7 +116,7 @@ class Wagon {
             // document.getElementById('introMusic').pause();
             document.getElementById('game-over').play();
         } else if (wagon.gas <= 0) {
-            buildPlayAgainModal("unresponsive", "death", "Play Again");
+            buildPlayAgainModal("unresponsive", "death", "Play-Again");
             $(".button-content").prepend("Oh no! You ran out of fuel!");
             $("#myModal").fadeIn(300);
             // document.getElementById('introMusic').pause();
