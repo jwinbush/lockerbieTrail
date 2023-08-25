@@ -32,7 +32,7 @@ class Character {
             $(".ongoing-events").prepend(this.name + " got Dysentery (IT’S STILL A THING, PEOPLE). <br><br><br>");
         } else if (num === 2 && this.illness.includes("Alcohol Poisoning") == false) {
             this.illness.push("Alcohol Poisoning");
-            $(".ongoing-events").prepend(this.characters[index].name + " tried a mystery shot from the creatives' bar cart. They lost 15 health. <br><br><br>");
+            $(".ongoing-events").prepend(this.characters[index].name + " TRIES A MYSTERY SHOT FROM THE CREATIVES' BAR CART AND LOSES 15 HEALTH. <br><br><br>");
             wagon.characters[index].health -= 15
         } else if (num === 3 && this.illness.includes("Bloating") == false) {
             this.illness.push("Bloating");
