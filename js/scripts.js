@@ -289,7 +289,7 @@ function negativeEvent() {
         wagon.characters[index].health -= 30
     } else if (num === 3) {
         $(".ongoing-events").prepend(+ 3 + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
-        wagon.addie -= 3
+        wagon.awards -= 3
     } else if (num === 4) {
         $(".ongoing-events").prepend("You have a flat tire! " + wagon.characters[index].name + " changes the tire and loses 30 health from over exerting themself. <br><br><br>")
         wagon.characters[index].health -= 30

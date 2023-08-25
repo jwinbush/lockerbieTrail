@@ -197,6 +197,30 @@ span {
   .letter-modal-1, .letter-modal-2, .letter-modal-3, .ending-modal {
     zoom: 30%;
     /* Adjust this value as needed */
+    
+  }
+  .sky1 {
+   display: none;
+  }
+  
+  .sky2 {
+    display: none;
+  }
+  
+  .sky3 {
+    display: none;
+  }
+  
+  .sky4 {
+    display: none;
+  }
+  
+  .sky5 {
+   display: none;
+  }
+  
+  .sky6 {
+    display: none;
   }
 
 }
