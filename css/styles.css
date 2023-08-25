@@ -851,7 +851,7 @@ img {
 
 .buttons .button {
   width: 180px;
-  padding: 0px 10px;
+  padding: 10px;
   transition: all 1s ease;
   cursor: pointer;
 }
