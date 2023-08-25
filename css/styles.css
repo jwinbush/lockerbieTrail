@@ -32,7 +32,15 @@ body {
   padding: 30px;
   border-radius: 10px;
   min-height: 527px;
-  
+
+}
+
+#muteButton, #unmuteButton {
+  top: -30px;
+  left: 0;
+  position: absolute;
+  width: 70px;
+  cursor: pointer;
 }
 
 #client-images, #creative-images, #operations-images, #strategy-images, #web-images, #intern-images, #custom-images {
@@ -687,11 +695,20 @@ img {
 }
 
 #info-section img {
-  display: block;
-  width: 30px;
-  margin: 0 auto;
+  position: absolute;
+  /* display: block; */
+  width: 35px;
+  /* bottom: 7%; */
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 8px;
+  position: absolute;
+  z-index: 1;
+  /* margin: 0 auto; */
   cursor: pointer;
   transition: all 1s ease;
+
+
 }
 
 #characterBTN {
@@ -1221,8 +1238,8 @@ p.ongoing-events {
   text-align: left;
   border-radius: 10px 10px 10px 10px;
   padding: 16px;
-  right: 210px;
-  bottom: 50px;
+  right: 200px;
+  bottom: 30px;
   /* margin-right: 0px; */
   /* margin-top: 2px; */
   position: absolute;

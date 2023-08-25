@@ -289,7 +289,7 @@ function negativeEvent() {
         $(".ongoing-events").prepend(+ranSupplyDecrease + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
         wagon.addie -= ranSupplyDecrease
     } else if (num === 4) {
-        $(".ongoing-events").prepend("You have a flat tire! You must spend 2 Addys to get it replaced. <br><br><br>")
+        $(".ongoing-events").prepend("You have a flat tire! You must spend two Addys to get it replaced. <br><br><br>")
         wagon.addie -= 2
     } else if (num === 5) {
         $(".ongoing-events").prepend("You stop at Hot Boys chicken, impulsively order the hottest spice level, and are forced to trade " + ranSupplyDecrease + " tacos for a cold La Croix. <br><br><br>")
@@ -554,6 +554,7 @@ $(document).ready(function () {
         $(".container").hide();
         $("#startBTN").hide();
         $(".mainStickyNote").fadeIn(300);
+
     });
 
     $("#characterBTN").click(function () {
@@ -1235,30 +1236,22 @@ $(document).ready(function () {
         $('#stopBTN2').hide();
     });
 
-    //Muted and play button
-    const audioPlayer = document.getElementById('audioPlayer');
-    const muteButton = document.getElementById('muteButton');
-    const playButton = document.getElementById('playButton');
+    const muteButton = document.getElementById("muteButton");
+    const unmuteButton = document.getElementById("unmuteButton");
 
-    muteButton.addEventListener('click', () => {
-        audioPlayer.muted = !audioPlayer.muted;
-        muteButton.textContent = audioPlayer.muted ? 'Unmute' : 'Mute';
+    muteButton.addEventListener("click", () => {
+        openingSong.muted = true;
+        muteButton.style.display = "none"; // Hide mute button
+        unmuteButton.style.display = "block"; // Show unmute button
     });
-
-    playButton.addEventListener('click', () => {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            playButton.textContent = 'Pause';
-        } else {
-            audioPlayer.pause();
-            playButton.textContent = 'Play';
-        }
+    
+    unmuteButton.addEventListener("click", () => {
+        var openingSong = document.getElementById('openingSong');
+        openingSong.muted = false; // Enable looping
+        openingSong.play(); 
+        unmuteButton.style.display = "none"; // Hide unmute button
+        muteButton.style.display = "block"; // Show mute button
     });
-
-    audioPlayer.addEventListener('ended', () => {
-        playButton.textContent = 'Play';
-    });
-
 
 });
 

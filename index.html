@@ -13,23 +13,30 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
         integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
-    <audio id="car-braking" src="sounds/car-braking.mp3" preload="auto"></audio>
-    <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
-    <audio id="award-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
-    <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
-    <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
-    <!-- <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio> -->
-    <audio id="game-over" src="sounds/game-over.mp3" preload="auto"></audio>
-    <audio id="ghost" src="sounds/ghost.mp3" preload="auto"></audio>
-    <audio id="level-up" src="sounds/level-up.mp3" preload="auto"></audio>
-    <audio id="press-play" src="sounds/PressPlay.mp3" preload="auto"></audio>
 
+    <audio>
+        <audio id="car-braking" src="sounds/car-braking.mp3" preload="auto"></audio>
+        <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
+        <audio id="award-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
+        <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
+        <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
+        <!-- <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio> -->
+        <audio id="game-over" src="sounds/game-over.mp3" preload="auto"></audio>
+        <audio id="ghost" src="sounds/ghost.mp3" preload="auto"></audio>
+        <audio id="level-up" src="sounds/level-up.mp3" preload="auto"></audio>
+        <audio id="press-play" src="sounds/PressPlay.mp3" preload="auto"></audio>
+    </audio>
 </head>
 
 <body>
 
 
     <div class="container">
+        <div>
+            <img id="unmuteButton" src="img/UnmuteButton.png">
+
+            <img id="muteButton" src="img/MuteButton.png">
+        </div>
         <!-- Character setup screen -->
         <div id="characterSetup">
             <div id="start">
@@ -52,7 +59,7 @@
                 <div class="row">
                     <div id="team" class="col-md-3">
                         <!-- Squad selection section -->
-                        <p>Select your squad</p>
+                        <p>Select your squad:</p>
                         <div class="prettyColumn">
                             <!-- Radio option for Client Services -->
                             <div id="radio1">
@@ -83,7 +90,7 @@
                         </div>
                         <!-- Begin button -->
                         <img id="characterBTN" src="img/StartButton.png" />
-                        
+
                     </div>
 
 
@@ -572,12 +579,14 @@
 
                 <img id="rest-button" src="img/RestButton.png" class="col-md-3 img-equal-size" />
                 <div id="info-section">
-                    <img id="info-button" src="img/info-button.png" alt="">
+                    <img id="info-button" src="img/help.png" alt="">
                     <p class="tooltiptext">You must travel 1.7 miles to reach the new office-but dangers lurk on
                         every block.
                         <br><br> Click 'Continue' to travel .1 miles per turn.<br><br> Click 'Barter' to exchange
-                        advertising awards for tacos.<br><br> Click 'Rest' to heal your team members.<br><br> Each team member
-                        eats 5 tacos every turn. </p>
+                        advertising awards for tacos.<br><br> Click 'Rest' to heal your team members.<br><br> Each team
+                        member
+                        eats 5 tacos every turn.
+                    </p>
                 </div>
             </div>
 
