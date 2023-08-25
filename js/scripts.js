@@ -24,6 +24,7 @@ class Character {
     // Prototype method for generating character illnesses
     illnessGenerator() {
         var num = Math.floor(Math.random() * Math.floor(80));
+        var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
 
         // Generate and display various illnesses
         if (num === 1 && this.illness.includes("Dysentery") == false) {
@@ -31,7 +32,8 @@ class Character {
             $(".ongoing-events").prepend(this.name + " got Dysentery (IT’S STILL A THING, PEOPLE). <br><br><br>");
         } else if (num === 2 && this.illness.includes("Alcohol Poisoning") == false) {
             this.illness.push("Alcohol Poisoning");
-            $(".ongoing-events").prepend(this.name + " tried a mystery shot from the creatives' bar cart. <br><br><br>");
+            $(".ongoing-events").prepend(this.characters[index].name + " tried a mystery shot from the creatives' bar cart. They lost 15 health. <br><br><br>");
+            wagon.characters[index].health -= 15
         } else if (num === 3 && this.illness.includes("Bloating") == false) {
             this.illness.push("Bloating");
             $(".ongoing-events").prepend(this.name + " has to wait in line for the restroom. <br><br><br>");
@@ -419,7 +421,8 @@ function detourBridge() {
         wagon.food -= 10
         wagon.statusAdjuster()
     }
-    $(".ongoing-events").prepend("You drove three blocks to get around the College Ave bridge. <br><br><br>")
+    $(".ongoing-events").prepend("You found your away around the College Ave bridge. Fuel decreased by 5. <br><br><br>")
+    wagon.gas -= 5
     wagon.resourceChecker()
     wagon.statusAdjuster()
 
