@@ -287,12 +287,12 @@ function negativeEvent() {
         $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
         wagon.food -= ranSupplyDecrease
         wagon.characters[index].health -= 30
-    } else if (num === 3 && wagon.addie > 0) {
-        $(".ongoing-events").prepend(+ranSupplyDecrease + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
-        wagon.addie -= ranSupplyDecrease
+    } else if (num === 3) {
+        $(".ongoing-events").prepend(+ 3 + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
+        wagon.addie -= 3
     } else if (num === 4) {
-        $(".ongoing-events").prepend("You have a flat tire! You must spend two Addys to get it replaced. <br><br><br>")
-        wagon.addie -= 2
+        $(".ongoing-events").prepend("You have a flat tire! " + wagon.characters[index].name + " changes the tire and loses 30 health from over exerting themself. <br><br><br>")
+        wagon.characters[index].health -= 30
     } else if (num === 5) {
         $(".ongoing-events").prepend("You stop at Hot Boys chicken, impulsively order the hottest spice level, and are forced to trade " + ranSupplyDecrease + " tacos for a cold La Croix. <br><br><br>")
         wagon.tacos -= ranSupplyDecrease
