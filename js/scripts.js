@@ -32,17 +32,23 @@ class Character {
             $(".ongoing-events").prepend(this.name + " got Dysentery (IT’S STILL A THING, PEOPLE). <br><br><br>");
         } else if (num === 2 && this.illness.includes("Alcohol Poisoning") == false) {
             this.illness.push("Alcohol Poisoning");
-            $(".ongoing-events").prepend(this.characters[index].name + " TRIES A MYSTERY SHOT FROM THE CREATIVES' BAR CART AND LOSES 15 HEALTH. <br><br><br>");
+            $(".ongoing-events").prepend(wagon.characters[index].name + " TRIES A MYSTERY SHOT FROM THE CREATIVES' BAR CART AND LOSES 15 HEALTH. <br><br><br>");
             wagon.characters[index].health -= 15
+
         } else if (num === 3 && this.illness.includes("Bloating") == false) {
             this.illness.push("Bloating");
-            $(".ongoing-events").prepend(this.name + " has to wait in line for the restroom. <br><br><br>");
+            $(".ongoing-events").prepend(wagon.characters[index].name + " has to wait in line for the restroom and loses 10 health. <br><br><br>");
+            wagon.characters[index].health -= 10
+
         } else if (num === 4 && this.illness.includes("Lost") == false) {
             this.illness.push("Lost");
-            $(".ongoing-events").prepend(this.name + " got lost on a hot girl walk with Shelby. <br><br><br>");
+            $(".ongoing-events").prepend(wagon.characters[index].name + " got lost on a hot girl walk with Shelby. They lost 10 health. <br><br><br>");
+            wagon.characters[index].health -= 10
+
         } else if (num === 5 && this.illness.includes("Mauled") == false) {
             this.illness.push("Mauled");
-            $(".ongoing-events").prepend(this.name + " got attacked by an army of feral cats. <br><br><br>");
+            $(".ongoing-events").prepend(wagon.characters[index].name + " got attacked by an army of feral cats and lost 20 health. <br><br><br>");
+            wagon.characters[index].health -= 20
         }
     }
 }
@@ -52,7 +58,7 @@ class Wagon {
     constructor() {
         // Properties for the wagon and inventory
         this.food = 100;
-        this.gas = 25;
+        this.gas = 20;
         this.days = 0;
         this.characters = [];
         this.awards = 10;
@@ -111,7 +117,7 @@ class Wagon {
             document.getElementById('game-over').play();
         } else if (wagon.gas <= 0) {
             buildPlayAgainModal("unresponsive", "death", "Play Again");
-            $(".button-content").prepend("You ran out of gas before you could make it to the destination! Game Over! ");
+            $(".button-content").prepend("Oh no! You ran out of fuel!");
             $("#myModal").fadeIn(300);
             // document.getElementById('introMusic').pause();
             document.getElementById('game-over').play();
@@ -250,7 +256,7 @@ function positiveEvent() {
     var ranSupplyIncrease = Math.floor(Math.random() * (200 - 100) + 100);
 
     if (num === 1 && wagon.gas >= 10) {
-        $('.ongoing-events').prepend('Lisa ran out of diet coke on the way to the new office! You must make a pit stop to pick up another case. Gas decreased by ' + 5 + '. <br><br><br>');
+        $('.ongoing-events').prepend('Lisa ran out of diet coke on the way to the new office! You must make a pit stop to pick up another case. Fuel decreased by ' + 5 + '. <br><br><br>');
         wagon.gas -= 5
         // Modify wagon attributes
     } else if (num === 2) {
@@ -265,7 +271,7 @@ function positiveEvent() {
         // Modify wagon attributes
         wagon.food += 30
     } else if (num === 4) {
-        $('.ongoing-events').prepend('OFFICE DOG SOFIE SPOTS A SQUIRREL AND RUNS OUT OF THE VAN. ARRIVAL IS DELAYED. Gas is decreased by ' + 5 + '. <br><br><br>');
+        $('.ongoing-events').prepend('OFFICE DOG SOFIE SPOTS A SQUIRREL AND RUNS OUT OF THE VAN. ARRIVAL IS DELAYED. Fuel is decreased by ' + 5 + '. <br><br><br>');
         // Modify wagon attributes
         wagon.gas -= 5
     } else if (num === 5) {
@@ -281,7 +287,7 @@ function negativeEvent() {
     var ranSupplyDecrease = Math.floor(Math.random() * (200 - 100) + 100)
     var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
     if (num === 1) {
-        $(".ongoing-events").prepend("You pass the former home of Wildwood. " + wagon.characters[index].name + " shed a few tears at its closure, and suffered from dehydration as a result. <br><br><br>")
+        $(".ongoing-events").prepend("You pass the former home of Wildwood. " + wagon.characters[index].name + " shed a few tears at its closure, and suffered from dehydration as a result. Their health decreased by 15. <br><br><br>")
         wagon.characters[index].health -= 15
     } else if (num === 2) {
         $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt causing their health to decrease by 30! <br><br><br>")
