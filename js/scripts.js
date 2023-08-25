@@ -381,10 +381,14 @@ function landmarkEvent() {
         buildModal("Win");
         $(".ongoing-events").prepend("You win! Enjoy an ice cold limited edition La Croix and start settling in.");
         $("#myModal").fadeIn(500);
-        $(".endingStickyNote").fadeIn(500);
-        $(".ending-modal").fadeIn(600);
-        $("#ending-button").fadeIn(600);
+        $("#myModal").click(function () {
+            $(".endingStickyNote").fadeIn(500);
+            $(".ending-modal").fadeIn(600);
+            $("#ending-button").fadeIn(600);
+        });
     }
+
+
 }
 //landmark 1 button events
 function leaveRamen() {
@@ -1247,11 +1251,11 @@ $(document).ready(function () {
         muteButton.style.display = "none"; // Hide mute button
         unmuteButton.style.display = "block"; // Show unmute button
     });
-    
+
     unmuteButton.addEventListener("click", () => {
         var openingSong = document.getElementById('openingSong');
         openingSong.muted = false; // Enable looping
-        openingSong.play(); 
+        openingSong.play();
         unmuteButton.style.display = "none"; // Hide unmute button
         muteButton.style.display = "block"; // Show mute button
     });
