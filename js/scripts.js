@@ -284,10 +284,10 @@ function negativeEvent() {
         $(".ongoing-events").prepend("You pass the former home of Wildwood. " + wagon.characters[index].name + " shed a few tears at its closure, and suffered from dehydration as a result. <br><br><br>")
         wagon.characters[index].health -= 15
     } else if (num === 2) {
-        $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt! <br><br><br>")
+        $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt causing their health to decrease by 30! <br><br><br>")
         wagon.food -= ranSupplyDecrease
         wagon.characters[index].health -= 30
-    } else if (num === 3) {
+    } else if (num === 3 && wagon.awards > 3 ) {
         $(".ongoing-events").prepend(+ 3 + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
         wagon.awards -= 3
     } else if (num === 4) {
