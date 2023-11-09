@@ -1,27 +1,27 @@
 // Character constructor
 class Character {
     constructor(name) {
-        // Properties for the character
-        this.name = name;
-        this.health = 100;
-        this.status = "Good";
-        this.illness = [];
-    }
-    // Prototype method for displaying character health bars
+            // Properties for the character
+            this.name = name;
+            this.health = 100;
+            this.status = "Good";
+            this.illness = [];
+        }
+        // Prototype method for displaying character health bars
     healthBar() {
-        var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Unresponsive: "black" };
+            var pairs = { Good: "#28a745", Fair: "#f0ad4e", Poor: "#d9534f", Unresponsive: "black" };
 
-        // Display health bars and set their styles
-        $("#char1-health-bar").progressbar({ value: char1.health });
-        $("#char1-health-bar .ui-widget-header").css("background", pairs[char1.status]).css("border-color", pairs[char1.status]);
-        $("#char2-health-bar").progressbar({ value: char2.health });
-        $("#char2-health-bar .ui-widget-header").css("background", pairs[char2.status]).css("border-color", pairs[char2.status]);
-        $("#char3-health-bar").progressbar({ value: char3.health });
-        $("#char3-health-bar .ui-widget-header").css("background", pairs[char3.status]).css("border-color", pairs[char3.status]);
-        $("#char4-health-bar").progressbar({ value: char4.health });
-        $("#char4-health-bar .ui-widget-header").css("background", pairs[char4.status]).css("border-color", pairs[char4.status]);
-    }
-    // Prototype method for generating character illnesses
+            // Display health bars and set their styles
+            $("#char1-health-bar").progressbar({ value: char1.health });
+            $("#char1-health-bar .ui-widget-header").css("background", pairs[char1.status]).css("border-color", pairs[char1.status]);
+            $("#char2-health-bar").progressbar({ value: char2.health });
+            $("#char2-health-bar .ui-widget-header").css("background", pairs[char2.status]).css("border-color", pairs[char2.status]);
+            $("#char3-health-bar").progressbar({ value: char3.health });
+            $("#char3-health-bar .ui-widget-header").css("background", pairs[char3.status]).css("border-color", pairs[char3.status]);
+            $("#char4-health-bar").progressbar({ value: char4.health });
+            $("#char4-health-bar .ui-widget-header").css("background", pairs[char4.status]).css("border-color", pairs[char4.status]);
+        }
+        // Prototype method for generating character illnesses
     illnessGenerator() {
         var num = Math.floor(Math.random() * Math.floor(80));
         var index = Math.floor(Math.random() * Math.floor(wagon.characters.length))
@@ -56,78 +56,78 @@ class Character {
 // Wagon/inventory constructor
 class Wagon {
     constructor() {
-        // Properties for the wagon and inventory
-        this.food = 100;
-        this.gas = 20;
-        this.days = 0;
-        this.characters = [];
-        this.awards = 10;
-        this.distance = 0;
-        this.hunted = 0;
-        this.completed = 0.01;
-    }
-    // Prototype method for checking resources in the wagon
+            // Properties for the wagon and inventory
+            this.food = 100;
+            this.gas = 20;
+            this.days = 0;
+            this.characters = [];
+            this.awards = 10;
+            this.distance = 0;
+            this.hunted = 0;
+            this.completed = 0.01;
+        }
+        // Prototype method for checking resources in the wagon
     resourceChecker() {
-        if (this.food <= 0) {
-            this.food = 0;
+            if (this.food <= 0) {
+                this.food = 0;
 
-            // Reduce health of characters if food runs out
-            wagon.characters.forEach(function (char) {
-                char.health -= 10;
-            });
+                // Reduce health of characters if food runs out
+                wagon.characters.forEach(function(char) {
+                    char.health -= 10;
+                });
+            }
+            if (this.award <= 0) {
+                this.award = 0;
+            }
         }
-        if (this.award <= 0) {
-            this.award = 0;
-        }
-    }
-    //Checks for illness, status changes, and character death
+        //Checks for illness, status changes, and character death
     statusAdjuster() {
-        wagon.characters.forEach(function (char) {
-            if (char.illness.length === 1) {
-                char.health -= 2;
-            } else if (char.illness.length === 2) {
-                char.health -= 4;
-            } else if (char.illness.length >= 3) {
-                char.health -= 6;
-            }
+            wagon.characters.forEach(function(char) {
+                if (char.illness.length === 1) {
+                    char.health -= 2;
+                } else if (char.illness.length === 2) {
+                    char.health -= 4;
+                } else if (char.illness.length >= 3) {
+                    char.health -= 6;
+                }
 
-            if (char.health >= 80) {
-                char.status = "Good";
-            } else if (char.health < 80 && char.health >= 20) {
-                char.status = "Fair";
-            } else if (char.health < 20 && char.health > 0) {
-                char.status = "Poor";
-            } else {
-                char.status = "Unresponsive";
-            }
-            char.healthBar();
+                if (char.health >= 80) {
+                    char.status = "Good";
+                } else if (char.health < 80 && char.health >= 20) {
+                    char.status = "Fair";
+                } else if (char.health < 20 && char.health > 0) {
+                    char.status = "Poor";
+                } else {
+                    char.status = "Unresponsive";
+                }
+                char.healthBar();
 
-            if (char.health <= 0) {
-                var index = wagon.characters.indexOf(char);
-                wagon.characters.splice(index, 1);
-                char.status = "Unresponsive";
-            }
-        });
+                if (char.health <= 0) {
+                    var index = wagon.characters.indexOf(char);
+                    wagon.characters.splice(index, 1);
+                    char.status = "Unresponsive";
+                }
+            });
 
-        if (wagon.characters.length <= 0) {
-            buildPlayAgainModal("unresponsive", "death", "Play-Again");
-            $(".button-content").prepend("You didn't make it! Game over! ");
-            $("#myModal").fadeIn(300);
-            // document.getElementById('introMusic').pause();
-            document.getElementById('game-over').play();
-        } else if (wagon.gas <= 0) {
-            buildPlayAgainModal("unresponsive", "death", "Play-Again");
-            $(".button-content").prepend("Oh no! You ran out of fuel!");
-            $("#myModal").fadeIn(300);
-            // document.getElementById('introMusic').pause();
-            document.getElementById('game-over').play();
+            if (wagon.characters.length <= 0) {
+                buildPlayAgainModal("unresponsive", "death", "Play-Again");
+                $(".button-content").prepend("You didn't make it! Game over! ");
+                $("#myModal").fadeIn(300);
+                // document.getElementById('introMusic').pause();
+                document.getElementById('game-over').play();
+            } else if (wagon.gas <= 0) {
+                buildPlayAgainModal("unresponsive", "death", "Play-Again");
+                $(".button-content").prepend("Oh no! You ran out of fuel!");
+                $("#myModal").fadeIn(300);
+                // document.getElementById('introMusic').pause();
+                document.getElementById('game-over').play();
+            }
         }
-    }
-    //calculates potential illnesses
+        //calculates potential illnesses
     turn() {
         this.hunted = 0;
         wagon.eventGrabber();
-        wagon.characters.forEach(function (char) {
+        wagon.characters.forEach(function(char) {
             char.illnessGenerator();
         });
         wagon.statusAdjuster();
@@ -157,18 +157,18 @@ class Wagon {
 
     // function for resting -- cure illness, gain some health
     rest() {
-        wagon.characters.forEach(function (char) {
-            char.illness.splice(0, 1);
-            if (char.health < 99) {
-                char.health += 2;
-            }
-        });
-        wagon.statusAdjuster();
-        wagon.food -= (wagon.characters.length * 5);
-        this.days += 1;
-        wagon.resourceChecker();
-    }
-    // Event grabber for the Wagon prototype
+            wagon.characters.forEach(function(char) {
+                char.illness.splice(0, 1);
+                if (char.health < 99) {
+                    char.health += 2;
+                }
+            });
+            wagon.statusAdjuster();
+            wagon.food -= (wagon.characters.length * 5);
+            this.days += 1;
+            wagon.resourceChecker();
+        }
+        // Event grabber for the Wagon prototype
     eventGrabber() {
         var num = Math.floor(Math.random() * Math.floor(100));
 
@@ -184,37 +184,37 @@ class Wagon {
         }
     }
     buildScore() {
-        var finalScore = 10000;
-        finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.awards * .1);
-        return finalScore.toFixed();
+            var finalScore = 10000;
+            finalScore -= ((this.days - 50) * 20) + ((5 - this.characters.length) * 2000) - (this.food * .2) - (this.gas * .3) - (this.awards * .1);
+            return finalScore.toFixed();
 
-    }
-    // //Hunting
+        }
+        // //Hunting
     huntingTime() {
-        var hunt = Math.floor(Math.random() * Math.floor(150));
-        if (this.hunted == 1) {
-            var num = 1;
-            document.getElementById('award-fire').play();
-            $(".ongoing-events").prepend("You have already bartered. You must continue to a new area. <br><br><br>");
-        } else if (this.hunted == 0 && wagon.awards > 0) {
-            this.food += hunt;
-            this.awards -= 1;
-            wagon.statusAdjuster();
-            this.hunted += 1;
-            $(".ongoing-events").prepend("You got " + hunt + " Tacos. Rest to regain health. <br><br><br>");
-            document.getElementById('award-fire').play();
-        }
+            var hunt = Math.floor(Math.random() * Math.floor(150));
+            if (this.hunted == 1) {
+                var num = 1;
+                document.getElementById('award-fire').play();
+                $(".ongoing-events").prepend("You have already bartered. You must continue to a new area. <br><br><br>");
+            } else if (this.hunted == 0 && wagon.awards > 0) {
+                this.food += hunt;
+                this.awards -= 1;
+                wagon.statusAdjuster();
+                this.hunted += 1;
+                $(".ongoing-events").prepend("You got " + hunt + " Tacos. Rest to regain health. <br><br><br>");
+                document.getElementById('award-fire').play();
+            }
 
-        if (hunt === 0) {
-            $(".ongoing-events").prepend("You came back empty handed. Your team resents you. <br><br><br>");
-        }
+            if (hunt === 0) {
+                $(".ongoing-events").prepend("You came back empty handed. Your team resents you. <br><br><br>");
+            }
 
-        if (wagon.awards <= 0) {
-            wagon.awards = 0;
+            if (wagon.awards <= 0) {
+                wagon.awards = 0;
+            }
+            $('#wagon-awards-remaining').text(wagon.awards);
         }
-        $('#wagon-awards-remaining').text(wagon.awards);
-    }
-    //team checker
+        //team checker
     team(input) {
         if (input == 1) {
             this.gas += 500;
@@ -258,7 +258,7 @@ function positiveEvent() {
     if (num === 1 && wagon.gas >= 10) {
         $('.ongoing-events').prepend('Lisa ran out of diet coke on the way to the new office! You must make a pit stop to pick up another case. Fuel decreased by ' + 5 + '. <br><br><br>');
         wagon.gas -= 5
-        // Modify wagon attributes
+            // Modify wagon attributes
     } else if (num === 2) {
         $('.ongoing-events').prepend('Hooray! You found a missing GI Joe doll that was lost in the moving process! All attributes increased! <br><br><br>');
         document.getElementById('level-up').play();
@@ -293,8 +293,8 @@ function negativeEvent() {
         $(".ongoing-events").prepend("Your party is ambushed by NERF GUN BANDITS! They hold you hostage and take some of your Tacos. " + wagon.characters[index].name + " got hurt causing their health to decrease by 30! <br><br><br>")
         wagon.food -= ranSupplyDecrease
         wagon.characters[index].health -= 30
-    } else if (num === 3 && wagon.awards > 3 ) {
-        $(".ongoing-events").prepend(+ 3 + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
+    } else if (num === 3 && wagon.awards > 3) {
+        $(".ongoing-events").prepend(+3 + " of your Addys are gone because " + wagon.characters[index].name + " used them to play Jenga. <br><br><br>")
         wagon.awards -= 3
     } else if (num === 4) {
         $(".ongoing-events").prepend("You have a flat tire! " + wagon.characters[index].name + " changes the tire and loses 30 health from over exerting themself. <br><br><br>")
@@ -311,15 +311,15 @@ function negativeEvent() {
 
 
 function buildModal(value) {
-    $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
-        '<div id="popup-text" class="ongoing-events">' +
+    $('.modal-child').html('<img class="main-img" src="img/' + value + '.jpg" alt="an image">' +
+        '<div id="popup-text" class="ongoing-events max-h-[400px] xl:leading-[28px] lg:leading-[26px] md:leading-[24px] leading-[16px] xl:text-[16px] lg:text-[15px] md:text-[14px] text-[8px]">' +
         '</div>'
     )
 }
 
 function buildEndModal(value, btnID1, btn1Name) {
-    $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
-        '<div id="popup-text" class="button-content">' +
+    $('.modal-child').html('<img class="main-img" src="img/' + value + '.jpg" alt="an image">' +
+        '<div id="popup-text" class="button-content max-h-[400px] xl:leading-[28px] lg:leading-[26px] md:leading-[24px] leading-[16px] xl:text-[16px] lg:text-[15px] md:text-[14px] text-[8px]">' +
         '<div class="buttons">' +
         '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button">' +
         '</div>' +
@@ -328,8 +328,8 @@ function buildEndModal(value, btnID1, btn1Name) {
 }
 
 function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
-    $('.modal-child').html('<img src="img/' + value + '.jpg" alt="an image">' +
-        '<div id="popup-text" class="button-content">' +
+    $('.modal-child').html('<img class="main-img" src="img/' + value + '.jpg" alt="an image">' +
+        '<div id="popup-text" class="button-content max-h-[400px] xl:leading-[28px] lg:leading-[26px] md:leading-[24px] leading-[16px] xl:text-[16px] lg:text-[15px] md:text-[14px] text-[8px]">' +
         '<div class="buttons">' +
         '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button"> <img id="' + btnID2 + 'Button" class="button" src="img/' + btn2Name + '.png" alt="modal button">' +
         '</div>' +
@@ -339,7 +339,7 @@ function buildLandmarkModal(value, btnID1, btnID2, btn1Name, btn2Name) {
 
 function buildPlayAgainModal(value, btnID1, btn1Name) {
     $('.modal-child').html('<video src="img/' + value + '.mp4" autoplay></video>' +
-        '<div id="popup-text" class="button-content">' +
+        '<div id="popup-text" class="button-content max-h-[400px] xl:leading-[28px] lg:leading-[26px] md:leading-[24px] leading-[16px] xl:text-[16px] lg:text-[15px] md:text-[14px] text-[8px]">' +
         '<div class="buttons">' +
         '<img id="' + btnID1 + 'Button" class="button" src="img/' + btn1Name + '.png" alt="modal button">' +
         '</div>' +
@@ -387,7 +387,7 @@ function landmarkEvent() {
         buildModal("Win");
         $(".ongoing-events").prepend("You win! Enjoy an ice cold limited edition La Croix and start settling in.");
         $("#myModal").fadeIn(500);
-        $("#myModal").click(function () {
+        $("#myModal").click(function() {
             $(".endingStickyNote").fadeIn(500);
             $(".ending-modal").fadeIn(600);
             $("#ending-button").fadeIn(600);
@@ -547,18 +547,18 @@ function validateNames(team, playerOne, playerTwo, playerThree, playerFour) {
 }
 
 
-$(document).ready(function () {
+$(document).ready(function() {
     var x = 1;
     $('#wagon-images').addClass('sky1');
 
     // modal that closes with click anywhere
     var modal = document.getElementById('myModal');
     var span = document.getElementById('myModal');
-    span.onclick = function () {
+    span.onclick = function() {
         modal.style.display = "none";
     }
 
-    $("#startBTN").click(function () {
+    $("#startBTN").click(function() {
         document.getElementById('press-play').play(); // Start playing the audio
         var openingSong = document.getElementById('openingSong');
         openingSong.loop = true; // Enable looping
@@ -570,9 +570,8 @@ $(document).ready(function () {
 
     });
 
-    $("#characterBTN").click(function () {
+    $("#characterBTN").click(function() {
         document.getElementById('press-play').play(); // Start playing the audio
-
         var playerOneName; // Declare the variable outside the conditions
 
         // Checking the selected radio button
@@ -629,7 +628,7 @@ $(document).ready(function () {
     });
 
 
-    $("#stopBTN1, #stopBTN2").click(function () {
+    $("#stopBTN1, #stopBTN2").click(function() {
         $('#wagon-food-remaining').text(wagon.food);
         $('.wagon-gas-remaining').text(wagon.gas.toFixed(2));
         $('#wagon-awards-remaining').text(wagon.awards);
@@ -639,12 +638,12 @@ $(document).ready(function () {
     });
 
 
-    $("#back-button").click(function () {
+    $("#back-button").click(function() {
         $("#store").fadeOut(500);
         $("#characterInput").delay(500).fadeIn(500);
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         // Function to update player names when radio button is selected
         function updatePlayerNames(names) {
             $("#char1").val(names[0]);
@@ -674,7 +673,7 @@ $(document).ready(function () {
         }
 
         // Event listener for radio button change
-        $('input[type="radio"]').on('change', function () {
+        $('input[type="radio"]').on('change', function() {
             if ($(this).attr('id') === 'client') {
                 // When radio button with id is selected, change player names
                 const playerNames = ["Alex W.", "Jen", "Joe J.", "Kelly"];
@@ -749,7 +748,7 @@ $(document).ready(function () {
     const moveAmount = 55.96; // Pixels to move left
 
 
-    $("#continue-button").click(function () {
+    $("#continue-button").click(function() {
         wagon.turn()
         wagon.statusAdjuster()
         textUpdateUI()
@@ -776,40 +775,40 @@ $(document).ready(function () {
 
 
 
-    $("#rest-button").click(function () {
+    $("#rest-button").click(function() {
         wagon.rest()
         textUpdateUI()
     });
 
-    $('#hunt-button').click(function () {
+    $('#hunt-button').click(function() {
         wagon.huntingTime()
         wagon.resourceChecker()
         textUpdateUI()
     });
 
-    $(document).on('click', '#deathButton', function () {
+    $(document).on('click', '#deathButton', function() {
         history.go(0)
     });
 
-    $(document).on('click', '#ending-button', function () {
+    $(document).on('click', '#ending-button', function() {
         history.go(0)
     });
 
-    $(document).on('click', '#winButton', function () {
+    $(document).on('click', '#winButton', function() {
         history.go(0)
     });
 
-    $(document).on('click', '#fight', function () {
+    $(document).on('click', '#fight', function() {
         history.go(0)
     });
 
-    $(document).on('click', '#fixRamenButton', function () {
+    $(document).on('click', '#fixRamenButton', function() {
         fixRamen()
         textUpdateUI()
         $('#buttonModal').hide();
     });
 
-    $(document).on('click', '#leaveRamenButton', function () {
+    $(document).on('click', '#leaveRamenButton', function() {
         leaveRamen()
         textUpdateUI()
         $('#buttonModal').hide();
@@ -817,26 +816,26 @@ $(document).ready(function () {
     });
 
 
-    $(document).on('click', '#crossBridgeButton', function () {
+    $(document).on('click', '#crossBridgeButton', function() {
         crossBridge()
         textUpdateUI()
         $('#buttonModal').hide();
     });
 
-    $(document).on('click', '#detourBridgeButton', function () {
+    $(document).on('click', '#detourBridgeButton', function() {
         detourBridge()
         textUpdateUI()
         $('#buttonModal').hide();
 
     });
 
-    $(document).on('click', '#fightButton', function () {
+    $(document).on('click', '#fightButton', function() {
         fight()
         textUpdateUI()
         $('#buttonModal').hide();
     });
 
-    $(document).on('click', '#friendButton', function () {
+    $(document).on('click', '#friendButton', function() {
         friend()
         textUpdateUI()
         $('#buttonModal').hide();
@@ -846,32 +845,32 @@ $(document).ready(function () {
     const sacrificeButton = document.getElementById('sacrifice-button');
 
     // Add a click event listener to the button
-    sacrificeButton.addEventListener('click', function () {
+    sacrificeButton.addEventListener('click', function() {
         // Refresh the page
         location.reload();
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         let currentLetter = 0; // Initialize to 0, as array indices start from 0
         const numLetters = $(".letters > div").length;
 
         function showNextLetter() {
             if (currentLetter < numLetters) {
-                $(".letters > div").eq(currentLetter).fadeIn("slow", function () {
+                $(".letters > div").eq(currentLetter).fadeIn("slow", function() {
 
                 });
             }
         }
 
         // Event listener for the click event on the .letters div
-        $("#startBTN").on("click", function () {
+        $("#startBTN").on("click", function() {
             currentLetter = 1; // Reset currentLetter to 0 when .letters is clicked
             showNextLetter();
             $(".skipButtonOne").show();
         });
 
         // Event listener for the click event on the skip button
-        $(".skipButtonOne").on("click", function () {
+        $(".skipButtonOne").on("click", function() {
             currentLetter++;
             if (currentLetter < numLetters) {
                 $(".letters > div").eq(currentLetter - 1).stop(true, true).fadeOut("slow");
@@ -881,7 +880,7 @@ $(document).ready(function () {
             }
         });
 
-        $(".skipButtonTwo").on("click", function () {
+        $(".skipButtonTwo").on("click", function() {
             currentLetter++;
             if (currentLetter < numLetters) {
                 $(".letters > div").eq(currentLetter - 1).stop(true, true).fadeOut("slow");
@@ -890,7 +889,7 @@ $(document).ready(function () {
             }
         });
 
-        $(".skipButtonThree").on("click", function () {
+        $(".skipButtonThree").on("click", function() {
             $(".letters > div").fadeOut(500);
             $(".container").fadeIn(500);
             $("#characterInput").fadeIn(500);
@@ -1012,11 +1011,11 @@ $(document).ready(function () {
         });
     });
 
-    $('.profile-image').click(function () {
+    $('.profile-image').click(function() {
         var imgSrc = $(this).attr('src');
         var name = $(this).data('name');
 
-        var matchingProfile = nameImageArray.find(function (item) {
+        var matchingProfile = nameImageArray.find(function(item) {
             return item.src === imgSrc;
         });
 
@@ -1131,7 +1130,7 @@ $(document).ready(function () {
 
     // Loop through each image element and attach the click event
     images.forEach(imageElement => {
-        imageElement.addEventListener('click', function () {
+        imageElement.addEventListener('click', function() {
             // Find the corresponding profile image URL
             const clickedImageSrc = imageElement.getAttribute('src');
             const matchedProfile = nameImageArray.find(item => item.src === clickedImageSrc);
@@ -1143,12 +1142,12 @@ $(document).ready(function () {
         });
     });
 
-    closeProfileButton.addEventListener('click', function () {
+    closeProfileButton.addEventListener('click', function() {
         profileModalElement.style.display = 'none'; // Hide the profile modal
     });
 
     nameInputs.forEach((nameInput, index) => {
-        nameInput.addEventListener('input', function () {
+        nameInput.addEventListener('input', function() {
             const inputValue = nameInput.value.toLowerCase();
             const matchedPair = nameImageArray.find(pair => pair.name === inputValue);
 
@@ -1162,8 +1161,8 @@ $(document).ready(function () {
         });
     });
 
-    $(document).ready(function () {
-        $('input[name="team"]').on('click', function () {
+    $(document).ready(function() {
+        $('input[name="team"]').on('click', function() {
             var selectedParty = $(this).val();
 
             if (selectedParty === "client") {
@@ -1216,7 +1215,7 @@ $(document).ready(function () {
         });
     });
 
-    $('input[name="team"]').on('change', function () {
+    $('input[name="team"]').on('change', function() {
         if ($(this).is(':checked')) {
             $('#charNameInput p').fadeIn(300);
             $('#characterBTN').fadeIn(300);
@@ -1228,11 +1227,11 @@ $(document).ready(function () {
         }
     });
 
-    $('.profile-image').click(function () {
+    $('.profile-image').click(function() {
         var imgSrc = $(this).attr('src');
         var name = $(this).data('name');
 
-        var matchingProfile = nameImageArray.find(function (item) {
+        var matchingProfile = nameImageArray.find(function(item) {
             return item.src === imgSrc;
         });
 
@@ -1241,11 +1240,11 @@ $(document).ready(function () {
         }
     });
 
-    $('#stopBTN1').click(function () {
+    $('#stopBTN1').click(function() {
         $('#stopBTN1').hide();
     });
 
-    $('#stopBTN2').click(function () {
+    $('#stopBTN2').click(function() {
         $('#stopBTN2').hide();
     });
 

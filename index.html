@@ -5,34 +5,36 @@
     <title>Lockerbie Trail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Londrina+Solid:300,400,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/jquery-ui.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/tailwind.config.js"></script>
 
     <audio>
         <audio id="car-braking" src="sounds/car-braking.mp3" preload="auto"></audio>
-        <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
-        <audio id="award-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
-        <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
-        <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
-        <!-- <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio> -->
-        <audio id="game-over" src="sounds/game-over.mp3" preload="auto"></audio>
-        <audio id="ghost" src="sounds/ghost.mp3" preload="auto"></audio>
-        <audio id="level-up" src="sounds/level-up.mp3" preload="auto"></audio>
-        <audio id="press-play" src="sounds/PressPlay.mp3" preload="auto"></audio>
+    <audio id="DunDunDun" src="sounds/DunDunDun.mp3" preload="auto"></audio>
+    <audio id="award-fire" src="sounds/taco-bell.mp3" preload="auto"></audio>
+    <audio id="shotgun-dry" src="sounds/dry-fire.mp3" preload="auto"></audio>
+    <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio>
+    <!-- <audio id="openingSong" src="sounds/introMusic.mp3" preload="auto"></audio> -->
+    <audio id="game-over" src="sounds/game-over.mp3" preload="auto"></audio>
+    <audio id="ghost" src="sounds/ghost.mp3" preload="auto"></audio>
+    <audio id="level-up" src="sounds/level-up.mp3" preload="auto"></audio>
+    <audio id="press-play" src="sounds/PressPlay.mp3" preload="auto"></audio>
     </audio>
 </head>
 
-<body>
+<body class="overscroll-x-hidden">
 
 
-    <div class="container">
-        <div>
+    <div class="wdm-container xl:zoom-[80%] lg:zoom-[80%] md:zoom-[100%] zoom-[100%] font-8-bit-pusab text-uppercase fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-gray-300 xl:p-[30px] lg:p-[30px] md:p-[20px]  p-[10px] rounded-xl xl:min-h-[527px] lg:min-h-[500px] md:min-h-[350px] min-h-[100px] xl:min-w-[1150px] lg:min-w-[1000px] md:min-w-[700px] sm:min-w-[500px] min-w-[315px]">
+        <div class="sound-button">
             <img id="sound-off" src="img/sound-off.png" alt="Sound Off">
             <img id="unmuteButton" src="img/UnmuteButton.png">
 
@@ -40,69 +42,69 @@
             <img id="muteButton" src="img/MuteButton.png">
         </div>
         <!-- Character setup screen -->
-        <div id="characterSetup">
+        <div id="characterSetup" class="sm:max-h-[800px] ">
             <div id="start">
                 <!-- <div class="main-title">
           <h1>Lockerbie Trail</h1>
         </div> -->
-                <div class="icon-animate">
+                <div class="icon-animate lg:block md:block sm:block hidden">
                     <img src="img/cardboard-box.png" alt="">
                 </div>
-                <div class="icon-wagon">
+                <div class="icon-wagon lg:w-[300px] md:w-[250px] sm:w-[200px] w-[160px] lg:h-[180px] md:h-[150px] sm:h-[100px] h-[100px] absolute z-15 lg:block md:block sm:block hidden">
                 </div>
                 <div class="animatedBackground">
                     <img src="img/MainTitle.gif" alt="valley">
                 </div>
             </div>
-            <img id="startBTN" src="img/PlayButton.png" />
+            <img id="startBTN" class="xl:w-[200px] lg:w-[180px] md:w-[130px] sm:w-[120px] w-[80px]" src="img/PlayButton.png" />
             <div id="characterInput">
-                <h1>Lockerbie Trail</h1>
+                <h1 class="xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl text-center pb-2">Lockerbie Trail</h1>
 
-                <div class="row">
-                    <div id="team" class="col-md-3">
+                <div class="xl:flex lg:flex md:flex grid grid-cols-1 xl:gap-8 lg:gap-6 md:gap-4 gap-2">
+                    <div id="team">
                         <!-- Squad selection section -->
-                        <p>Select department:</p>
-                        <div class="prettyColumn">
+                        <p class="py-2">Select department:</p>
+                        <div class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-xs xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:block lg:block md:block grid grid-cols-3 xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px]">
                             <!-- Radio option for Client Services -->
                             <div id="radio1">
-                                <label><input type="radio" name="team" value="client" id="client"> Client
+                                <label class="lg:text-2xl p-1"><input type="radio" name="team" value="client" id="client"> Client
                                     Services</label>
                             </div>
                             <!-- Radio option for Creative -->
                             <div id="radio2">
-                                <label><input type="radio" name="team" value="creative" id="creative"> Creative</label>
+                                <label class="lg:text-2xl p-1"><input type="radio" name="team" value="creative" id="creative"> Creative</label>
                             </div>
                             <!-- Radio option for Operations -->
                             <div id="radio3">
-                                <label><input type="radio" name="team" value="operations" id="operations">
+                                <label class="lg:text-2xl p-1"><input type="radio" name="team" value="operations" id="operations">
                                     Operations</label>
                             </div>
                             <!-- Radio option for Strategy -->
                             <div id="radio4">
-                                <label><input type="radio" name="team" value="strategy" id="strategy"> Strategy</label>
+                                <label class="lg:text-2xl p-1"><input type="radio" name="team" value="strategy" id="strategy"> Strategy</label>
                             </div>
                             <!-- Radio option for Web -->
                             <div id="radio5">
-                                <label><input type="radio" name="team" value="web" id="web"> Web</label>
+                                <label class="lg:text-2xl p-1"><input type="radio" name="team" value="web" id="web"> Web</label>
                             </div>
                             <!-- Radio option for Interns -->
                             <div id="radio6">
-                                <label><input type="radio" name="team" value="interns" id="interns"> Interns</label>
+                                <label class="lg:text-2xl p-1"><input type="radio" name="team" value="interns" id="interns"> Interns</label>
                             </div>
                         </div>
                         <!-- Begin button -->
-                        <img id="characterBTN" src="img/StartButton.png" />
+                        <img id="characterBTN" class="mt-[23px] xl:w-[200px] lg:w-[180px] md:w-[160px] w-[140px] absolute bottom-8" src="img/StartButton.png" />
 
                     </div>
 
 
                     <!-- Character Name Input Section -->
-                    <div id="charNameInput" class="col-md-3">
+                    <div id="charNameInput">
                         <!-- Instructions for the user -->
-                        <p>Choose Team Member:</p>
+                        <p class="py-2">Choose Team Member:</p>
 
                         <!-- Container for character selection dropdowns -->
-                        <div id="client-dropdown" class="prettyColumn">
+                        <div id="client-dropdown" class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-sm xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:mb-0 lg:mb-0 md:mb-20 mb-20">
                             <!-- Dropdown for Character 1 -->
                             <div class="filters-mobile">
                                 <select id="char1">
@@ -134,8 +136,7 @@
                             </div>
                         </div>
 
-
-                        <div id="creative-dropdown" class="prettyColumn">
+                        <div id="creative-dropdown" class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-sm xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:mb-0 lg:mb-0 md:mb-20 mb-20">
                             <!-- Dropdown for Character 1 -->
                             <div class="filters-mobile">
                                 <select id="char5">
@@ -167,7 +168,7 @@
                             </div>
                         </div>
 
-                        <div id="operations-dropdown" class="prettyColumn">
+                        <div id="operations-dropdown" class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-sm xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:mb-0 lg:mb-0 md:mb-20 mb-20">
                             <!-- Dropdown for Character 1 -->
                             <div class="filters-mobile">
                                 <select id="char9">
@@ -199,7 +200,7 @@
                             </div>
                         </div>
 
-                        <div id="strategy-dropdown" class="prettyColumn">
+                        <div id="strategy-dropdown" class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-sm xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:mb-0 lg:mb-0 md:mb-20 mb-20">
                             <!-- Dropdown for Character 1 -->
                             <div class="filters-mobile">
                                 <select id="char13">
@@ -231,7 +232,7 @@
                             </div>
                         </div>
 
-                        <div id="web-dropdown" class="prettyColumn">
+                        <div id="web-dropdown" class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-sm xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:mb-0 lg:mb-0 md:mb-20 mb-20">
                             <!-- Dropdown for Character 1 -->
                             <div class="filters-mobile">
                                 <select id="char17">
@@ -263,7 +264,7 @@
                             </div>
                         </div>
 
-                        <div id="intern-dropdown" class="prettyColumn">
+                        <div id="intern-dropdown" class="prettyColumn lg:h-[335px] md\:h-auto sm\:h-auto xl:text-3xl lg:text-2xl md:text-lg sm:text-md text-sm xl:w-[300px] lg:w-[250px] md:w-[200px] w-[100%] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:mb-0 lg:mb-0 md:mb-20 mb-20">
                             <!-- Dropdown for Character 1 -->
                             <div class="filters-mobile">
                                 <select id="char21">
@@ -297,30 +298,30 @@
                     </div>
 
                     <!-- Player Images Section -->
-                    <div class="grid-container col-md-6 wagon-select-screen">
+                    <div class="grid-container w-1/6 wagon-select-screen xl:block lg:block md:block hidden">
                         <!-- Container for player images -->
                         <div id="client-images">
                             <!-- Team Member 1 -->
-                            <div class="grid-item">
-                                <h3>Team Member 1</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 1</h3>
                                 <img id="image1" src="img/Alex W..png" alt="">
                             </div>
 
                             <!-- Team Member 2 -->
-                            <div class="grid-item">
-                                <h3>Team Member 2</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 2</h3>
                                 <img id="image2" src="img/Jen.png" alt="">
                             </div>
 
                             <!-- Team Member 3 -->
-                            <div class="grid-item">
-                                <h3>Team Member 3</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 3</h3>
                                 <img id="image3" src="img/Joe J..png" alt="">
                             </div>
 
                             <!-- Team Member 4 -->
-                            <div class="grid-item">
-                                <h3>Team Member 4</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 4</h3>
                                 <img id="image4" src="img/Kelly.png" alt="">
                             </div>
                         </div>
@@ -334,121 +335,121 @@
                  #####################-->
 
                         <!-- Creative Images Section -->
-                        <div id="creative-images">
+                        <div id="creative-images" class="xl:scale-100 lg:scale-95 md:scale-90 scale-75">
                             <!-- Team Member 1 -->
-                            <div class="grid-item">
-                                <h3>Team Member 1</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 1</h3>
                                 <img id="image5" src="img/Anne.png" alt="">
                             </div>
                             <!-- Team Member 2 -->
-                            <div class="grid-item">
-                                <h3>Team Member 2</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 2</h3>
                                 <img id="image6" src="img/Carlee.png" alt="">
                             </div>
                             <!-- Team Member 3 -->
-                            <div class="grid-item">
-                                <h3>Team Member 3</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 3</h3>
                                 <img id="image7" src="img/Von.png" alt="">
                             </div>
                             <!-- Team Member 4 -->
-                            <div class="grid-item">
-                                <h3>Team Member 4</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 4</h3>
                                 <img id="image8" src="img/Chad.png" alt="">
                             </div>
                         </div>
 
                         <!-- Operations Images Section -->
-                        <div id="operations-images">
+                        <div id="operations-images" class="xl:scale-100 lg:scale-95 md:scale-90 scale-75">
                             <!-- Team Member 1 -->
-                            <div class="grid-item">
-                                <h3>Team Member 1</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 1</h3>
                                 <img id="image9" src="img/Alex S..png" alt="">
                             </div>
                             <!-- Team Member 2 -->
-                            <div class="grid-item">
-                                <h3>Team Member 2</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 2</h3>
                                 <img id="image10" src="img/Jody.png" alt="">
                             </div>
                             <!-- Team Member 3 -->
-                            <div class="grid-item">
-                                <h3>Team Member 3</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 3</h3>
                                 <img id="image11" src="img/Mary.png" alt="">
                             </div>
                             <!-- Team Member 4 -->
-                            <div class="grid-item">
-                                <h3>Team Member 4</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 4</h3>
                                 <img id="image12" src="img/Lisa.png" alt="">
                             </div>
                         </div>
 
                         <!-- Strategy Images Section -->
-                        <div id="strategy-images">
+                        <div id="strategy-images" class="xl:scale-100 lg:scale-95 md:scale-90 scale-75">
                             <!-- Team Member 1 -->
-                            <div class="grid-item">
-                                <h3>Team Member 1</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 1</h3>
                                 <img id="image13" src="img/Joel.png" alt="">
                             </div>
                             <!-- Team Member 2 -->
-                            <div class="grid-item">
-                                <h3>Team Member 2</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 2</h3>
                                 <img id="image14" src="img/Mandy.png" alt="">
                             </div>
                             <!-- Team Member 3 -->
-                            <div class="grid-item">
-                                <h3>Team Member 3</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 3</h3>
                                 <img id="image15" src="img/Marissa.png" alt="">
                             </div>
                             <!-- Team Member 4 -->
-                            <div class="grid-item">
-                                <h3>Team Member 4</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 4</h3>
                                 <img id="image16" src="img/Rachel.png" alt="">
                             </div>
                         </div>
 
                         <!-- Web Images Section -->
-                        <div id="web-images">
+                        <div id="web-images" class="xl:scale-100 lg:scale-95 md:scale-90 scale-75">
                             <!-- Team Member 1 -->
-                            <div class="grid-item">
-                                <h3>Team Member 1</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 1</h3>
                                 <img id="image17" src="img/Brian.png" alt="">
                             </div>
                             <!-- Team Member 2 -->
-                            <div class="grid-item">
-                                <h3>Team Member 2</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 2</h3>
                                 <img id="image18" src="img/Eric.png" alt="">
                             </div>
                             <!-- Team Member 3 -->
-                            <div class="grid-item">
-                                <h3>Team Member 3</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 3</h3>
                                 <img id="image19" src="img/Josh.png" alt="">
                             </div>
                             <!-- Team Member 4 -->
-                            <div class="grid-item">
-                                <h3>Team Member 4</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 4</h3>
                                 <img id="image20" src="img/Kim.png" alt="">
                             </div>
                         </div>
 
                         <!-- Intern Images Section -->
-                        <div id="intern-images">
+                        <div id="intern-images" class="xl:scale-100 lg:scale-95 md:scale-90 scale-75">
                             <!-- Team Member 1 -->
-                            <div class="grid-item">
-                                <h3>Team Member 1</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 1</h3>
                                 <img id="image21" src="img/Ashlynn.png" alt="">
                             </div>
                             <!-- Team Member 2 -->
-                            <div class="grid-item">
-                                <h3>Team Member 2</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 2</h3>
                                 <img id="image22" src="img/Daniel.png" alt="">
                             </div>
                             <!-- Team Member 3 -->
-                            <div class="grid-item">
-                                <h3>Team Member 3</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 3</h3>
                                 <img id="image23" src="img/Jawon.png" alt="">
                             </div>
                             <!-- Team Member 4 -->
-                            <div class="grid-item">
-                                <h3>Team Member 4</h3>
+                            <div class="grid-item xl:w-[220px] lg:w-[180px] md:w-[130px]">
+                                <h3 class="p-2">Team Member 4</h3>
                                 <img id="image24" src="img/Teresa.png" alt="">
                             </div>
                         </div>
@@ -459,12 +460,12 @@
         </div>
 
         <!-- Landmark-stop modals for Idle Park and the Sun King restaurant -->
-        <div id="landmarkStop1">
+        <div id="landmarkStop1" class="xl:min-h-[597px] lg:min-h-[577px] md:min-h-[350px] min-h-[200px]">
         </div>
         <img id="stopBTN1" src="img/ContinueButton.png" />
 
 
-        <div id="landmarkStop2">
+        <div id="landmarkStop2" class="xl:min-h-[597px] lg:min-h-[577px] md:min-h-[350px] min-h-[200px]">
         </div>
         <img id="stopBTN2" src="img/ContinueButton.png" />
 
@@ -473,33 +474,29 @@
     ######################
    -->
         <div id="gameMainScreen">
-            <div class="row" id="wagon-images">
-                <div class="col-md-2">
+            <div class="h-[200px] xl:flex lg:flex hidden" id="wagon-images">
+                <div class="car-sections w-1/6">
                     <img src="img/NewTruck.gif" id="wagon-6" alt="wagon">
                     <img src="img/new-building.png" id="wagon-new-building" alt="">
-
                 </div>
-                <div class="col-md-2">
+                <div class="car-sections w-1/6">
                     <img src="img/NewTruck.gif" id="wagon-5" alt="wagon">
-
                 </div>
-                <div class="col-md-2">
+                <div class="car-sections w-1/6">
                     <img src="img/NewTruck.gif" id="wagon-4" alt="wagon">
-
                 </div>
-                <div class="col-md-2">
+                <div class="car-sections w-1/6">
                     <img src="img/NewTruck.gif" id="wagon-3" alt="wagon">
-
                 </div>
-                <div class="col-md-2">
+                <div class="car-sections w-1/6">
                     <img src="img/NewTruck.gif" id="wagon-2" alt="wagon">
-
                 </div>
-                <div class="col-md-2">
+                <div class="car-sections w-1/6">
                     <img src="img/NewTruck.gif" id="wagon-1" alt="wagon">
                     <img src="img/old-building.png" id="wagon-old-building" alt="">
                 </div>
             </div>
+
             <!-- <div id="map">
         <img src="https://cdn-icons-png.flaticon.com/512/827/827184.png" alt="Map">
         <p class="tooltiptext">You must travel 1.7 miles to reach the goal.<br>Click 'continue' to travel 0.1 miles per
@@ -510,90 +507,79 @@
       </div> -->
             <!-- <h1>Lockerbie Trail</h1> -->
             <p id="progress-title">Journey progress:</p>
-            <div class="progress-images">
+            <div class="progress-images xl:block lg:block md:hidden hidden">
                 <img id="progress-truck" src="img/pixelTruck2.png" alt="">
                 <img id="progress-new-building" src="img/new-building.png" alt="">
                 <img id="progress-old-building" src="img/old-building.png" alt="">
             </div>
 
             <div id="progressbar" class="mb-4"></div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div id="sacrifice-button">
+            <div class="xl:flex lg:flex md:grid grid-cols-1 gap-8">
+                <div class="xl:w-[355px] lg:w-[300px] md:w-[650px] sm:w-[500px] w-[290px]">
+                    <div id="sacrifice-button" class="xl:left-[345px] lg:left-[290px] md:left-[630px] left-[260px]">
                         <img id="sacrifice" src="img/RestartButton.png" alt="Sacrifice Team">
-                        <p class="tooltiptext">Clicking on this button will end your journey. You will be sent back to
-                            the start of the trail.</p>
+                        <p class="tooltiptext">Clicking on this button will end your journey. You will be sent back to the start of the trail.</p>
                     </div>
 
-                    <div class="prettyColumn" id="status-panel">
+                    <div class="prettyColumn xl:max-h-[390px] lg:max-h-[300px] md:max-h-[300px] max-h-[300px] xl:p-[20px] lg:p-[20px] md:p-[15px] p-[10px] xl:text-md lg:text-md md:text-sm text-xs" id="status-panel">
                         <p class="bold">Distance traveled: <span class="distance-traveled">0</span></p>
                         <ul>
-                            <li><span id="player-one-name"></span>: <span id="player-one-status"></span>
+                            <li class="xl:mb-[30px] lg:mb-[14px] md:mb-[12px] mb-[16px]"><span id="player-one-name"></span>: <span id="player-one-status"></span>
                                 <div id="char1-health-bar" class="health-bar"></div>
                             </li>
-                            <li><span id="player-two-name"></span>: <span id="player-two-status"></span>
+                            <li class="xl:mb-[30px] lg:mb-[14px] md:mb-[12px] mb-[16px]"><span id="player-two-name"></span>: <span id="player-two-status"></span>
                                 <div id="char2-health-bar" class="health-bar"></div>
                             </li>
-                            <li><span id="player-three-name"></span>: <span id="player-three-status"></span>
+                            <li class="xl:mb-[30px] lg:mb-[14px] md:mb-[12px] mb-[16px]"><span id="player-three-name"></span>: <span id="player-three-status"></span>
                                 <div id="char3-health-bar" class="health-bar"></div>
                             </li>
-                            <li><span id="player-four-name"></span>: <span id="player-four-status"></span>
+                            <li class="xl:mb-[30px] lg:mb-[14px] md:mb-[12px] mb-[16px]"><span id="player-four-name"></span>: <span id="player-four-status"></span>
                                 <div id="char4-health-bar" class="health-bar"></div>
                             </li>
                         </ul>
-                        <div class="row" id="supplies">
-                            <div class="col-md-4">
-                                <img src="img/Taco_Icon.png" alt="tacos">
+                        <div class="flex justify-center xl:gap-8 lg:gap-6 md:gap-4 gap-2 xl:text-md lg:text-md md:text-sm text-xs" id="supplies">
+                            <div class="1/3 xl:text-md lg:text-md md:text-sm text-xs">
+                                <img class="xl:w-[50px] lg:w-[35px] md:w-[35px] w-[30px]" src="img/Taco_Icon.png" alt="tacos">
                                 <p class="bold"> Tacos left <br><span id="wagon-food-remaining"></span></p>
                             </div>
-                            <div class="col-md-4">
-                                <img src="img/Addies.png" alt="Waiting for new icon">
+                            <div class="1/3">
+                                <img class="xl:w-[50px] lg:w-[35px] md:w-[35px] w-[30px]" src="img/Addies.png" alt="Waiting for new icon">
                                 <p class="bold"> Addys left <br><span id="wagon-awards-remaining"></span></p>
                             </div>
-                            <div class="col-md-4">
-                                <img src="img/gas-icon.png" alt="gas">
+                            <div class="1/3">
+                                <img class="xl:w-[50px] lg:w-[35px] md:w-[35px] w-[30px]" src="img/gas-icon.png" alt="gas">
                                 <p class="bold"> Fuel left <br><span class="wagon-gas-remaining"></span></p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-8">
-
-
-                    <div id="ongoing-text-box">
-                        <img src="img/pixelTruck2.png" alt="">
-                        <p class="ongoing-events">You must travel 1.7 miles to reach the new office-but dangers lurk
-                            on every corner.
+                <div class="xl:w-[705px] lg:w-[625px] md:w-[650px]">
+                    <div id="ongoing-text-box" class=" p-[20px] xl:max-h-[380px] lg:max-h-[300px] md:max-h-[200px] max-h-[250px] xl:mt-0 lg:mt-0 md:mt-2 mt-2">
+                        <img class="xl:w-[35px] xl:relative xl:top-[30px] lg:w-[35px] lg:relative lg:top-[30px] md:w-[35px] md:relative md:top-[30px] w-[29px] relative top-[18px] left-[-5px]" src="img/pixelTruck2.png" alt="">
+                        <p class="ongoing-events xl:leading-[55px] lg:leading-[50px] md:leading-[45px] leading-[20px] xl:text-[25px] lg:text-[22px] md:text-[16px] text-[10px]">You must travel 1.7 miles to reach the new office-but dangers lurk on every corner.
                             <br><br> Click 'Continue' to travel .1 miles per turn.
-                            <br><br> Click 'Barter' to exchange
-                            advertising awards for tacos.
-                            <br><br> CLICK "REST" TO HEAL YOUR TEAM MEMBERS. IF "REST" IS
-                            CLICKED WITHOUT TACOS, YOUR TEAM MEMBER'S HEALTH DECREASES BY 10. 
-                            <br><br> EACH TEAM MEMBER
-                            EATS 5 TACOS WHEN "CONTINUE" OR "REST" IS CLICKED.
+                            <br><br> Click 'Barter' to exchange advertising awards for tacos.
+                            <br><br> CLICK "REST" TO HEAL YOUR TEAM MEMBERS. IF "REST" IS CLICKED WITHOUT TACOS, YOUR TEAM MEMBER'S HEALTH DECREASES BY 10.
+                            <br><br> EACH TEAM MEMBER EATS 5 TACOS WHEN "CONTINUE" OR "REST" IS CLICKED.
                         </p>
                     </div>
                 </div>
 
             </div>
-            <div class="text-center">
-                <img id="continue-button" src="img/ContinueButton.png" class="col-md-3 img-equal-size" />
+            <div class="text-center flex justify-center xl:gap-8 lg:gap-6 md:gap-4 gap-2 xl:pt-4 lg:pt-4 md:pt-3 pt-2">
+                <img id="continue-button" src="img/ContinueButton.png" class="xl:w-[180px] lg:w-[180px] md:w-[120px] w-[60px] xl:h-[50px] lg:h-[50px] md:h-[40px] h-[20px]" />
 
-                <img id="hunt-button" src="img/BarterButton.png" class="col-md-3 m-4 img-equal-size" />
+                <img id="hunt-button" src="img/BarterButton.png" class="xl:w-[180px] lg:w-[180px] md:w-[120px] w-[60px] xl:h-[50px] lg:h-[50px] md:h-[40px] h-[20px]" />
 
-                <img id="rest-button" src="img/RestButton.png" class="col-md-3 img-equal-size" />
+                <img id="rest-button" src="img/RestButton.png" class="xl:w-[180px] lg:w-[180px] md:w-[120px] w-[60px] xl:h-[50px] lg:h-[50px] md:h-[40px] h-[20px]" />
                 <div id="info-section">
-                    <img id="info-button" src="img/help.png" alt="">
-                    <p class="tooltiptext">You must travel 1.7 miles to reach the new office-but dangers lurk
-                        on every corner.
+                    <img class="xl:top-[40px] lg:top-[40px] md:top-[92%] top-[101%] xl:left-[5%] lg:left-[6%] md:left-[15%] left-[50%]" src="img/help.png" alt="">
+                    <p class="tooltiptext">You must travel 1.7 miles to reach the new office-but dangers lurk on every corner.
                         <br><br> Click 'Continue' to travel .1 miles per turn.
-                        <br><br> Click 'Barter' to exchange
-                        advertising awards for tacos.
-                        <br><br> CLICK "REST" TO HEAL YOUR TEAM MEMBERS. IF "REST" IS
-                        CLICKED WITHOUT TACOS, YOUR TEAM MEMBER'S HEALTH DECREASES BY 10. 
-                        <br><br> EACH TEAM MEMBER
-                        EATS 5 TACOS WHEN "CONTINUE" OR "REST" IS CLICKED.
+                        <br><br> Click 'Barter' to exchange advertising awards for tacos.
+                        <br><br> CLICK "REST" TO HEAL YOUR TEAM MEMBERS. IF "REST" IS CLICKED WITHOUT TACOS, YOUR TEAM MEMBER'S HEALTH DECREASES BY 10.
+                        <br><br> EACH TEAM MEMBER EATS 5 TACOS WHEN "CONTINUE" OR "REST" IS CLICKED.
                     </p>
                 </div>
             </div>
@@ -608,7 +594,7 @@
   </div> -->
     </div>
     <div id="profileModal" class="map-modal align-content-center">
-        <img id="closeProfile" src="img/CloseButton.png">
+        <img class="xl:top-[80%] lg:top-[85%] md:top-[85%]" id="closeProfile" src="img/CloseButton.png">
 
         <img id="profileImage" src="#" alt="">
 
@@ -620,13 +606,9 @@
         <div class="letter-modal-1">
             <div class="letter-body">
                 <div class="letter">
-                    <div class="letter-header">Dear Fountain Square,</div>
+                    <div class="letter-header xl:text-2xl lg:text-2xl md:text-md sm:text-sm">Dear Fountain Square,</div>
                     <div class="letter-content">
-                        We’ve shared a lot of special moments in the past, but-oh, how can we put this-we’ve grown.
-                        (Like, REALLY grown. To the point where if we hire one more person, we’ll be repurposing the
-                        storage closets as executive offices.) <br><br> We’ve already found a new place, and we’re
-                        moving out today. But you’ll be fine. You’re a strong neighborhood, and we know you’ll find a
-                        special someone to take our square footage soon.
+                        We’ve shared a lot of special moments in the past, but-oh, how can we put this-we’ve grown. (Like, REALLY grown. To the point where if we hire one more person, we’ll be repurposing the storage closets as executive offices.) <br><br>                        We’ve already found a new place, and we’re moving out today. But you’ll be fine. You’re a strong neighborhood, and we know you’ll find a special someone to take our square footage soon.
                         <br>
                     </div>
                     <div class="letter-signature">
@@ -650,13 +632,9 @@
             <div class="ending-letter-body">
                 <div class="ending-letter">
                     <div class="ending-letter-content">
-                        Welcome to lockerbie square, the new home of well done
-                        marketing! Congratulations on surviving the perilous move to
-                        the exciting new office at 330 north college avenue.
+                        Welcome to lockerbie square, the new home of well done marketing! Congratulations on surviving the perilous move to the exciting new office at 330 north college avenue.
 
-                        <br><br>We're ready to get settled in and start doing bold work for a
-                        better world. Right after we figure out what the new wi-fi
-                        password is.
+                        <br><br>We're ready to get settled in and start doing bold work for a better world. Right after we figure out what the new wi-fi password is.
 
 
                     </div>
